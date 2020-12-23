@@ -1,8 +1,8 @@
-# Fabric Example Mod
+# CastleBlocks
+A minecraft mod for 1.16.4 running on the Fabric API.
+## Bricks
 
-## Setup
-
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+CastleBlocks introduces new types of bricks into Minecraft, these bricks can be fortified to be only easily broken by their intial builder and by explosives.
 
 ## License
 
