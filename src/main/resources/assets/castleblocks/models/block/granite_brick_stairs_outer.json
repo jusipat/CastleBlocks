@@ -1,0 +1,8 @@
+{
+  "parent": "castleblocks:block/outer_stairs",
+  "textures": {
+    "bottom": "castleblocks:block/granite_bricks",
+    "top": "castleblocks:block/granite_bricks",
+    "side": "castleblocks:block/granite_bricks"
+  }
+}

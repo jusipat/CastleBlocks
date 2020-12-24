@@ -14,14 +14,19 @@ public class ModBlocks {
 
 	public static final Block ANDESITE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block GRANITE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+
+	//Stairs
 	public static final Block ANDESITE_BRICK_STAIRS = new CustomStairsBlock(ANDESITE_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(ANDESITE_BRICKS));
+	public static final Block GRANITE_BRICK_STAIRS = new CustomStairsBlock(GRANITE_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(GRANITE_BRICKS));
 
 
 	public static void registerBlocks() {
 
 		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "andesite_bricks"), ANDESITE_BRICKS);
 		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "granite_bricks"), GRANITE_BRICKS);
+
 		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "andesite_brick_stairs"), ANDESITE_BRICK_STAIRS);
+		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "granite_brick_stairs"), GRANITE_BRICK_STAIRS);
 
 	}
 
