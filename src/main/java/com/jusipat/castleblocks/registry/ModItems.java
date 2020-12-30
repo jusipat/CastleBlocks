@@ -15,6 +15,7 @@ public class ModItems {
 
 		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "andesite_bricks"),new BlockItem(ModBlocks.ANDESITE_BRICKS, new Item.Settings().group(CastleBlocksMod.CASTLEBLOCKS_MATERIALS)));
 		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "granite_bricks"),new BlockItem(ModBlocks.GRANITE_BRICKS, new Item.Settings().group(CastleBlocksMod.CASTLEBLOCKS_MATERIALS)));
+		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "castle_bricks"),new BlockItem(ModBlocks.CASTLE_BRICKS, new Item.Settings().group(CastleBlocksMod.CASTLEBLOCKS_MATERIALS)));
 
 		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "andesite_brick_stairs"),new BlockItem(ModBlocks.ANDESITE_BRICK_STAIRS, new Item.Settings().group(CastleBlocksMod.CASTLEBLOCKS_MATERIALS)));
 		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "granite_brick_stairs"),new BlockItem(ModBlocks.GRANITE_BRICK_STAIRS, new Item.Settings().group(CastleBlocksMod.CASTLEBLOCKS_MATERIALS)));

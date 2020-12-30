@@ -1,13 +1,11 @@
 package com.jusipat.castleblocks;
 
-import com.jusipat.castleblocks.item.TrowelItem;
 import com.jusipat.castleblocks.registry.ModBlocks;
 import com.jusipat.castleblocks.registry.ModItems;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.TridentItem;
 import net.minecraft.util.Identifier;
 
 public class CastleBlocksMod implements ModInitializer {
@@ -29,6 +27,8 @@ public class CastleBlocksMod implements ModInitializer {
 	public void onInitialize() {
 		ModItems.registerItems();
 		ModBlocks.registerBlocks();
+
+
 
 	}
 }
