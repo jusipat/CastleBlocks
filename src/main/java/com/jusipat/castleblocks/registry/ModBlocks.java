@@ -2,13 +2,10 @@ package com.jusipat.castleblocks.registry;
 
 import com.jusipat.castleblocks.CastleBlocksMod;
 import com.jusipat.castleblocks.block.CustomStairsBlock;
-import com.jusipat.castleblocks.block.StoneBlock;
-import com.mojang.serialization.Lifecycle;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryKey;
 
 public class ModBlocks {
 	//Blocks
