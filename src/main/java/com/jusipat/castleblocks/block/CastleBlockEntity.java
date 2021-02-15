@@ -21,7 +21,6 @@ public class CastleBlockEntity extends BlockEntity implements BlockEntityClientS
 	}
 
 	public boolean isOwner(UUID playerId) {
-		System.out.println("IsOwner? " + owner);
 		if (owner == null) return false;
 		return owner.equals(playerId);
 	}
@@ -36,7 +35,6 @@ public class CastleBlockEntity extends BlockEntity implements BlockEntityClientS
 
 	@Override
 	public void fromTag(BlockState state, CompoundTag tag) {
-		System.out.println("FromTag");
 		super.fromTag(state, tag);
 		owner = tag.getUuid("owner");
 	}
