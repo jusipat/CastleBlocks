@@ -30,10 +30,10 @@ public class TrowelItem extends Item {
 		super(settings.maxCount(1).maxDamage(MAX_USES));
 
 		blockMap.put(Registry.BLOCK.getId(Blocks.STONE), Registry.BLOCK.getId(ModBlocks.CASTLE_BRICKS));
-		blockMap.put(Registry.BLOCK.getId(Blocks.ANDESITE), Registry.BLOCK.getId(ModBlocks.ANDESITE_CASTLE_BRICKS));
-		blockMap.put(Registry.BLOCK.getId(Blocks.DIORITE), Registry.BLOCK.getId(ModBlocks.DIORITE_CASTLE_BRICKS));
-		blockMap.put(Registry.BLOCK.getId(Blocks.GRANITE), Registry.BLOCK.getId(ModBlocks.GRANITE_CASTLE_BRICKS));
-		blockMap.put(Registry.BLOCK.getId(Blocks.SANDSTONE), Registry.BLOCK.getId(ModBlocks.SANDSTONE_CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.POLISHED_ANDESITE), Registry.BLOCK.getId(ModBlocks.ANDESITE_CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.POLISHED_DIORITE), Registry.BLOCK.getId(ModBlocks.DIORITE_CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.POLISHED_GRANITE), Registry.BLOCK.getId(ModBlocks.GRANITE_CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.CUT_SANDSTONE), Registry.BLOCK.getId(ModBlocks.SANDSTONE_CASTLE_BRICKS));
 	}
 
 	@Override
