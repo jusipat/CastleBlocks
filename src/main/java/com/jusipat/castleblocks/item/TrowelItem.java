@@ -20,8 +20,10 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class TrowelItem extends Item {
+	public static final int MAX_USES = 200;
+
 	public TrowelItem(Settings settings) {
-		super(settings);
+		super(settings.maxCount(1).maxDamage(MAX_USES));
 	}
 
 	@Override
@@ -47,6 +49,8 @@ public class TrowelItem extends Item {
 
 				if (world.isClient())
 					world.syncWorldEvent(player, 2001, blockPos, Block.getRawIdFromState(ModBlocks.CASTLE_BRICKS.getDefaultState()));
+
+				context.getStack().damage(1, player, playerEntity -> playerEntity.sendToolBreakStatus(context.getHand()));
 
 				return ActionResult.SUCCESS;
 			}
