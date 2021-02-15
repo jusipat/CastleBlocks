@@ -3,6 +3,7 @@
 
   "item.castleblocks.trowel": "Trowel",
   "item.castleblocks.trowel.tooltip": "§3Right click on tiles to create bricks",
+  "item.castleblocks.trowel.owner": "Castle block owned by %s",
 
   "itemGroup.castleblocks.items": "CastleBlocks Items"
 }

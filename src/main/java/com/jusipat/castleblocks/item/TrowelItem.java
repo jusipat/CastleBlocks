@@ -13,6 +13,7 @@ import net.minecraft.item.ItemUsageContext;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
@@ -39,12 +40,13 @@ public class TrowelItem extends Item {
 		PlayerEntity player = context.getPlayer();
 
 		if (player != null) {
-			boolean isStone = Registry.BLOCK.getId(blockState.getBlock()).equals(Registry.BLOCK.getId(Blocks.STONE));
-			if (isStone) {
+			Identifier blockId = Registry.BLOCK.getId(blockState.getBlock());
+
+			if (blockId.equals(Registry.BLOCK.getId(Blocks.STONE))) {
 				world.setBlockState(blockPos, ModBlocks.CASTLE_BRICKS.getDefaultState());
 
 				CastleBlockEntity blockEntity = new CastleBlockEntity();
-				blockEntity.setOwner(player.getUuid());
+				blockEntity.setOwner(player);
 				world.setBlockEntity(blockPos, blockEntity);
 
 				if (world.isClient())
@@ -53,6 +55,12 @@ public class TrowelItem extends Item {
 				context.getStack().damage(1, player, playerEntity -> playerEntity.sendToolBreakStatus(context.getHand()));
 
 				return ActionResult.SUCCESS;
+			} else if (world.getBlockEntity(blockPos) instanceof CastleBlockEntity) {
+				CastleBlockEntity blockEntity = (CastleBlockEntity) world.getBlockEntity(blockPos);
+				if (blockEntity != null) {
+					Text ownerText = new TranslatableText("item.castleblocks.trowel.owner", blockEntity.getOwnerName());
+					player.sendMessage(ownerText, true);
+				}
 			}
 		}
 

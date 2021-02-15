@@ -29,7 +29,7 @@ public class CastleBlock extends Block implements BlockEntityProvider {
 			BlockEntity blockEntity = world.getBlockEntity(pos);
 
 			if (blockEntity instanceof CastleBlockEntity) {
-				((CastleBlockEntity) blockEntity).setOwner(placer.getUuid());
+				((CastleBlockEntity) blockEntity).setOwner((PlayerEntity) placer);
 			}
 		}
 	}
