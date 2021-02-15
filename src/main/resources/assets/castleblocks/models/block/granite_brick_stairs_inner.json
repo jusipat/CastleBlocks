@@ -1,8 +1,0 @@
-{
-  "parent": "castleblocks:block/inner_stairs",
-  "textures": {
-    "bottom": "castleblocks:block/granite_bricks",
-    "top": "castleblocks:block/granite_bricks",
-    "side": "castleblocks:block/granite_bricks"
-  }
-}

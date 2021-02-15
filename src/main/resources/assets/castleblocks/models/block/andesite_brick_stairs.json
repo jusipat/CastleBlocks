@@ -1,8 +1,0 @@
-{
-  "parent": "castleblocks:block/stairs",
-  "textures": {
-    "bottom": "castleblocks:block/andesite_bricks",
-    "top": "castleblocks:block/andesite_bricks",
-    "side": "castleblocks:block/andesite_bricks"
-  }
-}
