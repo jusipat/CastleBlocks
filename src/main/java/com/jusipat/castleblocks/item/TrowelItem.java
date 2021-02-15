@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class TrowelItem extends Item {
-	public static final int MAX_USES = 200;
+	public static final int MAX_USES = 128;
 
 	public TrowelItem(Settings settings) {
 		super(settings.maxCount(1).maxDamage(MAX_USES));

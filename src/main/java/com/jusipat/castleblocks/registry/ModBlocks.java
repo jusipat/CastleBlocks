@@ -13,7 +13,7 @@ import net.minecraft.util.registry.Registry;
 import java.util.Collections;
 
 public class ModBlocks {
-	public static final Block CASTLE_BRICKS = new CastleBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block CASTLE_BRICKS = new CastleBlock(FabricBlockSettings.of(Material.STONE).strength(6.0f, 8.0f));
 	public static final BlockEntityType<CastleBlockEntity> CASTLE_BLOCK_ENTITY = new BlockEntityType<>(CastleBlockEntity::new, Collections.singleton(CASTLE_BRICKS), null);
 
 	public static void registerBlocks() {
