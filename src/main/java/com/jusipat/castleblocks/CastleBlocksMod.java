@@ -18,7 +18,7 @@ public class CastleBlocksMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		ModItems.registerItems();
 		ModBlocks.registerBlocks();
+		ModItems.registerItems();
 	}
 }

@@ -18,13 +18,22 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class TrowelItem extends Item {
 	public static final int MAX_USES = 128;
+	private static final Map<Identifier, Identifier> blockMap = new HashMap<>();
 
 	public TrowelItem(Settings settings) {
 		super(settings.maxCount(1).maxDamage(MAX_USES));
+
+		blockMap.put(Registry.BLOCK.getId(Blocks.STONE), Registry.BLOCK.getId(ModBlocks.CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.ANDESITE), Registry.BLOCK.getId(ModBlocks.ANDESITE_CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.DIORITE), Registry.BLOCK.getId(ModBlocks.DIORITE_CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.GRANITE), Registry.BLOCK.getId(ModBlocks.GRANITE_CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.SANDSTONE), Registry.BLOCK.getId(ModBlocks.SANDSTONE_CASTLE_BRICKS));
 	}
 
 	@Override
@@ -42,15 +51,16 @@ public class TrowelItem extends Item {
 		if (player != null) {
 			Identifier blockId = Registry.BLOCK.getId(blockState.getBlock());
 
-			if (blockId.equals(Registry.BLOCK.getId(Blocks.STONE))) {
-				world.setBlockState(blockPos, ModBlocks.CASTLE_BRICKS.getDefaultState());
+			if (blockMap.containsKey(blockId)) {
+				Block blockType = Registry.BLOCK.get(blockMap.get(blockId));
+				world.setBlockState(blockPos, blockType.getDefaultState());
 
 				CastleBlockEntity blockEntity = new CastleBlockEntity();
 				blockEntity.setOwner(player);
 				world.setBlockEntity(blockPos, blockEntity);
 
 				if (world.isClient())
-					world.syncWorldEvent(player, 2001, blockPos, Block.getRawIdFromState(ModBlocks.CASTLE_BRICKS.getDefaultState()));
+					world.syncWorldEvent(player, 2001, blockPos, Block.getRawIdFromState(blockType.getDefaultState()));
 
 				context.getStack().damage(1, player, playerEntity -> playerEntity.sendToolBreakStatus(context.getHand()));
 
