@@ -21,8 +21,6 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class TrowelItem extends Item {
-	public static final TrowelItem TROWEL = new TrowelItem(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_MATERIALS));
-
 	public TrowelItem(Settings settings) {
 		super(settings);
 	}

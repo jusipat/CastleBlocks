@@ -1,21 +1,8 @@
 {
-  "block.castleblocks.andesite_bricks": "Andesite Bricks",
-  "block.castleblocks.andesite_brick_stairs": "Andesite Brick Stairs",
-
-  "block.castleblocks.granite_bricks": "Granite Bricks",
-  "block.castleblocks.granite_brick_stairs": "Granite Brick Stairs",
-
   "block.castleblocks.castle_bricks": "Castle Bricks",
 
-
-
   "item.castleblocks.trowel": "Trowel",
-
-
   "item.castleblocks.trowel.tooltip": "§3Right click on tiles to create bricks",
 
-
-
-  "itemGroup.castleblocks.materials": "CastleBlocks Materials",
-  "itemGroup.castleblocks.tools": "CastleBlocks Tools"
+  "itemGroup.castleblocks.items": "CastleBlocks Items"
 }
