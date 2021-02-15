@@ -1,9 +1,8 @@
 package com.jusipat.castleblocks.item;
 
-import com.jusipat.castleblocks.CastleBlocksMod;
 import com.jusipat.castleblocks.block.CastleBlockEntity;
 import com.jusipat.castleblocks.registry.ModBlocks;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.item.TooltipContext;
@@ -45,6 +44,9 @@ public class TrowelItem extends Item {
 				CastleBlockEntity blockEntity = new CastleBlockEntity();
 				blockEntity.setOwner(player.getUuid());
 				world.setBlockEntity(blockPos, blockEntity);
+
+				if (world.isClient())
+					world.syncWorldEvent(player, 2001, blockPos, Block.getRawIdFromState(ModBlocks.CASTLE_BRICKS.getDefaultState()));
 
 				return ActionResult.SUCCESS;
 			}
