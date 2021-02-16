@@ -1,8 +1,10 @@
 package com.jusipat.castleblocks.block;
 
-public class CastleBlockEntity {
+import net.minecraft.tileentity.TileEntity;
+
+public class CastleBlockEntity extends TileEntity {
 //	private UUID owner;
-//	private String ownerName;
+	private String ownerName;
 //
 //	public CastleBlockEntity() {
 //		super(ModBlocks.CASTLE_BLOCK_ENTITY);
@@ -19,9 +21,9 @@ public class CastleBlockEntity {
 //		return owner.equals(playerId);
 //	}
 //
-//	public String getOwnerName() {
-//		return (ownerName == null || ownerName.isEmpty()) ? "Unknown" : ownerName;
-//	}
+	public String getOwnerName() {
+		return (ownerName == null || ownerName.isEmpty()) ? "Unknown" : ownerName;
+	}
 //
 //	@Override
 //	public CompoundTag toTag(CompoundTag tag) {
