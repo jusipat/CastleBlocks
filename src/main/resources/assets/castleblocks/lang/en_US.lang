@@ -1,0 +1,8 @@
+tile.castle_bricks.name=Castle Bricks
+tile.sandstone_castle_bricks.name=Sandstone Castle Bricks
+
+item.trowel.name=Trowel
+item.trowel.tooltip=§3Right click on stone to turn to CastleBricks!
+item.trowel.owner=CastleBlock owned by %s
+
+itemGroup.castleblocks=CastleBlocks Items

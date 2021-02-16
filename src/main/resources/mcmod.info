@@ -1,0 +1,15 @@
+[
+{
+  "modid": "castleblocks",
+  "name": "CastleBlocks",
+  "description": "Adds custom bricks that only the builder can easily break.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://github.com/jusipat/CastleBlocks/",
+  "updateUrl": "",
+  "authorList": ["cflip", "jusipat"],
+  "logoFile": "icon.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]

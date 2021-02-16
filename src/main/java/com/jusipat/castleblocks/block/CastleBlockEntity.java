@@ -1,25 +1,18 @@
 package com.jusipat.castleblocks.block;
 
-import com.jusipat.castleblocks.registry.ModBlocks;
-import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
 
 import java.util.UUID;
 
-public class CastleBlockEntity extends BlockEntity implements BlockEntityClientSerializable {
+public class CastleBlockEntity extends TileEntity {
 	private UUID owner;
 	private String ownerName;
 
-	public CastleBlockEntity() {
-		super(ModBlocks.CASTLE_BLOCK_ENTITY);
-	}
-
-	public void setOwner(PlayerEntity player) {
-		owner = player.getUuid();
-		ownerName = player.getEntityName();
+	public void setOwner(EntityPlayer player) {
+		owner = player.getPersistentID();
+		ownerName = player.getDisplayName();
 		markDirty();
 	}
 
@@ -33,30 +26,16 @@ public class CastleBlockEntity extends BlockEntity implements BlockEntityClientS
 	}
 
 	@Override
-	public CompoundTag toTag(CompoundTag tag) {
-		super.toTag(tag);
-		if (owner != null)
-			tag.putUuid("owner", owner);
-		if (ownerName != null)
-			tag.putString("ownerName", ownerName);
-		return tag;
+	public void writeToNBT(NBTTagCompound tag) {
+		super.writeToNBT(tag);
+		if (owner != null) tag.setString("owner", owner.toString());
+		if (ownerName != null) tag.setString("ownerName", ownerName);
 	}
 
 	@Override
-	public void fromTag(BlockState state, CompoundTag tag) {
-		super.fromTag(state, tag);
-		owner = tag.getUuid("owner");
+	public void readFromNBT(NBTTagCompound tag) {
+		super.readFromNBT(tag);
+		owner = UUID.fromString(tag.getString("owner"));
 		ownerName = tag.getString("ownerName");
-	}
-
-	@Override
-	public void fromClientTag(CompoundTag compoundTag) {
-		owner = compoundTag.getUuid("owner");
-		ownerName = compoundTag.getString("ownerName");
-	}
-
-	@Override
-	public CompoundTag toClientTag(CompoundTag compoundTag) {
-		return toTag(compoundTag);
 	}
 }

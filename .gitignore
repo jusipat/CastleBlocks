@@ -6,7 +6,7 @@ out/
 classes/
 
 # eclipse
-
+eclipse/
 *.launch
 
 # idea
