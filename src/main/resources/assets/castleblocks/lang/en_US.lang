@@ -1,7 +1,7 @@
 tile.castle_bricks.name=Castle Bricks
 tile.sandstone_castle_bricks.name=Sandstone Castle Bricks
 
-#item.castleblocks.trowel": "Trowel",
+item.trowel.name=Trowel
 #item.castleblocks.trowel.tooltip": "§3Right click on stone to turn to CastleBricks!",
 #item.castleblocks.trowel.owner": "CastleBlock owned by: %s",
 #
