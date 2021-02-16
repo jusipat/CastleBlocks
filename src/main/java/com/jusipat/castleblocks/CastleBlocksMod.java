@@ -10,7 +10,7 @@ import net.minecraft.item.Item;
 @Mod(modid = CastleBlocksMod.MOD_ID, version = CastleBlocksMod.VERSION)
 public class CastleBlocksMod {
 	public static final String MOD_ID = "castleblocks";
-	public static final String VERSION = "1.0";
+	public static final String VERSION = "1.0.2-forge";
 
 	public static final CreativeTabs CASTLEBLOCKS_TAB = new CreativeTabs("castleblocks") {
 		@Override
