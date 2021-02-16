@@ -5,4 +5,4 @@ item.trowel.name=Trowel
 item.trowel.tooltip=§3Right click on stone to turn to CastleBricks!
 item.trowel.owner=CastleBlock owned by %s
 
-#itemGroup.castleblocks.items": "CastleBlocks Items"
+itemGroup.castleblocks=CastleBlocks Items
