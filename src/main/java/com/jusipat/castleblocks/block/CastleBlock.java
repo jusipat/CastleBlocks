@@ -1,42 +1,47 @@
 package com.jusipat.castleblocks.block;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
-public class CastleBlock extends Block {
+public class CastleBlock extends Block implements ITileEntityProvider {
 	public CastleBlock(Material material) {
 		super(material);
 	}
 
-//	@Override
-//	public @Nullable BlockEntity createBlockEntity(BlockView world) {
-//		return new CastleBlockEntity();
-//	}
-//
-//	@Override
-//	public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
-//		super.onPlaced(world, pos, state, placer, itemStack);
-//		if (placer instanceof PlayerEntity) {
-//			BlockEntity blockEntity = world.getBlockEntity(pos);
-//
-//			if (blockEntity instanceof CastleBlockEntity) {
-//				((CastleBlockEntity) blockEntity).setOwner((PlayerEntity) placer);
-//			}
-//		}
-//	}
-//
-//	@Override
-//	public float calcBlockBreakingDelta(BlockState state, PlayerEntity player, BlockView world, BlockPos pos) {
-//		float ownerCoefficient = 0.01f;
-//		BlockEntity blockEntity = world.getBlockEntity(pos);
-//
-//		if (blockEntity instanceof CastleBlockEntity) {
-//			CastleBlockEntity castleBlockEntity = (CastleBlockEntity) blockEntity;
-//			if (castleBlockEntity.isOwner(player.getUuid())) {
-//				ownerCoefficient = 1f;
-//			}
-//		}
-//
-//		return super.calcBlockBreakingDelta(state, player, world, pos) * ownerCoefficient;
-//	}
+	@Override
+	public TileEntity createNewTileEntity(World world, int data) {
+		return new CastleBlockEntity();
+	}
+
+	@Override
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase placer, ItemStack stack) {
+		super.onBlockPlacedBy(world, x, y, z, placer, stack);
+		if (placer instanceof EntityPlayer) {
+			TileEntity tileEntity = world.getTileEntity(x, y, z);
+
+			if (tileEntity instanceof CastleBlockEntity) {
+				((CastleBlockEntity) tileEntity).setOwner((EntityPlayer) placer);
+			}
+		}
+	}
+
+	@Override
+	public float getPlayerRelativeBlockHardness(EntityPlayer player, World world, int x, int y, int z) {
+		float ownerCoefficient = 0.01f;
+		TileEntity tileEntity = world.getTileEntity(x, y, z);
+
+		if (tileEntity instanceof CastleBlockEntity) {
+			CastleBlockEntity castleBlockEntity = (CastleBlockEntity) tileEntity;
+			if (castleBlockEntity.isOwner(player.getUniqueID())) {
+				ownerCoefficient = 1f;
+			}
+		}
+		return super.getPlayerRelativeBlockHardness(player, world, x, y, z) * ownerCoefficient;
+	}
 }

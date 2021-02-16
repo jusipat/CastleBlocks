@@ -37,12 +37,16 @@ public class TrowelItem extends Item {
 			TileEntity tileEntity = world.getTileEntity(x, y, z);
 
 			if (blockMap.containsKey(block)) {
-				Block blockType = blockMap.get(block);
-				world.setBlock(x, y, z, blockType);
+				world.setBlock(x, y, z, blockMap.get(block));
+
+				CastleBlockEntity castleTile = new CastleBlockEntity();
+				castleTile.setOwner(player);
+				world.setTileEntity(x, y, z, castleTile);
+
 				stack.damageItem(1, player);
 
 				return true;
-			} else if (tileEntity instanceof CastleBlockEntity) {
+			} else if (tileEntity instanceof CastleBlockEntity && !world.isRemote) {
 				CastleBlockEntity castleBlockEntity = (CastleBlockEntity) tileEntity;
 				player.addChatComponentMessage(new ChatComponentTranslation("item.trowel.owner", castleBlockEntity.getOwnerName()));
 			}
