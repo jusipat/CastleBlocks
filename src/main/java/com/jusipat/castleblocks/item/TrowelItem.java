@@ -55,9 +55,9 @@ public class TrowelItem extends Item {
 				Block blockType = Registry.BLOCK.get(blockMap.get(blockId));
 				world.setBlockState(blockPos, blockType.getDefaultState());
 
-				CastleBlockEntity blockEntity = new CastleBlockEntity();
+				CastleBlockEntity blockEntity = new CastleBlockEntity(blockPos, blockType.getDefaultState());
 				blockEntity.setOwner(player);
-				world.setBlockEntity(blockPos, blockEntity);
+				world.addBlockEntity(blockEntity);
 
 				if (world.isClient())
 					world.syncWorldEvent(player, 2001, blockPos, Block.getRawIdFromState(blockType.getDefaultState()));
@@ -65,12 +65,9 @@ public class TrowelItem extends Item {
 				context.getStack().damage(1, player, playerEntity -> playerEntity.sendToolBreakStatus(context.getHand()));
 
 				return ActionResult.SUCCESS;
-			} else if (world.getBlockEntity(blockPos) instanceof CastleBlockEntity) {
-				CastleBlockEntity blockEntity = (CastleBlockEntity) world.getBlockEntity(blockPos);
-				if (blockEntity != null) {
-					Text ownerText = new TranslatableText("item.castleblocks.trowel.owner", blockEntity.getOwnerName());
-					player.sendMessage(ownerText, true);
-				}
+			} else if (world.getBlockEntity(blockPos) instanceof CastleBlockEntity blockEntity) {
+				Text ownerText = new TranslatableText("item.castleblocks.trowel.owner", blockEntity.getOwnerName());
+				player.sendMessage(ownerText, true);
 			}
 		}
 
