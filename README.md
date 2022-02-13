@@ -1,5 +1,5 @@
 # CastleBlocks
-A minecraft mod for 1.16.XX running on the Fabric API.
+A minecraft mod for 1.18.XX running on the Fabric API.
 ## Bricks
 
 CastleBlocks introduces new types of bricks into Minecraft, these bricks can be fortified to be only easily broken by their intitial builder and by standard explosives, excellent for castles!
