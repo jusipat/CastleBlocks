@@ -1,9 +1,9 @@
 {
   "block.castleblocks.castle_bricks": "Ladrillos del castillo",
   "block.castleblocks.andesite_castle_bricks": "Ladrillo de castillo de andesita",
-  "block.castleblocks.diorite_castle_bricks": "ladrillo castillo de diorita",
-  "block.castleblocks.granite_castle_bricks": "ladrillo del castillo de granito",
-  "block.castleblocks.sandstone_castle_bricks": "ladrillo del castillo de piedra arenisca",
+  "block.castleblocks.diorite_castle_bricks": "Ladrillo castillo de diorita",
+  "block.castleblocks.granite_castle_bricks": "Ladrillo del castillo de granito",
+  "block.castleblocks.sandstone_castle_bricks": "Ladrillo del castillo de piedra arenisca",
 
   "item.castleblocks.trowel": "Truelle",
   "item.castleblocks.trowel.tooltip": "§3Clic derecho para hacer bloques de castillo!",
