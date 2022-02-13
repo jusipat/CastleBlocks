@@ -1,0 +1,13 @@
+{
+  "block.castleblocks.castle_bricks": "Cegły zamkowe",
+  "block.castleblocks.andesite_castle_bricks": "Andezytowe cegły zamkowe",
+  "block.castleblocks.diorite_castle_bricks": "Diorytowe cegły zamkowe",
+  "block.castleblocks.granite_castle_bricks": "Granitowe cegły zamkowe",
+  "block.castleblocks.sandstone_castle_bricks": "Piaskowcowe cegły zamkowe",
+
+  "item.castleblocks.trowel": "Kielnia",
+  "item.castleblocks.trowel.tooltip": "§3Naciśnij prawym przyciskiem myszy na kamień aby zmienić go na cegły zamkowe!",
+  "item.castleblocks.trowel.owner": "Blok zamkowy posiadany przez: %s",
+
+  "itemGroup.castleblocks.items": "Bloki zamkowe"
+}
