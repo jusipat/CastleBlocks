@@ -1,0 +1,13 @@
+{
+  "block.castleblocks.castle_bricks": "城堡砖",
+  "block.castleblocks.andesite_castle_bricks": "安山岩城堡砖",
+  "block.castleblocks.diorite_castle_bricks": "闪长岩城堡砖",
+  "block.castleblocks.granite_castle_bricks": "花岗岩城堡砖",
+  "block.castleblocks.sandstone_castle_bricks": "砂岩城堡砖",
+
+  "item.castleblocks.trowel": "镘",
+  "item.castleblocks.trowel.tooltip": "§3右击石头变成城堡砖！",
+  "item.castleblocks.trowel.owner": "这个城堡砖是%s的",
+
+  "itemGroup.castleblocks.items": "城堡砖"
+}
