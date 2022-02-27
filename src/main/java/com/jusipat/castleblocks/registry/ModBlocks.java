@@ -5,6 +5,7 @@ import com.jusipat.castleblocks.block.CastleBlock;
 import com.jusipat.castleblocks.block.CastleBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.minecraft.block.entity.BlockEntityType;
@@ -12,7 +13,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class ModBlocks {
-	private static final FabricBlockSettings BLOCK_SETTINGS = FabricBlockSettings.of(Material.STONE).strength(3.0f, 8.0f);
+	private static final FabricBlockSettings BLOCK_SETTINGS = FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 0).requiresTool().strength(2.5f, 8.0f);
 
 	public static final Block CASTLE_BRICKS = new CastleBlock(BLOCK_SETTINGS);
 	public static final Block ANDESITE_CASTLE_BRICKS = new CastleBlock(BLOCK_SETTINGS);

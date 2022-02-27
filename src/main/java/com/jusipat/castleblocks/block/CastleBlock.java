@@ -10,7 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
 public class CastleBlock extends Block implements BlockEntityProvider {
 	public CastleBlock(Settings settings) {
@@ -18,7 +17,7 @@ public class CastleBlock extends Block implements BlockEntityProvider {
 	}
 
 	@Override
-	public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
+	public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
 		super.onPlaced(world, pos, state, placer, itemStack);
 		if (placer instanceof PlayerEntity) {
 			BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -31,7 +30,7 @@ public class CastleBlock extends Block implements BlockEntityProvider {
 
 	@Override
 	public float calcBlockBreakingDelta(BlockState state, PlayerEntity player, BlockView world, BlockPos pos) {
-		float ownerCoefficient = 0.01f;
+		float ownerCoefficient = 0.1f;
 		BlockEntity blockEntity = world.getBlockEntity(pos);
 
 		if (blockEntity instanceof CastleBlockEntity castleBlockEntity) {
@@ -43,7 +42,6 @@ public class CastleBlock extends Block implements BlockEntityProvider {
 		return super.calcBlockBreakingDelta(state, player, world, pos) * ownerCoefficient;
 	}
 
-	@Nullable
 	@Override
 	public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
 		return new CastleBlockEntity(pos, state);
