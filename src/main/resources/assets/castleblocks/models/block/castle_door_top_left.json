@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left",
+  "textures": {
+    "bottom": "castleblocks:block/castle_door_bottom",
+    "top": "castleblocks:block/castle_door_top"
+  }
+}

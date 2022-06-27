@@ -2,6 +2,7 @@ package com.jusipat.castleblocks.registry;
 
 import com.jusipat.castleblocks.CastleBlocksMod;
 import com.jusipat.castleblocks.item.TrowelItem;
+import com.jusipat.castleblocks.item.KeyItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -18,7 +19,10 @@ public class ModItems {
 	public static final BlockItem BLACKSTONE_CASTLE_BRICKS = new BlockItem(ModBlocks.BLACKSTONE_CASTLE_BRICKS, new Item.Settings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP));
 	public static final BlockItem NETHER_CASTLE_BRICKS = new BlockItem(ModBlocks.NETHER_CASTLE_BRICKS, new Item.Settings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP));
 
+	public static final BlockItem CASTLE_DOOR = new BlockItem(ModBlocks.CASTLE_DOOR, new Item.Settings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP));
+
 	public static final TrowelItem TROWEL = new TrowelItem(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP));
+	public static final KeyItem KEY = new KeyItem(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP));
 
 	public static void registerItems() {
 		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "castle_bricks"), CASTLE_BRICKS);
@@ -31,5 +35,8 @@ public class ModItems {
 		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "nether_castle_bricks"), NETHER_CASTLE_BRICKS);
 
 		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "trowel"), TROWEL);
+		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "key"), KEY);
+
+		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "castle_door"), CASTLE_DOOR);
 	}
 }

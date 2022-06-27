@@ -3,7 +3,9 @@ package com.jusipat.castleblocks;
 import com.jusipat.castleblocks.registry.ModBlocks;
 import com.jusipat.castleblocks.registry.ModItems;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -20,5 +22,7 @@ public class CastleBlocksMod implements ModInitializer {
 	public void onInitialize() {
 		ModBlocks.registerBlocks();
 		ModItems.registerItems();
+
+		BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CASTLE_DOOR, RenderLayer.getCutout());
 	}
 }
