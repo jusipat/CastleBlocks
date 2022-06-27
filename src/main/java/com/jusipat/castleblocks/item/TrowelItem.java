@@ -11,7 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.TranslatableTextContent;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -34,11 +34,14 @@ public class TrowelItem extends Item {
 		blockMap.put(Registry.BLOCK.getId(Blocks.POLISHED_DIORITE), Registry.BLOCK.getId(ModBlocks.DIORITE_CASTLE_BRICKS));
 		blockMap.put(Registry.BLOCK.getId(Blocks.POLISHED_GRANITE), Registry.BLOCK.getId(ModBlocks.GRANITE_CASTLE_BRICKS));
 		blockMap.put(Registry.BLOCK.getId(Blocks.CUT_SANDSTONE), Registry.BLOCK.getId(ModBlocks.SANDSTONE_CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.DEEPSLATE), Registry.BLOCK.getId(ModBlocks.DEEPSLATE_CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.POLISHED_BLACKSTONE), Registry.BLOCK.getId(ModBlocks.BLACKSTONE_CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.NETHER_BRICKS), Registry.BLOCK.getId(ModBlocks.NETHER_CASTLE_BRICKS));
 	}
 
 	@Override
 	public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-		tooltip.add(new TranslatableText("item.castleblocks.trowel.tooltip"));
+		tooltip.add(Text.translatable("item.castleblocks.trowel.tooltip"));
 	}
 
 	@Override
@@ -66,7 +69,7 @@ public class TrowelItem extends Item {
 
 				return ActionResult.SUCCESS;
 			} else if (world.getBlockEntity(blockPos) instanceof CastleBlockEntity blockEntity) {
-				Text ownerText = new TranslatableText("item.castleblocks.trowel.owner", blockEntity.getOwnerName());
+				Text ownerText =  Text.translatable("item.castleblocks.trowel.owner", blockEntity.getOwnerName());
 				player.sendMessage(ownerText, true);
 			}
 		}

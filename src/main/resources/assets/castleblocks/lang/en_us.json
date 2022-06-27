@@ -3,7 +3,10 @@
   "block.castleblocks.andesite_castle_bricks": "Andesite Castle Bricks",
   "block.castleblocks.diorite_castle_bricks": "Diorite Castle Bricks",
   "block.castleblocks.granite_castle_bricks": "Granite Castle Bricks",
+  "block.castleblocks.deepslate_castle_bricks": "Deepslate Castle Bricks",
+  "block.castleblocks.blackstone_castle_bricks": "Blackstone Castle Bricks",
   "block.castleblocks.sandstone_castle_bricks": "Sandstone Castle Bricks",
+  "block.castleblocks.nether_castle_bricks": "Nether Castle Bricks",
 
   "item.castleblocks.trowel": "Trowel",
   "item.castleblocks.trowel.tooltip": "§3Right click on stone to turn to CastleBricks!",
