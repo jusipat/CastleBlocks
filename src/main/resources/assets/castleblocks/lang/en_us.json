@@ -7,10 +7,15 @@
   "block.castleblocks.blackstone_castle_bricks": "Blackstone Castle Bricks",
   "block.castleblocks.sandstone_castle_bricks": "Sandstone Castle Bricks",
   "block.castleblocks.nether_castle_bricks": "Nether Castle Bricks",
+  "block.castleblocks.castle_door": "Castle Door",
+
 
   "item.castleblocks.trowel": "Trowel",
   "item.castleblocks.trowel.tooltip": "§3Right click on stone to turn to CastleBricks!",
   "item.castleblocks.trowel.owner": "CastleBlock owned by: %s",
+
+  "item.castleblocks.key": "Key",
+  "item.castleblocks.key.tooltip": "§3Right click on a door to lock!",
 
   "itemGroup.castleblocks.items": "CastleBlocks Items"
 }
