@@ -5,7 +5,7 @@ A minecraft mod for 1.19.X running on the Fabric API.
 
 ## Bricks
 
-CastleBlocks introduces new types of bricks into Minecraft, these bricks can be fortified to be only easily broken by their intitial builder and by standard explosives, excellent for castles!
+CastleBlocks introduces new types of bricks into Minecraft, these sturdy bricks are very difficult to break if you are not the original placer if you don't use explosives, providing excellent application in castles!
 
 ## License
 
