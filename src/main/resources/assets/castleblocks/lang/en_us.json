@@ -9,13 +9,16 @@
   "block.castleblocks.nether_castle_bricks": "Nether Castle Bricks",
   "block.castleblocks.castle_door": "Castle Door",
 
-
   "item.castleblocks.trowel": "Trowel",
   "item.castleblocks.trowel.tooltip": "§3Right click on stone to turn to CastleBricks!",
   "item.castleblocks.trowel.owner": "CastleBlock owned by: %s",
 
   "item.castleblocks.key": "Key",
-  "item.castleblocks.key.tooltip": "§3Right click on a door to lock!",
+  "item.castleblocks.key.tooltip": "§3Right click on a Castle Door to lock!",
+  "item.castleblocks.door.owner": "Castle Door owned by another player.",
+  "item.castleblocks.door.owner.registered": "Door successfully identified!",
+
+
 
   "itemGroup.castleblocks.items": "CastleBlocks Items"
 }
