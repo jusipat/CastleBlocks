@@ -33,7 +33,8 @@ public class TrowelItem extends Item {
 		blockMap.put(Registry.BLOCK.getId(Blocks.POLISHED_ANDESITE), Registry.BLOCK.getId(ModBlocks.ANDESITE_CASTLE_BRICKS));
 		blockMap.put(Registry.BLOCK.getId(Blocks.POLISHED_DIORITE), Registry.BLOCK.getId(ModBlocks.DIORITE_CASTLE_BRICKS));
 		blockMap.put(Registry.BLOCK.getId(Blocks.POLISHED_GRANITE), Registry.BLOCK.getId(ModBlocks.GRANITE_CASTLE_BRICKS));
-		blockMap.put(Registry.BLOCK.getId(Blocks.CUT_SANDSTONE), Registry.BLOCK.getId(ModBlocks.SANDSTONE_CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.SMOOTH_SANDSTONE), Registry.BLOCK.getId(ModBlocks.SANDSTONE_CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.SMOOTH_RED_SANDSTONE), Registry.BLOCK.getId(ModBlocks.RED_SANDSTONE_CASTLE_BRICKS));
 		blockMap.put(Registry.BLOCK.getId(Blocks.DEEPSLATE), Registry.BLOCK.getId(ModBlocks.DEEPSLATE_CASTLE_BRICKS));
 		blockMap.put(Registry.BLOCK.getId(Blocks.POLISHED_BLACKSTONE), Registry.BLOCK.getId(ModBlocks.BLACKSTONE_CASTLE_BRICKS));
 		blockMap.put(Registry.BLOCK.getId(Blocks.NETHER_BRICKS), Registry.BLOCK.getId(ModBlocks.NETHER_CASTLE_BRICKS));

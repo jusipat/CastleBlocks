@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "castleblocks:castle_bricks",
+    "castleblocks:andesite_castle_bricks",
+    "castleblocks:diorite_castle_bricks",
+    "castleblocks:granite_castle_bricks",
+    "castleblocks:blackstone_castle_bricks",
+    "castleblocks:deepslate_castle_bricks",
+    "castleblocks:sandstone_castle_bricks",
+    "castleblocks:red_sandstone_castle_bricks",
+    "castleblocks:nether_castle_bricks"
+  ]
+}
