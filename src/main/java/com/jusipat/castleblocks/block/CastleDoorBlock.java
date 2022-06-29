@@ -9,6 +9,9 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.Inventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.nbt.NbtCompound;
@@ -23,6 +26,7 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import java.security.Key;
 import java.util.Objects;
 
 
@@ -45,10 +49,15 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
 		}
 
 		if (world.getBlockEntity(entityPos) instanceof CastleDoorEntity blockEntity) {
+
 			ItemStack keyStack = player.getStackInHand(hand);
 
 			if (!(keyStack.getItem() instanceof KeyItem)) {
-				return ActionResult.PASS;
+				Text alertText = Text.translatable("item.castleblocks.door.alert");
+				player.sendMessage(alertText, true);
+				if (!world.isClient)
+					world.playSound(null, pos, SoundEvents.ENTITY_ZOMBIE_ATTACK_WOODEN_DOOR, SoundCategory.BLOCKS, 1f, 1f);
+				return ActionResult.SUCCESS;
 			}
 
 			NbtCompound nbt = keyStack.getOrCreateNbt();
@@ -57,12 +66,19 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
 				if (Objects.equals(nbt.getUuid("doorid"), blockEntity.doorId)) {
 					return super.onUse(state, world, pos, player, hand, hit);
 				}
+				if (nbt.getUuid("doorid") != blockEntity.doorId) {
+					Text denyText = Text.translatable("item.castleblocks.door.rejected");
+					player.sendMessage(denyText, true);
+					if (!world.isClient)
+						world.playSound(null, pos, SoundEvents.BLOCK_LEVER_CLICK, SoundCategory.BLOCKS, 1f, 1f);
+					return ActionResult.SUCCESS;
+				}
 
 			} else {
 				nbt.putUuid("doorid", blockEntity.doorId);
 				nbt.putIntArray("door_location", new int[]{pos.getX(), pos.getY(), pos.getZ()});
-				Text alertText = Text.translatable("item.castleblocks.door.owner.registered");
-				player.sendMessage(alertText, true);
+				Text registeredText = Text.translatable("item.castleblocks.door.owner.registered");
+				player.sendMessage(registeredText, true);
 			}
 
 		}
