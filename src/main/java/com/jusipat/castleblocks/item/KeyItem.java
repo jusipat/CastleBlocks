@@ -34,8 +34,10 @@ public class KeyItem extends Item {
 	public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
 
 		NbtCompound nbt = itemStack.getOrCreateNbt();
-		if (nbt.contains("doorid")) {
-			tooltip.add(Text.translatable("item.castleblocks.key.tooltip", nbt.getString("doorid")));
+		if (nbt.contains("door_location")) {
+			int[] coordArray = nbt.getIntArray("door_location");
+			String positionString = "X: " + coordArray[0] + ", Y: " + coordArray[1] + ", Z: " + coordArray[2];
+			tooltip.add(Text.translatable("item.castleblocks.key.tooltip", positionString));
 		}
 	}
 }

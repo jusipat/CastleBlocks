@@ -12,6 +12,10 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtIntArray;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -50,13 +54,13 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
 			NbtCompound nbt = keyStack.getOrCreateNbt();
 
 			if (nbt.contains("doorid")) {
-				if (Objects.equals(nbt.getString("doorid"), blockEntity.doorId)) {
+				if (Objects.equals(nbt.getUuid("doorid"), blockEntity.doorId)) {
 					return super.onUse(state, world, pos, player, hand, hit);
 				}
 
 			} else {
-
-				nbt.putString("doorid", blockEntity.doorId);
+				nbt.putUuid("doorid", blockEntity.doorId);
+				nbt.putIntArray("door_location", new int[]{pos.getX(), pos.getY(), pos.getZ()});
 				Text alertText = Text.translatable("item.castleblocks.door.owner.registered");
 				player.sendMessage(alertText, true);
 			}
