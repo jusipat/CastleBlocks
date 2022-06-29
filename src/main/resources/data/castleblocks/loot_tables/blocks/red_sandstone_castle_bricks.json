@@ -1,12 +1,12 @@
 {
-  "type": "block",
+  "type": "minecraft:block",
   "pools": [
     {
       "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "castleblocks:nether_castle_bricks"
+          "name": "castleblocks:red_sandstone_castle_bricks"
         }
       ],
       "conditions": [

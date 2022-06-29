@@ -30,12 +30,12 @@ public class CastleBlock extends Block implements BlockEntityProvider {
 
 	@Override
 	public float calcBlockBreakingDelta(BlockState state, PlayerEntity player, BlockView world, BlockPos pos) {
-		float ownerCoefficient = 0.1f;
+		float ownerCoefficient = 0.03f;
 		BlockEntity blockEntity = world.getBlockEntity(pos);
 
 		if (blockEntity instanceof CastleBlockEntity castleBlockEntity) {
 			if (castleBlockEntity.isOwner(player.getUuid())) {
-				ownerCoefficient = 1f;
+				ownerCoefficient = 1.0f;
 			}
 		}
 
