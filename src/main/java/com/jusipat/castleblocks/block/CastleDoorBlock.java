@@ -1,14 +1,17 @@
 package com.jusipat.castleblocks.block;
 
 import com.jusipat.castleblocks.item.KeyItem;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.DoorBlock;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -27,33 +30,43 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
 
 	@Override
 	public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-		return new CastleBlockEntity(pos, state);
+		return new CastleDoorEntity(pos, state);
 	}
 
 	@Override
 	public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+		BlockPos entityPos = pos;
+		if (state.get(HALF) == DoubleBlockHalf.UPPER) {
+			entityPos = pos.down();
+		}
 
-		if (world.getBlockEntity(pos) instanceof CastleDoorEntity blockEntity) {
+		if (world.getBlockEntity(entityPos) instanceof CastleDoorEntity blockEntity) {
 			ItemStack keyStack = player.getStackInHand(hand);
+
 			if (!(keyStack.getItem() instanceof KeyItem)) {
-				System.out.println("Not allowed in!");
 				return ActionResult.PASS;
 			}
-			if (keyStack.getNbt().contains("doorid")) { // Checks if holding key
-				if (Objects.equals(keyStack.getNbt().getString("doorid"), blockEntity.doorId)) { // Checks if key id matches
+
+			NbtCompound nbt = keyStack.getOrCreateNbt();
+
+			if (nbt.contains("doorid")) {
+				if (Objects.equals(nbt.getString("doorid"), blockEntity.doorId)) {
 					return super.onUse(state, world, pos, player, hand, hit);
 				}
-				Text ownerText = Text.translatable("item.castleblocks.door.owner");
-				player.sendMessage(ownerText, true);
 
 			} else {
-				keyStack.getNbt().putString("doorid", blockEntity.doorId);
+
+				nbt.putString("doorid", blockEntity.doorId);
 				Text alertText = Text.translatable("item.castleblocks.door.owner.registered");
 				player.sendMessage(alertText, true);
-
 			}
 
 		}
 		return ActionResult.SUCCESS;
+	}
+
+	@Override
+	public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
+		// Ignores redstone updates
 	}
 }

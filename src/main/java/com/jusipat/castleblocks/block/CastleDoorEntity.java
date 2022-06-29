@@ -12,7 +12,7 @@ public class CastleDoorEntity extends BlockEntity {
 
 	public final String doorId;
 
-	public CastleDoorEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+	public CastleDoorEntity(BlockPos pos, BlockState state) {
 		super(ModBlocks.DOOR_BLOCK_ENTITY, pos, state);
 		doorId = UUID.randomUUID().toString();
 	}
