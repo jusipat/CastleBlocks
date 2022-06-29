@@ -11,6 +11,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
@@ -31,7 +32,10 @@ public class KeyItem extends Item {
 
 	@Override
 	public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-		tooltip.add(Text.translatable("item.castleblocks.key.tooltip"));
 
+		NbtCompound nbt = itemStack.getOrCreateNbt();
+		if (nbt.contains("doorid")) {
+			tooltip.add(Text.translatable("item.castleblocks.key.tooltip", nbt.getString("doorid")));
+		}
 	}
 }

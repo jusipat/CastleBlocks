@@ -14,7 +14,7 @@
   "item.castleblocks.trowel.owner": "CastleBlock owned by: %s",
 
   "item.castleblocks.key": "Key",
-  "item.castleblocks.key.tooltip": "§3Right click on a Castle Door to lock!",
+  "item.castleblocks.key.tooltip": "Paired to door %s",
   "item.castleblocks.door.owner": "Castle Door owned by another player.",
   "item.castleblocks.door.owner.registered": "Door successfully identified!",
 
