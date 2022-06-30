@@ -65,6 +65,7 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
 			ItemStack keyStack = player.getStackInHand(hand);
 
 			if (!(keyStack.getItem() instanceof KeyItem)) {
+				TranslatableText text
 				Text alertText = Text.translatable("item.castleblocks.door.alert");
 				player.sendMessage(alertText, true);
 				if (!world.isClient)
