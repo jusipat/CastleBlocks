@@ -1,6 +1,7 @@
 package com.jusipat.castleblocks.block;
 
 import com.jusipat.castleblocks.item.KeyItem;
+import com.jusipat.castleblocks.registry.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
@@ -9,25 +10,21 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.Inventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUsageContext;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtIntArray;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-import java.security.Key;
 import java.util.Objects;
+
+import com.jusipat.castleblocks.registry.ModItems;
 
 
 public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
@@ -39,6 +36,21 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
 	@Override
 	public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
 		return new CastleDoorEntity(pos, state);
+	}
+
+	@Override
+	public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
+		super.onPlaced(world, pos, state, placer, itemStack);
+		if (placer instanceof PlayerEntity) {
+			ItemStack gennedKey = new ItemStack(ModItems.KEY, 1);
+
+			if (world.getBlockEntity(pos) instanceof CastleDoorEntity blockEntity) {
+				NbtCompound keynbt = gennedKey.getOrCreateNbt();
+				keynbt.putUuid("doorid", blockEntity.doorId);
+				keynbt.putIntArray("door_location", new int[]{pos.getX(), pos.getY(), pos.getZ()});
+			}
+			((PlayerEntity) placer).giveItemStack(gennedKey);
+		}
 	}
 
 	@Override
@@ -88,5 +100,10 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
 	@Override
 	public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
 		// Ignores redstone updates
+	}
+
+	@Override
+	public float calcBlockBreakingDelta(BlockState state, PlayerEntity player, BlockView world, BlockPos pos) {
+		return super.calcBlockBreakingDelta(state, player, world, pos) * 0.1f;
 	}
 }
