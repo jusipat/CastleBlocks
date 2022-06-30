@@ -1,10 +1,13 @@
 package com.jusipat.castleblocks;
 
+import com.jusipat.castleblocks.block.fluid.ModFluids;
 import com.jusipat.castleblocks.registry.ModBlocks;
 import com.jusipat.castleblocks.registry.ModItems;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
+import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -24,5 +27,13 @@ public class CastleBlocksMod implements ModInitializer {
 		ModItems.registerItems();
 
 		BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CASTLE_DOOR, RenderLayer.getCutout());
+		FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.PITCH_STILL,
+				new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL,
+						SimpleFluidRenderHandler.WATER_FLOWING,
+						SimpleFluidRenderHandler.WATER_OVERLAY, 0x1a1a00));
+		FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.PITCH_FLOWING,
+				new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL,
+						SimpleFluidRenderHandler.WATER_FLOWING,
+						SimpleFluidRenderHandler.WATER_OVERLAY, 0x1a1a00));
 	}
 }

@@ -20,7 +20,6 @@
   "item.castleblocks.door.owner.registered": "Key successfully assigned!",
   "item.castleblocks.door.rejected": "This key does not fit...",
 
-
-
-  "itemGroup.castleblocks.items": "CastleBlocks Items"
+  "itemGroup.castleblocks.items": "CastleBlocks Items",
+  "item.castleblocks.pitch_bucket": "Pitch Bucket"
 }
