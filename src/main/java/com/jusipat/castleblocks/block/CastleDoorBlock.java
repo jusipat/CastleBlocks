@@ -21,10 +21,7 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-
 import java.util.Objects;
-
-import com.jusipat.castleblocks.registry.ModItems;
 
 
 public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
