@@ -15,6 +15,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -65,8 +66,7 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
 			ItemStack keyStack = player.getStackInHand(hand);
 
 			if (!(keyStack.getItem() instanceof KeyItem)) {
-				TranslatableText text
-				Text alertText = Text.translatable("item.castleblocks.door.alert");
+				Text alertText = new TranslatableText("item.castleblocks.door.alert");
 				player.sendMessage(alertText, true);
 				if (!world.isClient)
 					world.playSound(null, pos, SoundEvents.ENTITY_ZOMBIE_ATTACK_WOODEN_DOOR, SoundCategory.BLOCKS, 1f, 1f);
@@ -80,7 +80,7 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
 					return super.onUse(state, world, pos, player, hand, hit);
 				}
 				if (nbt.getUuid("doorid") != blockEntity.doorId) {
-					Text denyText = Text.translatable("item.castleblocks.door.rejected");
+					Text denyText = new TranslatableText("item.castleblocks.door.rejected");
 					player.sendMessage(denyText, true);
 					if (!world.isClient)
 						world.playSound(null, pos, SoundEvents.BLOCK_LEVER_CLICK, SoundCategory.BLOCKS, 1f, 1f);
@@ -90,7 +90,7 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
 			} else {
 				nbt.putUuid("doorid", blockEntity.doorId);
 				nbt.putIntArray("door_location", new int[]{pos.getX(), pos.getY(), pos.getZ()});
-				Text registeredText = Text.translatable("item.castleblocks.door.owner.registered");
+				Text registeredText = new TranslatableText("item.castleblocks.door.owner.registered");
 				player.sendMessage(registeredText, true);
 			}
 

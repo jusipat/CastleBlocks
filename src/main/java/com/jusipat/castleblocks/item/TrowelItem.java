@@ -11,6 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -41,7 +42,7 @@ public class TrowelItem extends Item {
 
 	@Override
 	public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-		tooltip.add(Text.translatable("item.castleblocks.trowel.tooltip"));
+		tooltip.add(new TranslatableText("item.castleblocks.trowel.tooltip"));
 	}
 
 	@Override
@@ -69,7 +70,7 @@ public class TrowelItem extends Item {
 
 				return ActionResult.SUCCESS;
 			} else if (world.getBlockEntity(blockPos) instanceof CastleBlockEntity blockEntity) {
-				Text ownerText =  Text.translatable("item.castleblocks.trowel.owner", blockEntity.getOwnerName());
+				Text ownerText =  new TranslatableText("item.castleblocks.trowel.owner", blockEntity.getOwnerName());
 				player.sendMessage(ownerText, true);
 			}
 		}

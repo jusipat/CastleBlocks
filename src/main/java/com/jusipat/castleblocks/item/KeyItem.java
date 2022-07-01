@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -37,7 +38,7 @@ public class KeyItem extends Item {
 		if (nbt.contains("door_location")) {
 			int[] coordArray = nbt.getIntArray("door_location");
 			String positionString = "X: " + coordArray[0] + ", Y: " + coordArray[1] + ", Z: " + coordArray[2];
-			tooltip.add(Text.translatable("item.castleblocks.key.tooltip", positionString));
+			tooltip.add(new TranslatableText("item.castleblocks.key.tooltip", positionString));
 		}
 	}
 }
