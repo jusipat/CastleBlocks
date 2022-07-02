@@ -3,6 +3,7 @@ package com.jusipat.castleblocks;
 import com.jusipat.castleblocks.block.fluid.ModFluids;
 import com.jusipat.castleblocks.registry.ModBlocks;
 import com.jusipat.castleblocks.registry.ModItems;
+import com.jusipat.castleblocks.registry.ModRegistries;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -24,6 +25,7 @@ public class CastleBlocksMod implements ModInitializer {
 	public void onInitialize() {
 		ModBlocks.registerBlocks();
 		ModItems.registerItems();
+		ModRegistries.registerModFuels();
 
 		BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CASTLE_DOOR, RenderLayer.getCutout());
 		FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.PITCH_STILL,

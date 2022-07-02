@@ -31,6 +31,7 @@ public class ModItems {
 	public static final BucketItem PITCH_BUCKET = new BucketItem(ModFluids.PITCH_STILL, new Item.Settings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP).maxCount(1));
 
 	public static final Item RESIN = new Item(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP));
+	public static final Item PITCH = new Item(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP));
 
 	public static void registerItems() {
 		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "castle_bricks"), CASTLE_BRICKS);
@@ -51,5 +52,6 @@ public class ModItems {
 		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "pitch_bucket"), PITCH_BUCKET);
 
 		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "resin"), RESIN);
+		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "pitch"), PITCH);
 	}
 }

@@ -46,7 +46,11 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
 				keynbt.putUuid("doorid", blockEntity.doorId);
 				keynbt.putIntArray("door_location", new int[]{pos.getX(), pos.getY(), pos.getZ()});
 			}
-			((PlayerEntity) placer).giveItemStack(gennedKey);
+			PlayerEntity player = (PlayerEntity) placer;
+			player.giveItemStack(gennedKey);
+			if (player.getInventory().getEmptySlot() == -1) {
+				player.dropItem(gennedKey, false, false);
+			}
 		}
 	}
 
