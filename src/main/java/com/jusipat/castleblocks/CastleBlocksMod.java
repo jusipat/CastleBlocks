@@ -15,7 +15,6 @@ import net.minecraft.util.Identifier;
 
 public class CastleBlocksMod implements ModInitializer {
 	public static final String MOD_ID = "castleblocks";
-
 	public static final ItemGroup CASTLEBLOCKS_GROUP = FabricItemGroupBuilder.create(
 			new Identifier(MOD_ID, "items"))
 			.icon(() -> new ItemStack(ModItems.TROWEL))

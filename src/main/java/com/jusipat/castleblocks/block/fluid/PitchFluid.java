@@ -87,11 +87,11 @@ public abstract class PitchFluid extends FlowableFluid {
 	}
 
 	public int getLevelDecreasePerBlock(WorldView world) {
-		return 2;
+		return 3;
 	}
 
 	public int getTickRate(WorldView world) {
-		return 5;
+		return 2;
 	}
 
 	public boolean canBeReplacedWith(FluidState state, BlockView world, BlockPos pos, Fluid fluid, Direction direction) {
