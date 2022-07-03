@@ -8,9 +8,17 @@
   "block.castleblocks.sandstone_castle_bricks": "Sandstone Castle Bricks",
   "block.castleblocks.red_sandstone_castle_bricks": "Red Sandstone Castle Bricks",
   "block.castleblocks.nether_castle_bricks": "Nether Castle Bricks",
+  "block.castleblocks.end_stone_castle_bricks": "End Stone Castle Bricks",
+  "block.castleblocks.prismarine_castle_bricks": "Prismarine Castle Bricks",
+  "block.castleblocks.purpur_castle_bricks": "Purpur Castle Bricks",
+  "block.castleblocks.brick_castle_bricks": "Brick Castle Bricks",
+
   "block.castleblocks.castle_door": "Castle Door",
 
-  "item.castleblocks.trowel": "Trowel",
+  "item.castleblocks.iron_trowel": "Iron Trowel",
+  "item.castleblocks.diamond_trowel": "Diamond Trowel",
+  "item.castleblocks.gold_trowel": "Golden Trowel",
+  "item.castleblocks.netherite_trowel": "Netherite Trowel",
   "item.castleblocks.trowel.tooltip": "§3Right click on stone to turn to CastleBricks!",
   "item.castleblocks.trowel.owner": "CastleBlock owned by: %s",
 
@@ -24,6 +32,6 @@
   "item.castleblocks.pitch": "Pitch",
   "item.castleblocks.resin": "Resin",
 
-  "itemGroup.castleblocks.items": "CastleBlocks Items"
+  "itemGroup.castleblocks.items": "CastleBlocks"
 
 }

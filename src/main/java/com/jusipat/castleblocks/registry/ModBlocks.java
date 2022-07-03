@@ -10,10 +10,7 @@ import com.jusipat.castleblocks.block.fluid.ModFluids;
 import com.jusipat.castleblocks.block.fluid.PitchFluid;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
-import net.minecraft.block.Block;
-import net.minecraft.block.DoorBlock;
-import net.minecraft.block.FluidBlock;
-import net.minecraft.block.Material;
+import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BucketItem;
 import net.minecraft.item.Item;
@@ -31,9 +28,13 @@ public class ModBlocks {
 	public static final Block GRANITE_CASTLE_BRICKS = new CastleBlock(CB_BLOCK_SETTINGS);
 	public static final Block SANDSTONE_CASTLE_BRICKS = new CastleBlock(CB_BLOCK_SETTINGS);
 	public static final Block RED_SANDSTONE_CASTLE_BRICKS = new CastleBlock(CB_BLOCK_SETTINGS);
-	public static final Block DEEPSLATE_CASTLE_BRICKS = new CastleBlock(CB_BLOCK_SETTINGS.sounds(BlockSoundGroup.DEEPSLATE_BRICKS).strength(3.0f, 8.5f));
-	public static final Block BLACKSTONE_CASTLE_BRICKS = new CastleBlock(CB_BLOCK_SETTINGS);
+	public static final Block BLACKSTONE_CASTLE_BRICKS = new CastleBlock(CB_BLOCK_SETTINGS.sounds(BlockSoundGroup.STONE));
 	public static final Block NETHER_CASTLE_BRICKS = new CastleBlock(CB_BLOCK_SETTINGS.sounds(BlockSoundGroup.NETHER_BRICKS));
+	public static final Block PURPUR_CASTLE_BRICKS = new CastleBlock(CB_BLOCK_SETTINGS.sounds(BlockSoundGroup.STONE));
+	public static final Block BRICK_CASTLE_BRICKS = new CastleBlock(CB_BLOCK_SETTINGS);
+	public static final Block PRISMARINE_CASTLE_BRICKS = new CastleBlock(CB_BLOCK_SETTINGS);
+	public static final Block DEEPSLATE_CASTLE_BRICKS = new CastleBlock(CB_BLOCK_SETTINGS.sounds(BlockSoundGroup.DEEPSLATE_BRICKS).strength(3.0f, 8.5f));
+	public static final Block END_STONE_CASTLE_BRICKS = new CastleBlock(CB_BLOCK_SETTINGS.strength(3.0f,10.0f).sounds(BlockSoundGroup.STONE));
 
 	// CASTLE DOORS
 	public static final CastleDoorBlock CASTLE_DOOR = new CastleDoorBlock(FabricBlockSettings.of(Material.WOOD).requiresTool().strength(2.5f, 8.0f).nonOpaque());
@@ -56,6 +57,10 @@ public class ModBlocks {
 		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "deepslate_castle_bricks"), DEEPSLATE_CASTLE_BRICKS);
 		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "blackstone_castle_bricks"), BLACKSTONE_CASTLE_BRICKS);
 		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "nether_castle_bricks"), NETHER_CASTLE_BRICKS);
+		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "purpur_castle_bricks"), PURPUR_CASTLE_BRICKS);
+		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "end_stone_castle_bricks"), END_STONE_CASTLE_BRICKS);
+		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "brick_castle_bricks"), BRICK_CASTLE_BRICKS);
+		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "prismarine_castle_bricks"), PRISMARINE_CASTLE_BRICKS);
 
 		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "castle_door"), CASTLE_DOOR);
 
