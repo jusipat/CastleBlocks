@@ -6,9 +6,11 @@ import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Oxidizable;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.*;
+import net.minecraft.item.AxeItem;
+import net.minecraft.item.HoneycombItem;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUsageContext;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -36,7 +38,7 @@ public abstract class AxeItemMixin {
 		BlockState blockState = world.getBlockState(blockPos);
 		Optional<BlockState> optional = ModdedStrippedState.getStrippedState(blockState);
 		Optional<BlockState> optional2 = Oxidizable.getDecreasedOxidationState(blockState);
-		Optional<BlockState> optional3 = Optional.ofNullable((Block) HoneycombItem.WAXED_TO_UNWAXED_BLOCKS.get().get(blockState.getBlock())).map(block -> block.getStateWithProperties(blockState));
+		Optional<BlockState> optional3 = Optional.ofNullable(HoneycombItem.WAXED_TO_UNWAXED_BLOCKS.get().get(blockState.getBlock())).map(block -> block.getStateWithProperties(blockState));
 		ItemStack itemStack = context.getStack();
 		Optional<BlockState> optional4 = Optional.empty();
 		if (optional.isPresent()) {
@@ -58,8 +60,8 @@ public abstract class AxeItemMixin {
 			if (playerEntity instanceof ServerPlayerEntity) {
 				Criteria.ITEM_USED_ON_BLOCK.trigger((ServerPlayerEntity) playerEntity, blockPos, itemStack);
 			}
-			world.setBlockState(blockPos, (BlockState) optional4.get(), Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD);
-			world.emitGameEvent(GameEvent.BLOCK_CHANGE, blockPos, GameEvent.Emitter.of(playerEntity, (BlockState) optional4.get()));
+			world.setBlockState(blockPos, optional4.get(), Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD);
+			world.emitGameEvent(GameEvent.BLOCK_CHANGE, blockPos, GameEvent.Emitter.of(playerEntity, optional4.get()));
 			if (playerEntity != null) {
 				itemStack.damage(1, playerEntity, p -> p.sendToolBreakStatus(context.getHand()));
 			}
