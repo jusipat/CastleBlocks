@@ -1,7 +1,6 @@
 package com.jusipat.castleblocks.registry;
 
 import com.jusipat.castleblocks.CastleBlocksMod;
-import com.jusipat.castleblocks.block.fluid.ModFluids;
 import com.jusipat.castleblocks.item.KeyItem;
 import com.jusipat.castleblocks.item.TrowelItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;

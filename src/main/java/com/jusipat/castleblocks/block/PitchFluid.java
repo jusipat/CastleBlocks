@@ -1,6 +1,7 @@
-package com.jusipat.castleblocks.block.fluid;
+package com.jusipat.castleblocks.block;
 
 import com.jusipat.castleblocks.registry.ModBlocks;
+import com.jusipat.castleblocks.registry.ModFluids;
 import com.jusipat.castleblocks.registry.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

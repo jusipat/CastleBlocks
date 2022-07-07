@@ -1,5 +1,6 @@
-package com.jusipat.castleblocks.block.fluid;
+package com.jusipat.castleblocks.registry;
 import com.jusipat.castleblocks.CastleBlocksMod;
+import com.jusipat.castleblocks.block.PitchFluid;
 import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
