@@ -1,12 +1,8 @@
 package com.jusipat.castleblocks.registry;
 
 import com.jusipat.castleblocks.CastleBlocksMod;
-import com.jusipat.castleblocks.block.fluid.ModFluids;
-import com.jusipat.castleblocks.item.trowels.DiamondTrowelItem;
-import com.jusipat.castleblocks.item.trowels.GoldTrowelItem;
-import com.jusipat.castleblocks.item.trowels.IronTrowelItem;
 import com.jusipat.castleblocks.item.KeyItem;
-import com.jusipat.castleblocks.item.trowels.NetheriteTrowelItem;
+import com.jusipat.castleblocks.item.TrowelItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.BucketItem;
@@ -31,10 +27,10 @@ public class ModItems {
 
 	public static final BlockItem CASTLE_DOOR = new BlockItem(ModBlocks.CASTLE_DOOR, new Item.Settings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP));
 
-	public static final IronTrowelItem IRON_TROWEL = new IronTrowelItem(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP));
-	public static final DiamondTrowelItem DIAMOND_TROWEL = new DiamondTrowelItem(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP));
-	public static final GoldTrowelItem GOLD_TROWEL = new GoldTrowelItem(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP));
-	public static final NetheriteTrowelItem NETHERITE_TROWEL = new NetheriteTrowelItem(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP));
+	public static final Item IRON_TROWEL = new TrowelItem(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP), 250);
+	public static final Item DIAMOND_TROWEL = new TrowelItem(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP), 1561);
+	public static final Item GOLD_TROWEL = new TrowelItem(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP), 32);
+	public static final Item NETHERITE_TROWEL = new TrowelItem(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP), 250);
 
 	public static final KeyItem KEY = new KeyItem(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP));
 

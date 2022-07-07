@@ -1,4 +1,4 @@
-package com.jusipat.castleblocks.item.trowels;
+package com.jusipat.castleblocks.item;
 
 import com.jusipat.castleblocks.block.CastleBlockEntity;
 import com.jusipat.castleblocks.registry.ModBlocks;
@@ -16,17 +16,17 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldEvents;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DiamondTrowelItem extends Item {
+public class TrowelItem extends Item {
 	private static final Map<Identifier, Identifier> blockMap = new HashMap<>();
-	private static final int MAX_USES = 1561;
 
-	public DiamondTrowelItem(Settings settings) {
-		super(settings.maxCount(1).maxDamage(MAX_USES));
+	public TrowelItem(Settings settings, int maxUses) {
+		super(settings.maxCount(1).maxDamage(maxUses));
 
 		blockMap.put(Registry.BLOCK.getId(Blocks.STONE), Registry.BLOCK.getId(ModBlocks.CASTLE_BRICKS));
 		blockMap.put(Registry.BLOCK.getId(Blocks.POLISHED_ANDESITE), Registry.BLOCK.getId(ModBlocks.ANDESITE_CASTLE_BRICKS));
@@ -67,13 +67,13 @@ public class DiamondTrowelItem extends Item {
 				world.addBlockEntity(blockEntity);
 
 				if (world.isClient())
-					world.syncWorldEvent(player, 2001, blockPos, Block.getRawIdFromState(blockType.getDefaultState()));
+					world.syncWorldEvent(player, WorldEvents.BLOCK_BROKEN, blockPos, Block.getRawIdFromState(blockType.getDefaultState()));
 
 				context.getStack().damage(1, player, playerEntity -> playerEntity.sendToolBreakStatus(context.getHand()));
 
 				return ActionResult.SUCCESS;
 			} else if (world.getBlockEntity(blockPos) instanceof CastleBlockEntity blockEntity) {
-				Text ownerText =  Text.translatable("item.castleblocks.trowel.owner", blockEntity.getOwnerName());
+				Text ownerText = Text.translatable("item.castleblocks.trowel.owner", blockEntity.getOwnerName());
 				player.sendMessage(ownerText, true);
 			}
 		}

@@ -1,6 +1,7 @@
-package com.jusipat.castleblocks.block.fluid;
+package com.jusipat.castleblocks.block;
 
 import com.jusipat.castleblocks.registry.ModBlocks;
+import com.jusipat.castleblocks.registry.ModFluids;
 import com.jusipat.castleblocks.registry.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -114,7 +115,7 @@ public abstract class PitchFluid extends FlowableFluid {
 		}
 
 		public int getLevel(FluidState state) {
-			return (Integer)state.get(LEVEL);
+			return state.get(LEVEL);
 		}
 
 		public boolean isStill(FluidState state) {
