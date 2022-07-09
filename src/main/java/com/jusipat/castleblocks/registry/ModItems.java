@@ -25,6 +25,8 @@ public class ModItems {
 	public static final BlockItem PRISMARINE_CASTLE_BRICKS = new BlockItem(ModBlocks.PRISMARINE_CASTLE_BRICKS, new Item.Settings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP));
 	public static final BlockItem BRICK_CASTLE_BRICKS = new BlockItem(ModBlocks.BRICK_CASTLE_BRICKS, new Item.Settings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP));
 
+	public static final BlockItem PITCH_CANDLE = new BlockItem(ModBlocks.PITCH_CANDLE, new Item.Settings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP));
+
 	public static final BlockItem CASTLE_DOOR = new BlockItem(ModBlocks.CASTLE_DOOR, new Item.Settings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP));
 
 	public static final Item IRON_TROWEL = new TrowelItem(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP), 250);
@@ -38,6 +40,7 @@ public class ModItems {
 
 	public static final Item RESIN = new Item(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP));
 	public static final Item PITCH = new Item(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP));
+
 
 	public static void registerItems() {
 		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "castle_bricks"), CASTLE_BRICKS);
@@ -61,11 +64,12 @@ public class ModItems {
 
 		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "key"), KEY);
 
-		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "castle_door"), CASTLE_DOOR);
+		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "castle_door"),CASTLE_DOOR);
 
 		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "pitch_bucket"), PITCH_BUCKET);
 
 		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "resin"), RESIN);
 		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "pitch"), PITCH);
+		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "pitch_candle"), PITCH_CANDLE);
 	}
 }

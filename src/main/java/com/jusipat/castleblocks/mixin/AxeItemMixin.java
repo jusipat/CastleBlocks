@@ -1,6 +1,6 @@
 package com.jusipat.castleblocks.mixin;
 
-import com.jusipat.castleblocks.ModdedStrippedState;
+import com.jusipat.castleblocks.custom.ModdedStrippedState;
 import com.jusipat.castleblocks.registry.ModItems;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.Block;

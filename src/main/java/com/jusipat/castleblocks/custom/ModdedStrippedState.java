@@ -1,4 +1,4 @@
-package com.jusipat.castleblocks;
+package com.jusipat.castleblocks.custom;
 
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.block.Block;
