@@ -40,8 +40,10 @@ public class ModBlocks {
 	// CASTLE ENTITIES
 	public static final BlockEntityType<CastleDoorEntity> DOOR_BLOCK_ENTITY = FabricBlockEntityTypeBuilder.create(CastleDoorEntity::new, CASTLE_DOOR).build();
 	public static final BlockEntityType<CastleBlockEntity> CASTLE_BLOCK_ENTITY = FabricBlockEntityTypeBuilder.create(CastleBlockEntity::new, CASTLE_BRICKS, ANDESITE_CASTLE_BRICKS, DIORITE_CASTLE_BRICKS, GRANITE_CASTLE_BRICKS, SANDSTONE_CASTLE_BRICKS, DEEPSLATE_CASTLE_BRICKS, NETHER_CASTLE_BRICKS, BLACKSTONE_CASTLE_BRICKS, RED_SANDSTONE_CASTLE_BRICKS).build();
-
 	public static final FluidBlock PITCH_FLUID_BLOCK = new FluidBlock(ModFluids.PITCH_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing());
+	public static final Block PITCH_CANDLE = new CandleBlock(FabricBlockSettings.of(Material.DECORATION, MapColor.PALE_YELLOW).nonOpaque().strength(0.1f).sounds(BlockSoundGroup.CANDLE).luminance(CandleBlock.STATE_TO_LUMINANCE));
+	public static final Block PITCH_CANDLE_CAKE = new CandleBlock(FabricBlockSettings.copy(Blocks.CAKE).of(Material.DECORATION, MapColor.PALE_YELLOW).nonOpaque().strength(0.1f).sounds(BlockSoundGroup.CANDLE).luminance(CandleBlock.STATE_TO_LUMINANCE));
+
 	public static void registerBlocks() {
 
 		// CASTLE BLOCKS
@@ -65,5 +67,7 @@ public class ModBlocks {
 		Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(CastleBlocksMod.MOD_ID, "castle_bricks"), CASTLE_BLOCK_ENTITY);
 
 		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "pitch_fluid_block"), PITCH_FLUID_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "pitch_candle"), PITCH_CANDLE);
+		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "pitch_candle_cake"), PITCH_CANDLE_CAKE);
 	}
 }
