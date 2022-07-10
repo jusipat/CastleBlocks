@@ -32,7 +32,7 @@ public class ModItems {
 	public static final Item IRON_TROWEL = new TrowelItem(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP), 250);
 	public static final Item DIAMOND_TROWEL = new TrowelItem(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP), 1561);
 	public static final Item GOLD_TROWEL = new TrowelItem(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP), 32);
-	public static final Item NETHERITE_TROWEL = new TrowelItem(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP), 250);
+	public static final Item NETHERITE_TROWEL = new TrowelItem(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP), 2031);
 
 	public static final KeyItem KEY = new KeyItem(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP));
 
