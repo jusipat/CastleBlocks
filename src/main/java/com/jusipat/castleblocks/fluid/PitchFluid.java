@@ -1,4 +1,4 @@
-package com.jusipat.castleblocks.block;
+package com.jusipat.castleblocks.fluid;
 
 import com.jusipat.castleblocks.registry.ModBlocks;
 import com.jusipat.castleblocks.registry.ModFluids;
