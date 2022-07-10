@@ -23,11 +23,10 @@ import java.util.List;
 import java.util.Map;
 
 public class TrowelItem extends Item {
-	public static final int MAX_USES = 128;
 	private static final Map<Identifier, Identifier> blockMap = new HashMap<>();
 
-	public TrowelItem(Settings settings) {
-		super(settings.maxCount(1).maxDamage(MAX_USES));
+	public TrowelItem(Settings settings, int maxUses) {
+		super(settings.maxCount(1).maxDamage(maxUses));
 
 		blockMap.put(Registry.BLOCK.getId(Blocks.STONE), Registry.BLOCK.getId(ModBlocks.CASTLE_BRICKS));
 		blockMap.put(Registry.BLOCK.getId(Blocks.POLISHED_ANDESITE), Registry.BLOCK.getId(ModBlocks.ANDESITE_CASTLE_BRICKS));
@@ -38,6 +37,10 @@ public class TrowelItem extends Item {
 		blockMap.put(Registry.BLOCK.getId(Blocks.DEEPSLATE), Registry.BLOCK.getId(ModBlocks.DEEPSLATE_CASTLE_BRICKS));
 		blockMap.put(Registry.BLOCK.getId(Blocks.POLISHED_BLACKSTONE), Registry.BLOCK.getId(ModBlocks.BLACKSTONE_CASTLE_BRICKS));
 		blockMap.put(Registry.BLOCK.getId(Blocks.NETHER_BRICKS), Registry.BLOCK.getId(ModBlocks.NETHER_CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.BRICKS), Registry.BLOCK.getId(ModBlocks.BRICK_CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.PURPUR_BLOCK), Registry.BLOCK.getId(ModBlocks.PURPUR_CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.PRISMARINE_BRICKS), Registry.BLOCK.getId(ModBlocks.PRISMARINE_CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.END_STONE_BRICKS), Registry.BLOCK.getId(ModBlocks.END_STONE_CASTLE_BRICKS));
 	}
 
 	@Override

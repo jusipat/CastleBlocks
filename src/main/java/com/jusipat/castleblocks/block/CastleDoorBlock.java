@@ -42,13 +42,16 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
 	@Override
 	public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
 		super.onPlaced(world, pos, state, placer, itemStack);
-		if (placer instanceof PlayerEntity) {
+		if (placer instanceof PlayerEntity player) {
 			ItemStack gennedKey = new ItemStack(ModItems.KEY, 1);
 
 			if (world.getBlockEntity(pos) instanceof CastleDoorEntity blockEntity) {
 				NbtCompound keynbt = gennedKey.getOrCreateNbt();
 				keynbt.putUuid("doorid", blockEntity.doorId);
 				keynbt.putIntArray("door_location", new int[]{pos.getX(), pos.getY(), pos.getZ()});
+			}
+			if (player.getInventory().getEmptySlot() == -1) {
+				player.dropStack(gennedKey);
 			}
 			((PlayerEntity) placer).giveItemStack(gennedKey);
 		}

@@ -6,14 +6,14 @@
 	],
 	"key": {
 		"I": {
-			"item": "minecraft:iron_ingot"
+			"item": "minecraft:gold_ingot"
 		},
 		"S": {
 			"item": "minecraft:stick"
 		}
 	},
 	"result": {
-		"item": "castleblocks:trowel",
+		"item": "castleblocks:gold_trowel",
 		"count": 1
 	}
 }

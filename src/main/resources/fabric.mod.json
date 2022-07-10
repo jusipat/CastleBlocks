@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "CastleBlocks",
-  "description": "T",
+  "description": "",
   "authors": [
     "jusipat",
     "Wawful947",
@@ -29,7 +29,7 @@
     "fabricloader": ">=0.12.12",
     "fabric": "*",
     "minecraft": "1.18.x",
-    "java": ">=17"
+    "java": ">=16"
   },
   "suggests": {
     "another-mod": "*"

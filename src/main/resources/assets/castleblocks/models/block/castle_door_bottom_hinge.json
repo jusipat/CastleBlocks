@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/door_bottom_left",
+  "parent": "minecraft:block/door_bottom_rh",
   "textures": {
     "bottom": "castleblocks:block/castle_door_bottom",
     "top": "castleblocks:block/castle_door_top"
