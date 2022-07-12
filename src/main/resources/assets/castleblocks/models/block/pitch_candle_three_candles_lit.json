@@ -2,6 +2,6 @@
   "parent": "minecraft:block/template_three_candles",
   "textures": {
     "all": "castleblocks:block/pitch_candle_lit",
-    "particle": "castleblocks:pitch/black_candle_lit"
+    "particle": "castleblocks:block/pitch_candle_lit"
   }
 }
