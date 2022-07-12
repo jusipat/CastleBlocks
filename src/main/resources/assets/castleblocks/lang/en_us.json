@@ -22,6 +22,12 @@
   "item.castleblocks.trowel.tooltip": "§3Right click on stone to turn to CastleBricks!",
   "item.castleblocks.trowel.owner": "CastleBlock owned by: %s",
 
+  "item.castleblocks.key": "Key",
+  "item.castleblocks.key.tooltip": "Paired to door %s",
+  "item.castleblocks.door.alert": "This door requires a key to open!",
+  "item.castleblocks.door.owner.registered": "Key successfully assigned!",
+  "item.castleblocks.door.rejected": "This key does not fit...",
+
   "itemGroup.castleblocks.items": "CastleBlocks"
 
 }
