@@ -23,17 +23,23 @@ import java.util.List;
 import java.util.Map;
 
 public class TrowelItem extends Item {
-	public static final int MAX_USES = 128;
 	private static final Map<Identifier, Identifier> blockMap = new HashMap<>();
 
-	public TrowelItem(Settings settings) {
-		super(settings.maxCount(1).maxDamage(MAX_USES));
+	public TrowelItem(Settings settings, int maxUses) {
+		super(settings.maxCount(1).maxDamage(maxUses));
 
 		blockMap.put(Registry.BLOCK.getId(Blocks.STONE), Registry.BLOCK.getId(ModBlocks.CASTLE_BRICKS));
 		blockMap.put(Registry.BLOCK.getId(Blocks.POLISHED_ANDESITE), Registry.BLOCK.getId(ModBlocks.ANDESITE_CASTLE_BRICKS));
 		blockMap.put(Registry.BLOCK.getId(Blocks.POLISHED_DIORITE), Registry.BLOCK.getId(ModBlocks.DIORITE_CASTLE_BRICKS));
 		blockMap.put(Registry.BLOCK.getId(Blocks.POLISHED_GRANITE), Registry.BLOCK.getId(ModBlocks.GRANITE_CASTLE_BRICKS));
-		blockMap.put(Registry.BLOCK.getId(Blocks.CUT_SANDSTONE), Registry.BLOCK.getId(ModBlocks.SANDSTONE_CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.SMOOTH_SANDSTONE), Registry.BLOCK.getId(ModBlocks.SANDSTONE_CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.SMOOTH_RED_SANDSTONE), Registry.BLOCK.getId(ModBlocks.RED_SANDSTONE_CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.POLISHED_BLACKSTONE), Registry.BLOCK.getId(ModBlocks.BLACKSTONE_CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.NETHER_BRICKS), Registry.BLOCK.getId(ModBlocks.NETHER_CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.BRICKS), Registry.BLOCK.getId(ModBlocks.BRICK_CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.PURPUR_BLOCK), Registry.BLOCK.getId(ModBlocks.PURPUR_CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.PRISMARINE_BRICKS), Registry.BLOCK.getId(ModBlocks.PRISMARINE_CASTLE_BRICKS));
+		blockMap.put(Registry.BLOCK.getId(Blocks.END_STONE_BRICKS), Registry.BLOCK.getId(ModBlocks.END_STONE_CASTLE_BRICKS));
 	}
 
 	@Override
@@ -55,9 +61,9 @@ public class TrowelItem extends Item {
 				Block blockType = Registry.BLOCK.get(blockMap.get(blockId));
 				world.setBlockState(blockPos, blockType.getDefaultState());
 
-				CastleBlockEntity blockEntity = new CastleBlockEntity(blockPos, blockType.getDefaultState());
+				CastleBlockEntity blockEntity = new CastleBlockEntity();
 				blockEntity.setOwner(player);
-				world.addBlockEntity(blockEntity);
+				world.setBlockEntity(blockPos, blockEntity);
 
 				if (world.isClient())
 					world.syncWorldEvent(player, 2001, blockPos, Block.getRawIdFromState(blockType.getDefaultState()));
@@ -65,9 +71,12 @@ public class TrowelItem extends Item {
 				context.getStack().damage(1, player, playerEntity -> playerEntity.sendToolBreakStatus(context.getHand()));
 
 				return ActionResult.SUCCESS;
-			} else if (world.getBlockEntity(blockPos) instanceof CastleBlockEntity blockEntity) {
-				Text ownerText = new TranslatableText("item.castleblocks.trowel.owner", blockEntity.getOwnerName());
-				player.sendMessage(ownerText, true);
+			} else if (world.getBlockEntity(blockPos) instanceof CastleBlockEntity) {
+				CastleBlockEntity blockEntity = (CastleBlockEntity) world.getBlockEntity(blockPos);
+				if (blockEntity != null) {
+					Text ownerText = new TranslatableText("item.castleblocks.trowel.owner", blockEntity.getOwnerName());
+					player.sendMessage(ownerText, true);
+				}
 			}
 		}
 

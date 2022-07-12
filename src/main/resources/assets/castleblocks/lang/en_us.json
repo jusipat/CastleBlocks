@@ -3,11 +3,25 @@
   "block.castleblocks.andesite_castle_bricks": "Andesite Castle Bricks",
   "block.castleblocks.diorite_castle_bricks": "Diorite Castle Bricks",
   "block.castleblocks.granite_castle_bricks": "Granite Castle Bricks",
+  "block.castleblocks.deepslate_castle_bricks": "Deepslate Castle Bricks",
+  "block.castleblocks.blackstone_castle_bricks": "Blackstone Castle Bricks",
   "block.castleblocks.sandstone_castle_bricks": "Sandstone Castle Bricks",
+  "block.castleblocks.red_sandstone_castle_bricks": "Red Sandstone Castle Bricks",
+  "block.castleblocks.nether_castle_bricks": "Nether Castle Bricks",
+  "block.castleblocks.end_stone_castle_bricks": "End Stone Castle Bricks",
+  "block.castleblocks.prismarine_castle_bricks": "Prismarine Castle Bricks",
+  "block.castleblocks.purpur_castle_bricks": "Purpur Castle Bricks",
+  "block.castleblocks.brick_castle_bricks": "Brick Castle Bricks",
 
-  "item.castleblocks.trowel": "Trowel",
+  "block.castleblocks.castle_door": "Castle Door",
+
+  "item.castleblocks.iron_trowel": "Iron Trowel",
+  "item.castleblocks.diamond_trowel": "Diamond Trowel",
+  "item.castleblocks.gold_trowel": "Golden Trowel",
+  "item.castleblocks.netherite_trowel": "Netherite Trowel",
   "item.castleblocks.trowel.tooltip": "§3Right click on stone to turn to CastleBricks!",
   "item.castleblocks.trowel.owner": "CastleBlock owned by: %s",
 
-  "itemGroup.castleblocks.items": "CastleBlocks Items"
+  "itemGroup.castleblocks.items": "CastleBlocks"
+
 }
