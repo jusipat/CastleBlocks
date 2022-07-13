@@ -9,6 +9,6 @@ public class BoulderBlock extends FallingBlock {
     }
 
     protected void configureFallingBlockEntity(FallingBlockEntity entity) {
-        entity.setHurtEntities(2.0F, 40);
+        entity.setHurtEntities(4.0F, 40);
     }
 }

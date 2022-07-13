@@ -74,6 +74,6 @@ public class ModItems {
 		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "pitch"), PITCH);
 		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "pitch_candle"), PITCH_CANDLE);
 
-		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "boulder_block"), BOULDER_BLOCK);
+		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "boulder"), BOULDER_BLOCK);
 	}
 }
