@@ -34,7 +34,7 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
     }
 
     boolean redstoneInput;
-    float keyIteratorFloat;
+    int keyIterator;
     int keyPopulation;
 
 
@@ -55,7 +55,7 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
     @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
         super.onPlaced(world, pos, state, placer, itemStack);
-        keyIteratorFloat = 1.0f;
+        keyIterator = 1;
         keyPopulation = 0;
         if (placer instanceof PlayerEntity player) {
             ItemStack gennedKey = new ItemStack(ModItems.KEY, 1);
@@ -68,6 +68,7 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
                     keyPopulation++;
                 }
             }
+            keyPopulation++;
             player.giveItemStack(gennedKey);
         }
     }
@@ -97,10 +98,11 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
                     return super.onUse(state, world, pos, player, hand, hit);
                 }
                 if (Objects.equals(nbt.getUuid("doorid"), blockEntity.doorId) && (redstoneInput)) {
-                    keyIteratorFloat += 0.5f;
-                    if (keyIteratorFloat > 10)
-                        keyIteratorFloat = 1;
-                    player.sendMessage(Text.translatable("item.castleblocks.door.iterator", (int) keyIteratorFloat), true);
+                    if (!world.isClient)
+                        keyIterator++;
+                    if (keyIterator > 10)
+                        keyIterator = 1;
+                    player.sendMessage(Text.translatable("item.castleblocks.door.iterator", (int) keyIterator), true);
                     return ActionResult.SUCCESS;
 
                 }
@@ -114,18 +116,22 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
 
             } else {
                 if (keyStack.getItem() instanceof KeyItem) {
-                    if (!(keyPopulation >= (int) keyIteratorFloat)) {
-                        keyPopulation++;
-                        nbt.putUuid("doorid", blockEntity.doorId);
-                        nbt.putIntArray("door_location", new int[]{pos.getX(), pos.getY(), pos.getZ()});
-                        Text registeredText = Text.translatable("item.castleblocks.door.owner.registered");
-                        player.sendMessage(registeredText, true);
+                    if (!(keyPopulation > (int) keyIterator)) {
+                        if (!world.isClient) {
+                            keyPopulation++;
+                            nbt.putUuid("doorid", blockEntity.doorId);
+                            nbt.putIntArray("door_location", new int[]{pos.getX(), pos.getY(), pos.getZ()});
+                            Text registeredText = Text.translatable("item.castleblocks.door.owner.registered");
+                            player.sendMessage(registeredText, true);
+                        }
                     } else {
-                        player.sendMessage(Text.translatable("item.castleblocks.door.exceeding_key_limit", (int) keyIteratorFloat), true);
+                        player.sendMessage(Text.translatable("item.castleblocks.door.exceeding_key_limit", (int) keyIterator), true);
                         return ActionResult.SUCCESS;
                     }
                 }
             }
+            System.out.println("NUMBER OF KEYS" + keyPopulation);
+            System.out.println( "\n" + "MAX KEYS: " + keyIterator);
         }
         return ActionResult.SUCCESS;
     }

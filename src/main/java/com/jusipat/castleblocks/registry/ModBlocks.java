@@ -1,10 +1,7 @@
 package com.jusipat.castleblocks.registry;
 
 import com.jusipat.castleblocks.CastleBlocksMod;
-import com.jusipat.castleblocks.block.CastleBlock;
-import com.jusipat.castleblocks.block.CastleBlockEntity;
-import com.jusipat.castleblocks.block.CastleDoorBlock;
-import com.jusipat.castleblocks.block.CastleDoorEntity;
+import com.jusipat.castleblocks.block.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.*;
@@ -44,6 +41,8 @@ public class ModBlocks {
 
 	public static final Block PITCH_CANDLE = new CandleBlock(FabricBlockSettings.of(Material.DECORATION, MapColor.WHITE_GRAY).nonOpaque().strength(0.1F).sounds(BlockSoundGroup.CANDLE).luminance(CandleBlock.STATE_TO_LUMINANCE));
 	public static final Block PITCH_CANDLE_CAKE = new CandleCakeBlock(PITCH_CANDLE, FabricBlockSettings.copyOf(Blocks.CANDLE_CAKE));
+
+	public static final Block BOULDER_BLOCK = new BoulderBlock(FabricBlockSettings.of(Material.STONE));
 	public static void registerBlocks() {
 
 		// CASTLE BLOCKS
@@ -69,5 +68,7 @@ public class ModBlocks {
 		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "pitch_fluid_block"), PITCH_FLUID_BLOCK);
 		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "pitch_candle"), PITCH_CANDLE);
 		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "pitch_candle_cake"), PITCH_CANDLE_CAKE);
+
+		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "boulder_block"), BOULDER_BLOCK);
 	}
 }

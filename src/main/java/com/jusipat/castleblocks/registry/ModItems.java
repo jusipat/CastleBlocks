@@ -29,6 +29,8 @@ public class ModItems {
 
 	public static final BlockItem CASTLE_DOOR = new BlockItem(ModBlocks.CASTLE_DOOR, new Item.Settings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP));
 
+	public static final BlockItem BOULDER_BLOCK = new BlockItem(ModBlocks.BOULDER_BLOCK, new Item.Settings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP));
+
 	public static final Item IRON_TROWEL = new TrowelItem(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP), 250);
 	public static final Item DIAMOND_TROWEL = new TrowelItem(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP), 1561);
 	public static final Item GOLD_TROWEL = new TrowelItem(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP), 32);
@@ -71,5 +73,7 @@ public class ModItems {
 		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "resin"), RESIN);
 		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "pitch"), PITCH);
 		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "pitch_candle"), PITCH_CANDLE);
+
+		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "boulder_block"), BOULDER_BLOCK);
 	}
 }

@@ -7,10 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Oxidizable;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.AxeItem;
-import net.minecraft.item.HoneycombItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.*;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -45,6 +42,8 @@ public abstract class AxeItemMixin {
 			world.playSound(playerEntity, blockPos, SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1.0f, 1.0f);
 			if (playerEntity.getInventory().getEmptySlot() == -1) {
 				playerEntity.dropStack(new ItemStack(ModItems.RESIN, 1));
+			} else {
+				playerEntity.giveItemStack(new ItemStack(ModItems.RESIN, 1));
 			}
 			optional4 = optional;
 		} else if (optional2.isPresent()) {
