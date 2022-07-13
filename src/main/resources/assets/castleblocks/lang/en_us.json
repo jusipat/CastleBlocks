@@ -27,6 +27,8 @@
   "item.castleblocks.door.alert": "This door requires a key to open!",
   "item.castleblocks.door.owner.registered": "Key successfully assigned!",
   "item.castleblocks.door.rejected": "This key does not fit...",
+  "item.castleblocks.door.iterator" : "Number of registrable keys: %s",
+  "item.castleblocks.door.exceeding_key_limit": "Key could not be linked, set key limit exceeded!",
 
   "item.castleblocks.pitch_bucket": "Pitch Bucket",
   "item.castleblocks.pitch": "Pitch",
