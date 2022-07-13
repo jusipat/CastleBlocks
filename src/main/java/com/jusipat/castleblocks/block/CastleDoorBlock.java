@@ -82,15 +82,6 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
         if (world.getBlockEntity(entityPos) instanceof CastleDoorEntity blockEntity) {
 
             ItemStack keyStack = player.getStackInHand(hand);
-
-            if (!(keyStack.getItem() instanceof KeyItem)) {
-                Text alertText = Text.translatable("item.castleblocks.door.alert");
-                player.sendMessage(alertText, true);
-                if (!world.isClient)
-                    world.playSound(null, pos, SoundEvents.ENTITY_ZOMBIE_ATTACK_WOODEN_DOOR, SoundCategory.BLOCKS, 1f, 1f);
-                return ActionResult.SUCCESS;
-            }
-
             NbtCompound nbt = keyStack.getOrCreateNbt();
 
             if (nbt.contains("doorid")) {
@@ -103,36 +94,35 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
                     if (keyIterator > 10)
                         keyIterator = 1;
                     player.sendMessage(Text.translatable("item.castleblocks.door.iterator", (int) keyIterator), true);
-                    return ActionResult.SUCCESS;
 
                 }
                 if (nbt.getUuid("doorid") != blockEntity.doorId) {
-                    Text denyText = Text.translatable("item.castleblocks.door.rejected");
-                    player.sendMessage(denyText, true);
-                    if (!world.isClient)
-                        world.playSound(null, pos, SoundEvents.BLOCK_LEVER_CLICK, SoundCategory.BLOCKS, 1f, 1f);
-                    return ActionResult.SUCCESS;
-                }
+                    player.sendMessage(Text.translatable("item.castleblocks.door.rejected", keyIterator), true);
 
+                }
             } else {
                 if (keyStack.getItem() instanceof KeyItem) {
-                    if (!(keyPopulation > (int) keyIterator)) {
+                    if (!(keyPopulation >= keyIterator)) {
                         if (!world.isClient) {
-                            keyPopulation++;
                             nbt.putUuid("doorid", blockEntity.doorId);
                             nbt.putIntArray("door_location", new int[]{pos.getX(), pos.getY(), pos.getZ()});
+                            keyPopulation += 1;
                             Text registeredText = Text.translatable("item.castleblocks.door.owner.registered");
                             player.sendMessage(registeredText, true);
                         }
                     } else {
-                        player.sendMessage(Text.translatable("item.castleblocks.door.exceeding_key_limit", (int) keyIterator), true);
-                        return ActionResult.SUCCESS;
+                        player.sendMessage(Text.translatable("item.castleblocks.door.exceeding_key_limit", keyIterator), true);
                     }
                 }
             }
-            System.out.println("NUMBER OF KEYS" + keyPopulation);
-            System.out.println( "\n" + "MAX KEYS: " + keyIterator);
+            if (!(keyStack.getItem() instanceof KeyItem) && (!redstoneInput)) {
+                player.sendMessage(Text.translatable("item.castleblocks.door.alert"), true);
+                if (!world.isClient)
+                    world.playSound(null, pos, SoundEvents.ENTITY_ZOMBIE_ATTACK_WOODEN_DOOR, SoundCategory.BLOCKS, 1f, 1f);
+            }
         }
+        //System.out.println("NUMBER OF KEYS: " + keyPopulation);
+        //System.out.println("\n" + "MAX KEYS: " + keyIterator);
         return ActionResult.SUCCESS;
     }
 
