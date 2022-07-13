@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "castleblocks:pitch"
+    },
+    {
+      "item": "castleblocks:pitch"
+    },
+    {
+      "item": "castleblocks:pitch"
+    },
+    {
+      "item": "castleblocks:pitch"
+    },
+    {
+      "item": "minecraft:bucket"
+    },
+    {
+      "item": "castleblocks:pitch"
+    },
+    {
+      "item": "castleblocks:pitch"
+    },
+    {
+      "item": "minecraft:magma_block"
+    },
+    {
+      "item": "castleblocks:pitch"
+    }
+  ],
+  "result": {
+    "item": "castleblocks:pitch_bucket",
+    "count": 1
+  }
+}

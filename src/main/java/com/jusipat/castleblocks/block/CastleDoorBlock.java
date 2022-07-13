@@ -59,7 +59,6 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
         keyPopulation = 0;
         if (placer instanceof PlayerEntity player) {
             ItemStack gennedKey = new ItemStack(ModItems.KEY, 1);
-
             if (world.getBlockEntity(pos) instanceof CastleDoorEntity blockEntity) {
                 NbtCompound keynbt = gennedKey.getOrCreateNbt();
                 keynbt.putUuid("doorid", blockEntity.doorId);
@@ -115,12 +114,15 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
 
             } else {
                 if (keyStack.getItem() instanceof KeyItem) {
-                    if (!(keyPopulation > (int) keyIteratorFloat)) {
+                    if (!(keyPopulation >= (int) keyIteratorFloat)) {
                         keyPopulation++;
                         nbt.putUuid("doorid", blockEntity.doorId);
                         nbt.putIntArray("door_location", new int[]{pos.getX(), pos.getY(), pos.getZ()});
                         Text registeredText = Text.translatable("item.castleblocks.door.owner.registered");
                         player.sendMessage(registeredText, true);
+                    } else {
+                        player.sendMessage(Text.translatable("item.castleblocks.door.exceeding_key_limit", (int) keyIteratorFloat), true);
+                        return ActionResult.SUCCESS;
                     }
                 }
             }
