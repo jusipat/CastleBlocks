@@ -96,14 +96,16 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
                     player.sendMessage(Text.translatable("item.castleblocks.door.iterator", (int) keyIterator), true);
 
                 }
-                if (nbt.getUuid("doorid") != blockEntity.doorId) {
+                if (nbt.getUuid("doorid") != blockEntity.doorId && (!redstoneInput)) {
                     player.sendMessage(Text.translatable("item.castleblocks.door.rejected", keyIterator), true);
+                    if (!world.isClient)
+                        world.playSound(null, pos, SoundEvents.BLOCK_LEVER_CLICK, SoundCategory.BLOCKS, 1f, 1f);
 
                 }
             } else {
                 if (keyStack.getItem() instanceof KeyItem) {
                     if (!(keyPopulation >= keyIterator)) {
-                        if (!world.isClient) {
+                        if (!world.isClient && (!nbt.contains("doorid"))) {
                             nbt.putUuid("doorid", blockEntity.doorId);
                             nbt.putIntArray("door_location", new int[]{pos.getX(), pos.getY(), pos.getZ()});
                             keyPopulation += 1;
@@ -121,8 +123,6 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
                     world.playSound(null, pos, SoundEvents.ENTITY_ZOMBIE_ATTACK_WOODEN_DOOR, SoundCategory.BLOCKS, 1f, 1f);
             }
         }
-        //System.out.println("NUMBER OF KEYS: " + keyPopulation);
-        //System.out.println("\n" + "MAX KEYS: " + keyIterator);
         return ActionResult.SUCCESS;
     }
 
