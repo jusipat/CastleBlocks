@@ -5,15 +5,15 @@
   "version": "${version}",
 
   "name": "CastleBlocks",
-  "description": "T",
+  "description": "Adds bricks only the original placer can easily break.",
   "authors": [
     "jusipat",
     "Wawful947",
     "cflip"
   ],
   "contact": {
-    "homepage": "",
-    "sources": ""
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/castleblocks",
+    "sources": "https://github.com/jusipat/CastleBlocks"
   },
 
   "license": "CC0-1.0",
