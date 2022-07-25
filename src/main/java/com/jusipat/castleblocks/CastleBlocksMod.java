@@ -1,5 +1,6 @@
 package com.jusipat.castleblocks;
 
+import com.jusipat.castleblocks.registry.ModBlockEntities;
 import com.jusipat.castleblocks.registry.ModBlocks;
 import com.jusipat.castleblocks.registry.ModItems;
 import com.mojang.logging.LogUtils;
@@ -32,6 +33,7 @@ public class CastleBlocksMod {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
+        ModBlockEntities.register(eventBus);
 
         eventBus.addListener(this::setup);
 

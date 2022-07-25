@@ -1,6 +1,7 @@
 package com.jusipat.castleblocks.registry;
 
 import com.jusipat.castleblocks.CastleBlocksMod;
+import com.jusipat.castleblocks.block.CastleBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -19,8 +20,18 @@ public class ModBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, CastleBlocksMod.MOD_ID);
 
     public static final RegistryObject<Block> CASTLE_BRICKS = registerBlock("castle_bricks",
-            () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
+            () -> new CastleBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(9f).requiresCorrectToolForDrops()), CreativeModeTab.TAB_MISC);
+    public static final RegistryObject<Block> ANDESITE_CASTLE_BRICKS = registerBlock("andesite_castle_bricks",
+            () -> new CastleBlock(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(9f).requiresCorrectToolForDrops()), CreativeModeTab.TAB_MISC);
+    public static final RegistryObject<Block> DIORITE_CASTLE_BRICKS = registerBlock("diorite_castle_bricks",
+            () -> new CastleBlock(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(9f).requiresCorrectToolForDrops()), CreativeModeTab.TAB_MISC);
+    public static final RegistryObject<Block> GRANITE_CASTLE_BRICKS = registerBlock("granite_castle_bricks",
+            () -> new CastleBlock(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(9f).requiresCorrectToolForDrops()), CreativeModeTab.TAB_MISC);
+
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
