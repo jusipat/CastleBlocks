@@ -2,6 +2,7 @@ package com.jusipat.castleblocks.registry;
 
 import com.jusipat.castleblocks.CastleBlocksMod;
 import com.jusipat.castleblocks.item.KeyItem;
+import com.jusipat.castleblocks.item.TreeTapItem;
 import com.jusipat.castleblocks.item.TrowelItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.BlockItem;
@@ -40,6 +41,7 @@ public class ModItems {
 
 	public static final BucketItem PITCH_BUCKET = new BucketItem(ModFluids.PITCH_STILL, new Item.Settings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP).maxCount(1));
 
+	public static final Item TREE_TAP = new TreeTapItem(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP), 128);
 	public static final Item RESIN = new Item(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP));
 	public static final Item PITCH = new Item(new FabricItemSettings().group(CastleBlocksMod.CASTLEBLOCKS_GROUP));
 
@@ -71,6 +73,7 @@ public class ModItems {
 		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "pitch_bucket"), PITCH_BUCKET);
 
 		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "resin"), RESIN);
+		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "tree_tap"), TREE_TAP);
 		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "pitch"), PITCH);
 		Registry.register(Registry.ITEM, new Identifier(CastleBlocksMod.MOD_ID, "pitch_candle"), PITCH_CANDLE);
 

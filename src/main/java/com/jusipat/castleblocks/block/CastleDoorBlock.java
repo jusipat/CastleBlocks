@@ -24,7 +24,6 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 import java.util.Objects;
-import java.util.logging.Logger;
 
 
 public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
