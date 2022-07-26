@@ -19,7 +19,7 @@ import java.util.Random;
 public class TreeTapItem extends Item {
 
     public TreeTapItem(Settings settings, int maxUses) {
-        super(settings);
+        super(settings.maxDamage(maxUses).maxCount(1));
 
 
     }
