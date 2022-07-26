@@ -6,7 +6,8 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class CastleBlockEntity extends BlockEntity {
-    public CastleBlockEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState state) {
-        super(blockEntityType, blockPos, state);
+
+    public CastleBlockEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
+        super(blockEntityType, blockPos, blockState);
     }
 }
