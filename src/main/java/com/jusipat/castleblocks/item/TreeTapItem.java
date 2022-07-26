@@ -1,6 +1,7 @@
 package com.jusipat.castleblocks.item;
 
 import com.jusipat.castleblocks.registry.ModItems;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
@@ -22,8 +23,6 @@ import java.util.Random;
 
 public class TreeTapItem extends Item {
 
-    boolean extracted = false;
-
 
     public TreeTapItem(Settings settings, int maxUses) {
         super(settings.maxCount(1).maxDamage(maxUses));
@@ -35,7 +34,7 @@ public class TreeTapItem extends Item {
     public ActionResult useOnBlock(ItemUsageContext context) {
 
         Random rand = new Random();
-        int maxN = 2;
+        int maxN = 3;
         int n = rand.nextInt(maxN) + 1;
 
         BlockPos blockPos = context.getBlockPos();
@@ -48,16 +47,18 @@ public class TreeTapItem extends Item {
         if (player != null) {
             Identifier blockId = Registry.BLOCK.getId(blockState.getBlock());
             if (!world.isClient) {
-                if (blockId.equals(Registry.BLOCK.getId(Blocks.STRIPPED_OAK_LOG)) && !extracted) {
+                if (blockId.equals(Registry.BLOCK.getId(Blocks.OAK_LOG))) {
                     world.playSound(null, blockPos, SoundEvents.BLOCK_SLIME_BLOCK_HIT, SoundCategory.BLOCKS, .5f, 1f);
                     world.playSound(null, blockPos, SoundEvents.BLOCK_BEEHIVE_SHEAR, SoundCategory.BLOCKS, .5f, 1f);
                     context.getStack().damage(1, player, playerEntity -> playerEntity.sendToolBreakStatus(context.getHand()));
+                    world.breakBlock(blockPos, false);
+                    world.setBlockState(blockPos, Blocks.STRIPPED_OAK_LOG.getDefaultState());
+
                     if (player.getInventory().getEmptySlot() == -1) {
                         player.dropStack(stack);
                     } else {
                         player.giveItemStack(stack);
                     }
-                    extracted = true; //TODO: disable this!
                     return ActionResult.SUCCESS;
                 }
             }

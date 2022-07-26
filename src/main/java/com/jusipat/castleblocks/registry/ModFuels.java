@@ -7,5 +7,6 @@ public class ModFuels {
 		FuelRegistry registry = FuelRegistry.INSTANCE;
 
 		registry.add(ModItems.PITCH, 2200);
+		registry.add(ModItems.RESIN, 400);
 	}
 }
