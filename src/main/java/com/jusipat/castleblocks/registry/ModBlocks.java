@@ -35,14 +35,17 @@ public class ModBlocks {
 	// CASTLE ENTITIES
 	public static final BlockEntityType<CastleDoorEntity> DOOR_BLOCK_ENTITY = FabricBlockEntityTypeBuilder.create(CastleDoorEntity::new, CASTLE_DOOR).build();
 	public static final BlockEntityType<CastleBlockEntity> CASTLE_BLOCK_ENTITY = FabricBlockEntityTypeBuilder.create(CastleBlockEntity::new, CASTLE_BRICKS, ANDESITE_CASTLE_BRICKS, DIORITE_CASTLE_BRICKS, GRANITE_CASTLE_BRICKS, SANDSTONE_CASTLE_BRICKS, DEEPSLATE_CASTLE_BRICKS, NETHER_CASTLE_BRICKS, BLACKSTONE_CASTLE_BRICKS, RED_SANDSTONE_CASTLE_BRICKS, END_STONE_CASTLE_BRICKS, BRICK_CASTLE_BRICKS, PRISMARINE_CASTLE_BRICKS, PURPUR_CASTLE_BRICKS).build();
-	public static final FluidBlock PITCH_FLUID_BLOCK = new FluidBlock(ModFluids.PITCH_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing());
+
 
 	// CASTLE MISC.
 
 	public static final Block PITCH_CANDLE = new CandleBlock(FabricBlockSettings.of(Material.DECORATION, MapColor.WHITE_GRAY).nonOpaque().strength(0.1F).sounds(BlockSoundGroup.CANDLE).luminance(CandleBlock.STATE_TO_LUMINANCE));
 	public static final Block PITCH_CANDLE_CAKE = new CandleCakeBlock(PITCH_CANDLE, FabricBlockSettings.copyOf(Blocks.CANDLE_CAKE));
 
+	public static final FluidBlock PITCH_FLUID_BLOCK = new FluidBlock(ModFluids.PITCH_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing());
 	public static final Block BOULDER_BLOCK = new BoulderBlock(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.TUFF).strength(0.1f, 10.0f));
+
+	public static final Block SIEGE_LADDER = new SiegeLadderBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(0.1f, 1f));
 	public static void registerBlocks() {
 
 		// CASTLE BLOCKS
@@ -70,5 +73,6 @@ public class ModBlocks {
 		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "pitch_candle_cake"), PITCH_CANDLE_CAKE);
 
 		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "boulder"), BOULDER_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "siege_ladder"), SIEGE_LADDER);
 	}
 }
