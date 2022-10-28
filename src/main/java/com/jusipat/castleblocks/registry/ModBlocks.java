@@ -45,7 +45,6 @@ public class ModBlocks {
 	public static final FluidBlock PITCH_FLUID_BLOCK = new FluidBlock(ModFluids.PITCH_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing());
 	public static final Block BOULDER_BLOCK = new BoulderBlock(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.TUFF).strength(0.1f, 10.0f));
 
-	public static final Block SIEGE_LADDER = new SiegeLadderBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(0.1f, 1f));
 	public static void registerBlocks() {
 
 		// CASTLE BLOCKS
@@ -73,6 +72,5 @@ public class ModBlocks {
 		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "pitch_candle_cake"), PITCH_CANDLE_CAKE);
 
 		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "boulder"), BOULDER_BLOCK);
-		Registry.register(Registry.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "siege_ladder"), SIEGE_LADDER);
 	}
 }

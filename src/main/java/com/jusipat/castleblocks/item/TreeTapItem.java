@@ -43,50 +43,38 @@ public class TreeTapItem extends Item {
 
         if (player != null) {
             Identifier blockId = Registry.BLOCK.getId(blockState.getBlock());
-            if (!world.isClient) { // TODO: this is stupid
+            if (!world.isClient) { // TODO: for the love of god this is a bad way to do this.
                 if (blockId.equals(Registry.BLOCK.getId(Blocks.OAK_LOG))) {
                     TreeTapInteraction(world, blockPos, context, player, stack);
                     world.setBlockState(blockPos, Blocks.STRIPPED_OAK_LOG.getDefaultState());
-                    return ActionResult.SUCCESS;
 
-                }
-                if (blockId.equals(Registry.BLOCK.getId(Blocks.ACACIA_LOG))) {
+                } else if (blockId.equals(Registry.BLOCK.getId(Blocks.ACACIA_LOG))) {
                     TreeTapInteraction(world, blockPos, context, player, stack);
                     world.setBlockState(blockPos, Blocks.STRIPPED_ACACIA_LOG.getDefaultState());
-                    return ActionResult.SUCCESS;
 
-                }
-                if (blockId.equals(Registry.BLOCK.getId(Blocks.SPRUCE_LOG))) {
+                } else if (blockId.equals(Registry.BLOCK.getId(Blocks.SPRUCE_LOG))) {
                     TreeTapInteraction(world, blockPos, context, player, stack);
                     world.setBlockState(blockPos, Blocks.STRIPPED_SPRUCE_LOG.getDefaultState());
-                    return ActionResult.SUCCESS;
 
-                }
-                if (blockId.equals(Registry.BLOCK.getId(Blocks.BIRCH_LOG))) {
+                } else if (blockId.equals(Registry.BLOCK.getId(Blocks.BIRCH_LOG))) {
                     TreeTapInteraction(world, blockPos, context, player, stack);
                     world.setBlockState(blockPos, Blocks.STRIPPED_BIRCH_LOG.getDefaultState());
-                    return ActionResult.SUCCESS;
 
-                }
-                if (blockId.equals(Registry.BLOCK.getId(Blocks.MANGROVE_LOG))) {
+                } else if (blockId.equals(Registry.BLOCK.getId(Blocks.MANGROVE_LOG))) {
                     TreeTapInteraction(world, blockPos, context, player, stack);
                     world.setBlockState(blockPos, Blocks.STRIPPED_MANGROVE_LOG.getDefaultState());
-                    return ActionResult.SUCCESS;
 
-                }
-                if (blockId.equals(Registry.BLOCK.getId(Blocks.DARK_OAK_LOG))) {
+                } else if (blockId.equals(Registry.BLOCK.getId(Blocks.DARK_OAK_LOG))) {
                     TreeTapInteraction(world, blockPos, context, player, stack);
                     world.setBlockState(blockPos, Blocks.STRIPPED_DARK_OAK_LOG.getDefaultState());
-                    return ActionResult.SUCCESS;
 
-                }
-                if (blockId.equals(Registry.BLOCK.getId(Blocks.JUNGLE_LOG))) {
+                } else if (blockId.equals(Registry.BLOCK.getId(Blocks.JUNGLE_LOG))) {
                     TreeTapInteraction(world, blockPos, context, player, stack);
                     world.setBlockState(blockPos, Blocks.STRIPPED_JUNGLE_LOG.getDefaultState());
-                    return ActionResult.SUCCESS;
                 } else {
                     return ActionResult.PASS;
                 }
+                return ActionResult.SUCCESS;
             }
         }
 
