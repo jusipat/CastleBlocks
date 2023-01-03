@@ -10,11 +10,11 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
 
@@ -28,19 +28,19 @@ public class TrowelItem extends Item {
 	public TrowelItem(Settings settings, int maxUses) {
 		super(settings.maxCount(1).maxDamage(maxUses));
 
-		blockMap.put(Registry.BLOCK.getId(Blocks.STONE), Registry.BLOCK.getId(ModBlocks.CASTLE_BRICKS));
-		blockMap.put(Registry.BLOCK.getId(Blocks.POLISHED_ANDESITE), Registry.BLOCK.getId(ModBlocks.ANDESITE_CASTLE_BRICKS));
-		blockMap.put(Registry.BLOCK.getId(Blocks.POLISHED_DIORITE), Registry.BLOCK.getId(ModBlocks.DIORITE_CASTLE_BRICKS));
-		blockMap.put(Registry.BLOCK.getId(Blocks.POLISHED_GRANITE), Registry.BLOCK.getId(ModBlocks.GRANITE_CASTLE_BRICKS));
-		blockMap.put(Registry.BLOCK.getId(Blocks.SMOOTH_SANDSTONE), Registry.BLOCK.getId(ModBlocks.SANDSTONE_CASTLE_BRICKS));
-		blockMap.put(Registry.BLOCK.getId(Blocks.SMOOTH_RED_SANDSTONE), Registry.BLOCK.getId(ModBlocks.RED_SANDSTONE_CASTLE_BRICKS));
-		blockMap.put(Registry.BLOCK.getId(Blocks.DEEPSLATE), Registry.BLOCK.getId(ModBlocks.DEEPSLATE_CASTLE_BRICKS));
-		blockMap.put(Registry.BLOCK.getId(Blocks.POLISHED_BLACKSTONE), Registry.BLOCK.getId(ModBlocks.BLACKSTONE_CASTLE_BRICKS));
-		blockMap.put(Registry.BLOCK.getId(Blocks.NETHER_BRICKS), Registry.BLOCK.getId(ModBlocks.NETHER_CASTLE_BRICKS));
-		blockMap.put(Registry.BLOCK.getId(Blocks.BRICKS), Registry.BLOCK.getId(ModBlocks.BRICK_CASTLE_BRICKS));
-		blockMap.put(Registry.BLOCK.getId(Blocks.PURPUR_BLOCK), Registry.BLOCK.getId(ModBlocks.PURPUR_CASTLE_BRICKS));
-		blockMap.put(Registry.BLOCK.getId(Blocks.PRISMARINE_BRICKS), Registry.BLOCK.getId(ModBlocks.PRISMARINE_CASTLE_BRICKS));
-		blockMap.put(Registry.BLOCK.getId(Blocks.END_STONE_BRICKS), Registry.BLOCK.getId(ModBlocks.END_STONE_CASTLE_BRICKS));
+		blockMap.put(Registries.BLOCK.getId(Blocks.STONE), Registries.BLOCK.getId(ModBlocks.CASTLE_BRICKS));
+		blockMap.put(Registries.BLOCK.getId(Blocks.POLISHED_ANDESITE), Registries.BLOCK.getId(ModBlocks.ANDESITE_CASTLE_BRICKS));
+		blockMap.put(Registries.BLOCK.getId(Blocks.POLISHED_DIORITE), Registries.BLOCK.getId(ModBlocks.DIORITE_CASTLE_BRICKS));
+		blockMap.put(Registries.BLOCK.getId(Blocks.POLISHED_GRANITE), Registries.BLOCK.getId(ModBlocks.GRANITE_CASTLE_BRICKS));
+		blockMap.put(Registries.BLOCK.getId(Blocks.SMOOTH_SANDSTONE), Registries.BLOCK.getId(ModBlocks.SANDSTONE_CASTLE_BRICKS));
+		blockMap.put(Registries.BLOCK.getId(Blocks.SMOOTH_RED_SANDSTONE), Registries.BLOCK.getId(ModBlocks.RED_SANDSTONE_CASTLE_BRICKS));
+		blockMap.put(Registries.BLOCK.getId(Blocks.DEEPSLATE), Registries.BLOCK.getId(ModBlocks.DEEPSLATE_CASTLE_BRICKS));
+		blockMap.put(Registries.BLOCK.getId(Blocks.POLISHED_BLACKSTONE), Registries.BLOCK.getId(ModBlocks.BLACKSTONE_CASTLE_BRICKS));
+		blockMap.put(Registries.BLOCK.getId(Blocks.NETHER_BRICKS), Registries.BLOCK.getId(ModBlocks.NETHER_CASTLE_BRICKS));
+		blockMap.put(Registries.BLOCK.getId(Blocks.BRICKS), Registries.BLOCK.getId(ModBlocks.BRICK_CASTLE_BRICKS));
+		blockMap.put(Registries.BLOCK.getId(Blocks.PURPUR_BLOCK), Registries.BLOCK.getId(ModBlocks.PURPUR_CASTLE_BRICKS));
+		blockMap.put(Registries.BLOCK.getId(Blocks.PRISMARINE_BRICKS), Registries.BLOCK.getId(ModBlocks.PRISMARINE_CASTLE_BRICKS));
+		blockMap.put(Registries.BLOCK.getId(Blocks.END_STONE_BRICKS), Registries.BLOCK.getId(ModBlocks.END_STONE_CASTLE_BRICKS));
 	}
 
 	@Override
@@ -56,10 +56,10 @@ public class TrowelItem extends Item {
 		PlayerEntity player = context.getPlayer();
 
 		if (player != null) {
-			Identifier blockId = Registry.BLOCK.getId(blockState.getBlock());
+			Identifier blockId = Registries.BLOCK.getId(blockState.getBlock());
 
 			if (blockMap.containsKey(blockId)) {
-				Block blockType = Registry.BLOCK.get(blockMap.get(blockId));
+				Block blockType = Registries.BLOCK.get(blockMap.get(blockId));
 				world.setBlockState(blockPos, blockType.getDefaultState());
 
 				CastleBlockEntity blockEntity = new CastleBlockEntity(blockPos, blockType.getDefaultState());

@@ -1,18 +1,20 @@
 package com.jusipat.castleblocks.item;
 
 import com.jusipat.castleblocks.registry.ModItems;
+import net.fabricmc.fabric.api.itemgroup.v1.IdentifiableItemGroup;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -42,33 +44,33 @@ public class TreeTapItem extends Item {
         ItemStack stack = new ItemStack(ModItems.RESIN, n);
 
         if (player != null) {
-            Identifier blockId = Registry.BLOCK.getId(blockState.getBlock());
+            Block blockId = blockState.getBlock();
             if (!world.isClient) { // TODO: for the love of god this is a bad way to do this.
-                if (blockId.equals(Registry.BLOCK.getId(Blocks.OAK_LOG))) {
+                if (blockId.equals((Blocks.OAK_LOG))) {
                     TreeTapInteraction(world, blockPos, context, player, stack);
                     world.setBlockState(blockPos, Blocks.STRIPPED_OAK_LOG.getDefaultState());
 
-                } else if (blockId.equals(Registry.BLOCK.getId(Blocks.ACACIA_LOG))) {
+                } else if (blockId.equals(Blocks.ACACIA_LOG)) {
                     TreeTapInteraction(world, blockPos, context, player, stack);
                     world.setBlockState(blockPos, Blocks.STRIPPED_ACACIA_LOG.getDefaultState());
 
-                } else if (blockId.equals(Registry.BLOCK.getId(Blocks.SPRUCE_LOG))) {
+                } else if (blockId.equals(Blocks.SPRUCE_LOG)) {
                     TreeTapInteraction(world, blockPos, context, player, stack);
                     world.setBlockState(blockPos, Blocks.STRIPPED_SPRUCE_LOG.getDefaultState());
 
-                } else if (blockId.equals(Registry.BLOCK.getId(Blocks.BIRCH_LOG))) {
+                } else if (blockId.equals(Blocks.BIRCH_LOG)) {
                     TreeTapInteraction(world, blockPos, context, player, stack);
                     world.setBlockState(blockPos, Blocks.STRIPPED_BIRCH_LOG.getDefaultState());
 
-                } else if (blockId.equals(Registry.BLOCK.getId(Blocks.MANGROVE_LOG))) {
+                } else if (blockId.equals(Blocks.MANGROVE_LOG)) {
                     TreeTapInteraction(world, blockPos, context, player, stack);
                     world.setBlockState(blockPos, Blocks.STRIPPED_MANGROVE_LOG.getDefaultState());
 
-                } else if (blockId.equals(Registry.BLOCK.getId(Blocks.DARK_OAK_LOG))) {
+                } else if (blockId.equals(Blocks.DARK_OAK_LOG)) {
                     TreeTapInteraction(world, blockPos, context, player, stack);
                     world.setBlockState(blockPos, Blocks.STRIPPED_DARK_OAK_LOG.getDefaultState());
 
-                } else if (blockId.equals(Registry.BLOCK.getId(Blocks.JUNGLE_LOG))) {
+                } else if (blockId.equals(Blocks.JUNGLE_LOG)) {
                     TreeTapInteraction(world, blockPos, context, player, stack);
                     world.setBlockState(blockPos, Blocks.STRIPPED_JUNGLE_LOG.getDefaultState());
                 } else {

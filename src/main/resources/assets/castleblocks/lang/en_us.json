@@ -22,7 +22,7 @@
   "item.castleblocks.diamond_trowel": "Diamond Trowel",
   "item.castleblocks.gold_trowel": "Golden Trowel",
   "item.castleblocks.netherite_trowel": "Netherite Trowel",
-  "item.castleblocks.trowel.tooltip": "§3Right click on stone to turn to CastleBricks!",
+  "item.castleblocks.trowel.tooltip": "§3Trowels blocks into castle bricks!",
   "item.castleblocks.trowel.owner": "CastleBlock owned by: %s",
 
   "item.castleblocks.key": "Key",

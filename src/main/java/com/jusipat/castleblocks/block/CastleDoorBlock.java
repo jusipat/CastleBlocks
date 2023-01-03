@@ -13,6 +13,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
@@ -28,8 +29,8 @@ import java.util.Objects;
 
 public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
 
-    public CastleDoorBlock(Settings settings) {
-        super(settings);
+    public CastleDoorBlock(Settings settings, SoundEvent closeSound, SoundEvent openSound) {
+        super(settings, closeSound, openSound);
     }
 
     boolean redstoneInput;
