@@ -31,7 +31,7 @@ public class CastleBlock extends BaseEntityBlock implements BlockEntityType.Bloc
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return null;
+        return new CastleBlockEntity(blockPos, blockState);
     }
 
     @Override
