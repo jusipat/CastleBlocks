@@ -13,7 +13,7 @@ public class ModBlockEntities {
             DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, CastleBlocksMod.MOD_ID);
 
     public static final RegistryObject<BlockEntityType<CastleBlockEntity>> CASTLE_BLOCK_ENTITY =
-            BLOCK_ENTITIES.register("gem_cutting_station_block_entity", () ->
+            BLOCK_ENTITIES.register("castle_block_entity", () ->
                     BlockEntityType.Builder.of(CastleBlockEntity::new,
                             ModBlocks.CASTLE_BRICKS.get()).build(null));
 
