@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableMap;
 import com.jusipat.castleblocks.block.CastleBlockEntity;
 import com.jusipat.castleblocks.registry.ModBlocks;
 import net.minecraft.Util;
-import net.minecraft.client.particle.Particle;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -17,6 +16,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LevelEvent;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
@@ -45,7 +45,7 @@ public class TrowelItem extends Item {
 
         if (player != null) {
             if (blockState.getBlock() == Blocks.STONE) { // TODO - implement hashmap
-                level.setBlock(blockPos, ModBlocks.CASTLE_BRICKS.get().defaultBlockState(), 11);
+                level.setBlock(blockPos, ModBlocks.CASTLE_BRICKS.get().defaultBlockState(), 3);
 
                 CastleBlockEntity blockEntity = new CastleBlockEntity(blockPos, ModBlocks.CASTLE_BRICKS.get().defaultBlockState());
                 blockEntity.setOwner(player);
@@ -56,7 +56,7 @@ public class TrowelItem extends Item {
                     });
 
                     if (level.isClientSide) {
-                        // TODO - add block break particles
+                        level.levelEvent(player, LevelEvent.PARTICLES_DESTROY_BLOCK, blockPos, Block.getId(blockState));
                     }
 
                 return InteractionResult.SUCCESS;
