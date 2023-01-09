@@ -33,6 +33,12 @@ public class CastleBlockEntity extends BlockEntity {
     }
 
     @Override
+    public void load(CompoundTag nbt) {
+        super.load(nbt);
+        owner = nbt.getUUID("owner");
+        ownerName = nbt.getString("ownerName");
+    }
+    @Override
     protected void saveAdditional(CompoundTag nbt) {
         super.saveAdditional(nbt);
         if (owner != null)
@@ -40,12 +46,5 @@ public class CastleBlockEntity extends BlockEntity {
         if (ownerName != null)
             nbt.putString("ownerName", ownerName);
         }
-
-    @Override
-    public void load(CompoundTag nbt) {
-        super.load(nbt);
-        owner = UUID.fromString(nbt.getString("owner"));
-        ownerName = nbt.getString("ownerName");
-    }
 
 }
