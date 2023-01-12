@@ -47,4 +47,11 @@ public class CastleBlockEntity extends BlockEntity {
             nbt.putString("ownerName", ownerName);
         }
 
+    @Override
+    public CompoundTag getUpdateTag() {
+        CompoundTag nbt = super.getUpdateTag();
+        saveAdditional(nbt);
+        return nbt;
+    }
+
 }
