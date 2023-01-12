@@ -38,6 +38,14 @@
   "item.castleblocks.resin": "Resin",
   "item.castleblocks.tree_tap": "Tree Tap",
 
-  "itemGroup.castleblocks.items": "CastleBlocks"
-
+  "itemGroup.castleblocks.items": "CastleBlocks",
+  "text.autoconfig.castleblocks.title": "CastleBlocks Configuration",
+  "text.autoconfig.castleblocks.option.castleBlocksPvP": "PvP Mode",
+  "text.autoconfig.castleblocks.option.castleBlocksPvP.@Tooltip": "Enables if castle bricks are harder to break if not the original placer",
+  "text.autoconfig.castleblocks.option.castleBrickHardness": "Castle Bricks Hardness",
+  "text.autoconfig.castleblocks.option.castleBrickHardness.@Tooltip": "Determines hardness value of castle bricks (restart required)",
+  "text.autoconfig.castleblocks.option.castleBrickResistance": "Castle Bricks Resistance",
+  "text.autoconfig.castleblocks.option.castleBrickResistance.@Tooltip": "Determines castle bricks blast resistance (restart required)",
+  "text.autoconfig.castleblocks.option.outsideOwnerCoefficient": "Non-owner breaking speed",
+  "text.autoconfig.castleblocks.option.outsideOwnerCoefficient.@Tooltip": "Determines the speed at which castle blocks are broken if not the owner (1 is default)"
 }

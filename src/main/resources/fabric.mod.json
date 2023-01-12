@@ -26,6 +26,9 @@
     ],
     "client": [
       "com.jusipat.castleblocks.CastleBlocksClient"
+    ],
+    "modmenu": [
+      "com.jusipat.castleblocks.config.ModMenuIntegration"
     ]
   },
 
