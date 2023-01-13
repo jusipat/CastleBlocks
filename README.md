@@ -1,5 +1,5 @@
 # CastleBlocks
-A minecraft mod for 1.19.X running on the Fabric API.
+A minecraft mod for 1.19.X.
 
 ## Bricks
 
