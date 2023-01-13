@@ -15,11 +15,11 @@ public class ModEvents {
 
         @SubscribeEvent
         public static void onBlockBreak(PlayerEvent.BreakSpeed event) {
-            Level level = event.getPlayer().getLevel();
-            BlockEntity blockEntity = level.getBlockEntity(event.getPos());
+            Level level = event.getEntity().getLevel();
+            BlockEntity blockEntity = level.getBlockEntity(event.getPosition().get());
 
             if (blockEntity instanceof CastleBlockEntity castleBlockEntity) {
-                if (castleBlockEntity.isOwner(event.getPlayer().getUUID()) || CommonConfigs.PVP_MODE.get()) {
+                if (castleBlockEntity.isOwner(event.getEntity().getUUID()) || CommonConfigs.PVP_MODE.get()) {
                     event.setNewSpeed(3.0f);
                 } else {
                     event.setNewSpeed(0.01f);
