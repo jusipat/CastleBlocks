@@ -3,7 +3,6 @@ package com.jusipat.castleblocks.block.item;
 import com.jusipat.castleblocks.block.CastleBlockEntity;
 import com.jusipat.castleblocks.registry.ModBlocks;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionResult;
@@ -17,6 +16,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LevelEvent;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.HashMap;
 import java.util.List;
@@ -63,7 +63,7 @@ public class TrowelItem extends Item {
             ResourceLocation blockId = blockState.getBlock().getLootTable();
 
             if (blockMap.containsKey(blockId)) {
-                Block blockType = Registry.BLOCK.get(blockMap.get(blockId));
+                Block blockType = ForgeRegistries.BLOCKS.getValue(blockMap.get(blockId));
                 level.setBlock(blockPos, blockType.defaultBlockState(), 3);
 
                 CastleBlockEntity blockEntity = new CastleBlockEntity(blockPos, blockType.defaultBlockState());

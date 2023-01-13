@@ -34,7 +34,7 @@ credits="jusipat, Kjolt947, Cflip_" #optional
 authors="jusipat" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-CastleBlocks mod for Forge 1.18!
+CastleBlocks mod for Forge 1.19!
 '''
 # This version range declares a minimum of the current minecraft version up to but not including the next major version
     versionRange="[1.18.2,1.20)"
