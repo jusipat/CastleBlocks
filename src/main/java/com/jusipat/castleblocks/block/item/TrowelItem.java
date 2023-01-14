@@ -4,15 +4,25 @@ import com.jusipat.castleblocks.block.CastleBlockEntity;
 import com.jusipat.castleblocks.registry.ModBlocks;
 import net.minecraft.Util;
 import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemUseContext;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Util;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.World;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -59,10 +69,10 @@ public class TrowelItem extends Item {
     }
 
     @Override
-    public InteractionResult useOn(UseOnContext context) {
+    public ActionResultType useOn(ItemUseContext context) {
         BlockPos blockPos = context.getClickedPos();
-        Level level = context.getLevel();
-        Player player = context.getPlayer();
+        World level = context.getLevel();
+        LivingEntity player = context.getPlayer();
         BlockState blockState = level.getBlockState(blockPos);
 
         if (player != null) {
@@ -77,21 +87,21 @@ public class TrowelItem extends Item {
                 blockEntity.setOwner(player);
                 level.setBlockEntity(blockEntity);
 
-                    if (level.isClientSide) {
-                        level.levelEvent(player, LevelEvent.PARTICLES_DESTROY_BLOCK, blockPos, Block.getId(blockState));
-                    }
+                if (level.isClientSide) {
+                    level.levelEvent(player, PARTICLES_DESTROY_BLOCK, blockPos, Block.getId(blockState));
+                }
 
                 context.getItemInHand().hurtAndBreak(1, player, (entity) -> {
                     entity.broadcastBreakEvent(player.getUsedItemHand());
                 });
 
-                return InteractionResult.SUCCESS;
-            } else if (level.getBlockEntity(blockPos) instanceof CastleBlockEntity blockEntity && !level.isClientSide) {
-                TranslatableComponent ownerText = new TranslatableComponent("item.castleblocks.trowel.owner", blockEntity.getOwnerName());
+                return ActionResultType.SUCCESS.SUCCESS;
+            } else if (level.getBlockEntity(blockPos) instanceof CastleBlockEntity && !level.isClientSide) {
+                TranslationTextComponent ownerText = new TranslationTextComponent("item.castleblocks.trowel.owner", blockEntity.getOwnerName());
                 player.sendMessage(ownerText, Util.NIL_UUID);
             }
         }
 
-        return InteractionResult.PASS;
+        return ActionResultType.PASS.PASS;
     }
 }

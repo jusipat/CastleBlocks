@@ -1,18 +1,11 @@
 package com.jusipat.castleblocks.block;
 
-import com.jusipat.castleblocks.CastleBlocksMod;
 import com.jusipat.castleblocks.registry.ModBlockEntities;
 import net.minecraft.block.BlockState;
-import net.minecraft.core.BlockPos;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.UUID;
 
@@ -20,10 +13,10 @@ public class CastleBlockEntity extends TileEntity {
     private UUID owner;
     private String ownerName;
 
-    public CastleBlockEntity() {
-        super();
-    }
 
+    public CastleBlockEntity(BlockPos blockPos, BlockState blockState) {
+        super(ModBlockEntities.CASTLE_BLOCK_ENTITY.get());
+    }
 
     public void setOwner(LivingEntity player) {
         owner = player.getUUID();
