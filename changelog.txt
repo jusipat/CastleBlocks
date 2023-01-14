@@ -1,355 +1,242 @@
-1.18.x Changelog
-40.1
+1.16.x Changelog
+36.2
 ====
- - 40.1.60 Jar-In-Jar (#8657)
-           * Jar-In-Jar
-           * Change to use the custom 4.x SPI.
-           * Bump JarJar to fix some version range selectors.
-           * Address requested changes.
-           * Mark the JiJ locator as a locator.
-           * Remove the unused imports.
- - 40.1.59 Fix static member ordering crash in UnitSprite (#8839)
-           The previous ordering caused LOCATION to be null during the construction
-           of the UnitSprite INSTANCE, leading to errors as the atlas location for
-           the sprite would be null.
-           Fixes #8795
- - 40.1.58 Backport: ForgeChunkManager ticking ticket fixes. (#8784)
- - 40.1.57 Delete LootItemRandomChanceCondition.java.patch (#8734)
- - 40.1.56 Use stack sensitive translation key by default (#8674)
- - 40.1.55 Add callback after a BlockState was changed and the neighbors were updated (#8617)
- - 40.1.54 [1.18.x] Allow safely registering RenderType predicates at any time (#8671)
-           * Allow safely registering RenderType predicates at any time
-           * Requested changes
- - 40.1.53 Add Filtered Message to ServerChatEvent
- - 40.1.52 [1.18] Make ConfigValue implement Supplier. (#8777)
- - 40.1.51 Make IVertexConsumers such as the lighting pipeline, be aware of which format they are dealing with (#8665)
-           Also fix Lighting pipeline ignoring the overlay coords from the block renderer.
- - 40.1.50 Revert "TeamCity change in 'MinecraftForge / MinecraftForge' project: build features of 'Build' build configuration were updated"
-           This reverts commit 0cc85bc314c8c90f1bdb24d77c7035bb09150489.
- - 40.1.49 TeamCity change in 'MinecraftForge / MinecraftForge' project: build features of 'Build' build configuration were updated
- - 40.1.48 [1.18.x] Fix #8530 (Banner Pattern) NPE (#8666)
- - 40.1.47 Revert "[1.18.x] Enable the Forge light pipeline by default (#8629)" (#8663)
- - 40.1.46 Fix eager loading of model loaders during datagen causing NPE (#8659)
- - 40.1.45 [1.18.x] Fix 2 crossbow animations not applying to custom variants (#8625)
- - 40.1.44 [1.18.x] Added new Disconnection screen to display better channel/registry mismatch information (#8402)
-           Co-authored-by: Curle <42079760+TheCurle@users.noreply.github.com>
- - 40.1.43 [1.18] Avoid exclusive synchronisation in block render type lookups (#8476)
- - 40.1.42 [1.18] Fix command redirects by replacing Commands#fillUsableCommands (#8616)
-           Commands#fillUsableCommands does not handle redirect nodes properly. It
-           blindly pulls from the cached node map for a redirect node, which may
-           have no result because the target node of the redirect has not been
-           visited yet.
-           CommandHelper#mergeCommandNode is better in this regard, because it
-           visits the target node of the redirect instead of blindly pulling from
-           the node map.
-           Fixes #7551
- - 40.1.41 [1.18] Fix tags command suggestion to include dynamic registries (#8638)
-           Manually entering the names of dynamic registries work as expected. The
-           suggestions for registries didn't include dynamic registries because
-           they queried the static registries rather than querying all registries
-           from the server's `RegistryAccess` (which includes both static
-           registries and dynamic registries).
- - 40.1.40 Low code language provider (#8633)
-           Co-authored-by: Curle <42079760+TheCurle@users.noreply.github.com>
- - 40.1.39 [1.18.x] Add checkJarCompatibility task (#8644)
- - 40.1.38 [1.18.x] Fix Banner Patterns not being extensible (#8530)
-           Co-authored-by: Curle <42079760+TheCurle@users.noreply.github.com>
- - 40.1.37 1.18.x Port BiomeDictionary over to biome tags (#8564)
- - 40.1.36 [1.18.x] Enable the Forge light pipeline by default (#8629)
- - 40.1.35 [1.18.x] Allow Modders to add custom data-pack registries through RegistryBuilder (#8630)
-           Co-authored-by: Silverminer007 <66484505+Silverminer007@users.noreply.github.com>
-           Co-authored-by: Curle <42079760+TheCurle@users.noreply.github.com>
- - 40.1.34 [1.18] Allow custom rarities to directly modify the style (#8648)
- - 40.1.33 [1.18] Fix reload listener registration in ModelLoaderRegistry (#8650)
- - 40.1.32 Fix wrong position in Level#hasChunk() call in IForgeBlockGetter (#8654)
- - 40.1.31 Add ItemStack context to Enchantment#getDamageBonus (#8635)
- - 40.1.30 Fix attack cooldown bar showing when out of reach of target. Closes #8639 (#8640)
- - 40.1.29 Improve TagsUpdatedEvent by adding update case information. (#8636)
- - 40.1.28 Deprecate patched-in Style methods for removal, vanilla variants exist. (#8615)
- - 40.1.27 Add pack-type-specific format versions in pack metadata. Fixes #8563 (#8612)
- - 40.1.26 Catch and aggregate exceptions during NewRegistryEvent (#8601)
- - 40.1.25 Added removeErroringEntities config option (#8627)
-           Counterpart to removeErroringBlockEntities
- - 40.1.24 Add missing patches for not lowering mipmap level for small textures (#8622)
- - 40.1.23 Make TransformType enum extensible, includes the possibility to specify a fallback type for cases where models don't specify the transform explicitly. (#8566)
-           Makes it possible to add new perspectives.
- - 40.1.22 Fix CheckSAS to actually validate that the SAS line will do something.
-           This removes all method level lines as they are not necessary now.
- - 40.1.21 Add Attack Range attribute and Update Reach Distance (#8478)
- - 40.1.20 Implement PlayerNegotiationEvent (#8599)
- - 40.1.19 Fire EntityTravelToDimensionEvent in all expected cases (#8614)
-           Fixes #8520
- - 40.1.18 Fix isEdible crash (#8613)
-           Fixes #8602
- - 40.1.17 Fix typo in Snow Golem patch causing them to destroy blocks they shouldn't. Closes  #8611
- - 40.1.16 Re-introduce an attribute for entity step height in a non-breaking way (#8607)
- - 40.1.15 Revert step height attribute (#8604)
- - 40.1.14 [1.18.x] Fix ContextNbtProvider serializing the wrong name (#8575)
- - 40.1.13 Let BaseRailBlock decide if the calculated RailShape for placement or connection to neighbors is valid (#8562)
- - 40.1.12 Fix shears not playing a breakage sound (#8600)
- - 40.1.11 Update IExtensionPoint javadoc to be correct (#8568)
- - 40.1.10 Fix IDs of Multi-part entities being desynced across client and server. (#8576)
- - 40.1.9  Expose ICondition$IContext to modded reload listeners. (#8596)
- - 40.1.8  Fix undead causing chunkloading leading to extensive lag (#8583)
- - 40.1.7  Accomodate Bukkit-like Servers not sending Command Args (#8582)
-           Note to modded server devs:
-           Please, please, please implement full compatibility with [Brigadier](https://github.com/Mojang/Brigadier) instead of hacking around it.
- - 40.1.6  Restore translation key comments to ForgeConfigSpec (#8584)
- - 40.1.5  Fix entity parts being ignored when collecting entities in an AABB (#8588)
+ - 36.2.39 [1.16] Fix EntityEvent.Size not being fired (#8668)
+ - 36.2.38 [1.16] Allow sound instances to customize stream source (#8595)
+ - 36.2.37 [1.16] Fix entity parts being ignored when collecting entities in an AABB (#8606)
            Previously entity parts are only taken into consideration when the parent entity is in a chunk that intersects with the AABB
- - 40.1.4  Fix EntityInteraction event running twice on client side (#8598)
- - 40.1.3  Introduce an attribute for step height additions (#8389)
- - 40.1.2  Fix shears passing on a client when interacting with a shearable entity (#8597)
-           Caused the offhand item to also interact with the entity, possibly sending a packet to the server causing both hands to interact
- - 40.1.1  Allow Exception passed through CommandEvent to propagate (#8590)
- - 40.1.0  Mark 1.18.2 Recommended Build.
-           Co-authored-by: sciwhiz12 <arnoldnunag12@gmail.com>
-           Co-authored-by: Marc Hermans <marc.hermans@ldtteam.com>
-           Co-authored-by: Curle <curle@gemwire.uk>
-           Co-authored-by: SizableShrimp <sizableshrimp@sizableshrimp.me>
-           Co-authored-by: David Quintana <gigaherz@gmail.com>
+ - 36.2.36 [1.16] Fix inconsistency of multipart entity ids (#8605)
+ - 36.2.35 Update Licenses
+ - 36.2.34 Add Gzip support to version checker (partial backport of #8148 from 1.17) (#8567)
+ - 36.2.33 Readd patch (#7125)
+ - 36.2.32 Account for `/forge setdimension` command arguments (#7971)
+           Use the `/forge setdimension` command 'targets' argument and provide a default for the 'pos' argument as it's optional
+ - 36.2.31 Clear local variable table on RuntimeEnumExtender transformation (#8340)
+ - 36.2.30 Prevent setting window icon on OSX (#8468)
+ - 36.2.29 [1.16] Fix entity type in conversion event to Drowned (#8480)
+ - 36.2.28 Fix climbable hook to set lastClimbablePos field. Fixes #8370 (#8373)
+ - 36.2.27 Merge values of defaulted optional tags (#8304)
+           This fixes an error when a defaulted optional tag is defined in multiple places, eventually causing duplicate values in a map collector which then throws an exception.
+ - 36.2.26 Bump ModLauncher to 8.1.3 (#8423)
+ - 36.2.25 fix to use legacy keystore as java 8 doesn't support newer keystores generated by java 16 by default
+ - 36.2.24 Implement teamcity project building on 1.16.z branch (#8440)
+ - 36.2.23 ALso create parent directories when creating empty config files, 1.16 redux (#8366)
+ - 36.2.22 (1.16) Fixed KeyMappings only checking if they conflict with themselves. (#8257)
+ - 36.2.21 Backport #8254 to 1.16.5: Add RenderArmEvent to make overriding just the arm rendering not require copying nearly as much vanilla code (#8299)
+ - 36.2.20 [CVE-2021-44228]: Update Log4J to fix the security issue inside it (#8270)
+ - 36.2.19 Fix potential issue with BackgroundScanHandler for users with slow disc IO (#8211)
+ - 36.2.18 Backport #8207 to 1.16 (#8209)
+ - 36.2.17 [1.16.x] Add ForgeSpawnEggItem to lazily handle EntityTypes (#8150)
+           * Add ForgeSpawnEggItem to lazily handle EntityTypes
+           * Remove OnlyIn
+           * Surround EntityType#spawn() call with try/catch
+ - 36.2.16 change the AdvancementProvider to make it possabible for mods to hook into it (#7488)
+           * back Port changes from #8120
+ - 36.2.15 Implements Lazy ItemStack Capabilities (#7879)
+ - 36.2.14 Pass IModelData through IForgeBakedModel#getModelData() before asking the IBakedModel for the particle texture (#8107)
+ - 36.2.13 [1.16.x] Fix blocks with flammable material catching fire from lava when they are marked as non-flammable (#8161)
+ - 36.2.12 [1.16] Add accessor to an unmodifiable view of the fullPots map in FlowerPotBlock (#8109)
+           * Add accessor to an unmodifiable view of the fullPots map in FlowerPotBlock
+           * Fix non-empty pot check
+           * Remove exception from getter and add test mod
+ - 36.2.11 Ensure that all render targets in a PostChain use the same format (#8138)
+           Fixes #6995
+ - 36.2.10 Make Broken Blocks Display Associated FluidState (#8129)
+           Fixes #7253 for 1.16.x
+ - 36.2.9  Implement GUI Stacking feature. (#6927)
+           * Implement GUI Stacking feature.
+           You can now use `mc.pushGuiLayer` and `mc.popGuiLayer` to manage the layers.
+           mc.displayGuiScreen behaves such that if called with a non-null screen it replaces the entire stack, and if called with null it closes the entire stack.
+           * Apply review comment fixes from 1.17 counterpart.
+           * Revert unintended changes.
+           * Missed these reverts.
+ - 36.2.8  Add workaround for pairs of `'` being stripped (#8074)
+           Backport of #8050
+ - 36.2.7  Fix typo in FluidBlockWrapper (#7880)
+ - 36.2.6  Backport MC-209819 (#7923)
+           Backport fix for mc bug https://bugs.mojang.com/browse/MC-209819
+ - 36.2.5  [1.16.5] Bump Mixin to 0.8.4 (#8098)
+ - 36.2.4  [1.16.5] Backport OnDatapackSyncEvent from 1.17.1 (#7985)
+ - 36.2.3  [1.16.x] Fix all layers of ItemLayerModel being fullbright (#8040)
+           * Fix all layers of ItemLayerModel being fullbright
+           Backport of #8039
+           * Remove duplicate test resources
+           These resources have corresponding equivalents in the generated tests
+           resources folder.
+ - 36.2.2  Fix rounding related errors with small entity pathfinding. Closes #7730
+ - 36.2.1  Pass the 'includeName' flag to the ItemTossEvent (#7758)
+ - 36.2.0  New 1.16.5 RB.
 
-40.0
+36.1
 ====
- - 40.0.54 Add event for hooking into StructuresBecomeConfiguredFix Fixes #8505
-           Pass-through unknown structure IDs with "unknown." prefix
-           This avoids the fixer throwing an exception due to the unknown
-           structure, which causes the chunk data to be dropped (and freshly
-           regenerated later). The deserializer logs and ignores the unknown
-           structure ID, avoiding full chunk data loss.
- - 40.0.53 Fix missed patch for loading modded dimensions on Dedicated Server start  (#8555)
- - 40.0.52 Fix potential concurrency issues with BiomeDictionary. Closes #8266
- - 40.0.51 Fix debug text being rendered slightly wrong.
- - 40.0.50 Fix intrusive handlers on dummy objects.
- - 40.0.49 Amend license header to include contributors and apply to FML subprojects (#8525)
-           After internal discussion, it was decided that we need to include
-           "contributors" to the license header. This avoids claiming that the
-           Java source files are under the exclusive copyright ownership of Forge
-           LLC, which excludes contributors that still hold copyright ownership
-           over their contributions (but is licensed under the LGPLv2.1 as stated
-           in the Forge CLA).
- - 40.0.48 Add modern implementation of the Slider widget and deprecate the old one (#8496)
- - 40.0.47 Implement ItemStack and LivingEntity sensitive method to get the FoodProperties for an Item (#8477)
- - 40.0.46 Add use context and simulate flag to getToolModifiedState, enabled HOE_TILL action. (#8557)
- - 40.0.45 Remove bad patch for AbstractFurnaceBlockEntity (#8561)
-           The patch prevented the entity from being marked as changed when an
-           item finished smelting.
- - 40.0.44 Fix issues with custom forge ingredients causing sub ingredients to be prematurely and invalidly cached (#8550)
-           Add config option and skip checking for empty ingredients in shapeless recipe deserialization
- - 40.0.43 Add EnderManAngerEvent to make it possible to prevent endermen getting angry at a player based on more then their helmet. (#8406)
- - 40.0.42 Fix misaligned patch in BlockEntity.save.
- - 40.0.41 Expose `getHolder()` method on RegistryObject, as helper for when absolutely necessary to pass  into Vanilla code. (#8548)
-           It is recommended you avoid if you can.
- - 40.0.40 Fix return value of Recipe#isIncomplete being inaccurate for empty tags (#8549)
- - 40.0.39 Simplfy default behavior of isSimple (#8543)
-           isSimple should only return true if the ingredient is any more sensitive then JUST itemA == itemB
-           It used to take metadata and damage into account, but that was removed in the flattening.
-           Also prevents fetching tag values too early, as tags are not ready during the ingredient constructor
- - 40.0.38 Implement IPlantable in BambooBlock (#8508)
- - 40.0.37 Fix compiler error in eclipse, bump MCPConfig for FF/Record fix.
- - 40.0.36 Fix TagEmptyCondition by passing tag context into conditional and recipe deserializers. (#8546)
- - 40.0.35 Allow using DeferredRegisters for vanilla registries (#8527)
-           Catch and aggregate exceptions when applying object holders
- - 40.0.34 Remove cut copper from copper storage blocks tag. Closes #8403 (#8539)
- - 40.0.33 Fix brewing stand input placement not auto-splitting stackable potions. (#8534)
- - 40.0.32 Fix lost validation of registry data on singleplayer world load (#8533)
-           Fix some leftover 1.18.2 TODOs
- - 40.0.31 1.18 Allow mod menus to have their own recipebook (#8028)
- - 40.0.30 [1.18.x] Add 3 new ingredient types, and make existing ingredients compatible with datagen (#8517)
- - 40.0.29 [1.18.x] Add the projectile search event. (#8322)
-           Co-authored-by: noeppi_noeppi <noeppinoeppi@gmail.com>
- - 40.0.28 Allow confirm-and-save of the Experimental Settings warning. (#7275)
- - 40.0.27 Add hook for powdered-snow shoes (#8514)
- - 40.0.26 Add some helper Access Transformers (#8490)
- - 40.0.25 Fix incorrect method used in getStream (#8532)
-           The original correct method is getPath, but the patch uses getLocation.
-           The former is the actual resource path to the sound OGG file, while the
-           latter is the sound's location.
-           Fixes #8531
- - 40.0.24 [1.18] Make it easier to register custom skull blocks models (#8351)
- - 40.0.23 Rework fog events (#8492)
- - 40.0.22 Update Forge Auto Renaming Tool to the latest version (#8515)
- - 40.0.21 Add patches to enable MobEffects with IDs > 255 (#8380)
- - 40.0.20 Allow sound instances to play custom audio streams (#8295)
- - 40.0.19 Fix NPE caused by canceling onServerChatEvent (#8516)
- - 40.0.18 [1.18.2] Fix tags for custom forge registries. (#8495)
-           Tag-enabled registries must now be registered to vanilla's root registry. See RegistryBuilder#hasTags.
-           Modded tag-enabled registries have to use the format `data/<namespace>/tags/<registrynamespace>/<registryname>/<tag>.json`
-           This format is to prevent conflicts for registries with the same path but different namespaces
-           EX: Registry name `examplemod:shoe`, tag name `blue_shoes` would be `data/<namespace>/tags/examplemod/shoe/blue_shoes.json`
-           RegistryEvent.NewRegistry has been moved and renamed to NewRegistryEvent.
-           RegistryBuilder#create has been made private. See NewRegistryEvent#create
-           Created new ITagManager system for looking up Forge tags. See IForgeRegistry#tags.
-           Add lookup methods for Holders from forge registries. See IForgeRegistry#getHolder.
- - 40.0.17 Lower custom item entity replacement from highest to high so mods can cancel it during a specific tick (#8417)
- - 40.0.16 Fix MC-176559 related to the Mending enchantment (#7606)
- - 40.0.15 [1.18.x] Allow blocks to hide faces on a neighboring block (#8300)
-           * Allow blocks to hide faces on a neighboring block
-           * Allow blocks to opt-out of external face hiding
- - 40.0.14 [1.18.x] Fix FMLOnly in forgedev and userdev (#8512)
- - 40.0.13 Clear local variable table on RuntimeEnumExtender transformation (#8502)
- - 40.0.12 Pass server resources to reload listener event (#8493)
- - 40.0.11 Use UTF-8 charset for Java compilation (#8486)
- - 40.0.10 Use wither as griefing entity when it indirectly hurts an entity (#8431)
- - 40.0.9  Provide access to the haveTime supplier in WorldTickEvent and ServerTickEvent (#8470)
- - 40.0.8  Fix durability bar not respecting an item's custom max damage (#8482)
- - 40.0.7  Add event for controlling potion indicators size (#8483)
-           This event allows forcing the rendering of the potion indicators in the
-           inventory screen to either compact mode (icons only) or classic mode
-           (full width with potion effect name).
- - 40.0.6  Introduce system mods to mod loading (#8238)
-           Core game mods are mods which are required to exist in the environment
-           during mod loading. These may be specially provided mods (for example,
-           the `minecraft` mod), or mods which are vital to the framework which
-           FML is connected to (for example, Forge and the `forge` mod).
-           These core game mods are used as the only existing mods in the mod list
-           if mod sorting or dependency verification fails. This allows later
-           steps in the which use resources from these mod files to work correctly
-           (up to when the error screen is shown and the game exits).
- - 40.0.5  Add missing module exports arg to server arguments list (#8500)
- - 40.0.4  Fixed swim speed attribute (#8499)
- - 40.0.3  Fix incorrect movement distance calculation (#8497)
- - 40.0.2  Add support to Forge registry wrappers for new Holder system. Closes #8491
-           Fix TagBasedToolTypesTest not generating needed data correctly.
- - 40.0.1  Fix JNA not working at runtime and causing issues with natives.
- - 40.0.0  Update to 1.18.2
-           Co-authored-by: sciwhiz12 <arnoldnunag12@gmail.com>
-           Co-authored-by: Marc Hermans <marc.hermans@ldtteam.com>
-           Co-authored-by: LexManos <LexManos@gmail.com>
-           Co-authored-by: Curle <curle@gemwire.uk>
+ - 36.1.66 ForgeGradle 5.1 and Gradle 7, which allows development on J16. Runtime still targets J8. (#7877)
+ - 36.1.65 Work around javac scoping issue.
+ - 36.1.64 Fix LAN worlds where registry entries have been removed.
+ - 36.1.63 Fix FakePlayers having null `connection` and add FakePlayer test mod (#7733)
+ - 36.1.62 Use '{assets_root}' rather than task output path for userdev config (#7873)
+ - 36.1.61 Fix missing userdev config for datagen runs (#7871)
+ - 36.1.60 Adds a damage float in Lightning Entity and patches Entity to use it. (#7849)
+ - 36.1.59 Patch several mob classes to let them use modded versions of their ranged weapons (#7845)
+ - 36.1.58 Add Fishing bobber projectile impact event (#7842)
+ - 36.1.57 Removes misapplied patch in Entity (#7841)
+ - 36.1.56 Removes misleading Nullable annotation from canCreatureSpawn (#7840)
+ - 36.1.55 Corrects the assigning of mob kills, Fixes MC-121048 (#7836)
+ - 36.1.54 Updates MouseHelper to allow for Horizontal Scroll to be recognized as Vertical Scroll (#7834)
+ - 36.1.53 Fix entities losing their scoreboard data when they are unloaded (#7826)
+ - 36.1.52 [1.16] Allow blocks other than beds or respawn anchors to act as respawn points  (#7824)
+ - 36.1.51 Regen patches
+ - 36.1.50 Add AT entries for DimensionSettings to make them easier for mods to work with (#7817)
+ - 36.1.49 New hook to allow Trapdoors be climbable for custom ladders (#7816)
+ - 36.1.48 Convenience change for potion enumeration - does not change patch size in any meaningful way! (#7811)
+ - 36.1.47 Adds knockback attribute to players and updated knockback calculation to PlayerEntity#attack (#7806)
+ - 36.1.46 Fix mod menu URL click bounds (#7804)
+ - 36.1.45 Fix vanilla rotation/mirroring issues (#7803)
+           Patch minecraft to fix MC-227255 and MC-134110, which are block
+           rotation and mirroring issues.  I noticed this from problems with
+           Structurize, but this probably affects any other mods that allow
+           rotating or mirroring structures (as well as vanilla structure blocks).
+ - 36.1.44 Synchronize `ResourcePackList#addPackFinder` (#7799)
+ - 36.1.43 Fixes tryFluidTransfer_Internal to respect the FluidStack drainable when draining fluidSource. (#7782)
+ - 36.1.42 Add IRecipeType parameter to burn time hooks (#7771)
+ - 36.1.41 Use MobGriefingEvent for PiglinEntity when determining whether Piglins want to pick up items. (#7762)
+ - 36.1.40 [1.16.x] Remove redundant mobgriefing check in SmallFireaballEntity. (#7761)
+ - 36.1.39 Changed AbstractFurnaceTileEntity's canBurn and burn functions to use IRecipe's 'assemble' instead of 'getResultItem' (#7756)
+ - 36.1.38 Bypass chunk future chain when processing loads and getChunk called. (#7697)
+ - 36.1.37 Removed sidedness from PacketBuffer methods. (#7236)
+           Affected methods:
+           * readLongArray (x2)
+           * readSectionPos
+           * readString (no-arg variant)
+ - 36.1.36 Add data generators for sounds.json (#6982)
+ - 36.1.35 Add custom TextureAtlasSprite loaders (#7822)
+           Adds a system for mods to specify custom texture loaders which can be requested by the resource pack through a metadata section in the .mcmeta file. Due to technical reasons, png file is still required for MC to identify a texture as existing, even if the loader doesn't use it.
+ - 36.1.34 Fix PlayerGameModeEventTest and ForgeWorldTypeTest so they don't crash the dedicated server when running forge_test_server in forgedev (#7869)
+ - 36.1.33 Add userdev to run config.
+ - 36.1.32 Add truncation to FMLStatusPing to work around protocol limits (#7818)
+ - 36.1.31 Remove ModelResourceLocation patch for SAS entry (#7813)
+ - 36.1.30 Fix jar file path detection if the path contains a "!" (#7790)
+ - 36.1.29 Add method to get the number of elements in a model builder (#7792)
+ - 36.1.28 Fix vanilla packet splitter remote detection and add advancement packet splitting (#7802)
+ - 36.1.27 Add option for linear filtering of text texture (#7645)
+ - 36.1.26 Use empty model instead of missing model for non-existant layers in multilayer models (#7750)
+           Fixes issues when using multi-layer models as part of composite models
+ - 36.1.25 Add debug logging to packet compression encoder.
+           Should make figuring out who is sending large packets easier.
+           Disable with -Pforge.disablePacketCompressionDebug=true
+ - 36.1.24 Removed signature line from mod list screen. #7500
+ - 36.1.23 Reinstate the MinecartCollisionHandler field to AbstractMinecartEntity (#7748) Closes #7506.
+ - 36.1.22 Fix PlayerEvent.BreakSpeed's pos being nullable. (#7747) Closes #7615.
+ - 36.1.21 Fix OBJ Loader data gen string (#7746) Closes #7616
+ - 36.1.20 Add an event similar to PlayerEvent.NameFormat but for the name shown in the tab list. (#7740)
+ - 36.1.19 Fix filling buckets with fluids without bucket items consuming the fluid (#7745) Closes #7670
+ - 36.1.18 Work around crash while loading flatworld with modded structures. (#7764)
+           * Work around crash while loading flatworld with modded structures.
+           * Maybe fix issue with gradle daemon leaking memory and slowing down CI builds.
+ - 36.1.17 Update Forge to Gradle 6.9
+ - 36.1.16 Add barrels and barrels/wooden block and item tag (#7676)
+ - 36.1.15 Fix shears not properly breaking tripwire (MC-129055) (#7718)
+ - 36.1.14 Fix Line endings in tooltips not handled properly in multiplayer screen Closes #7738 (#7739)
+ - 36.1.13 Fix cats, phantoms and pillagers saying they're at BlockPos.ZERO during LivingSpawnEvent.CheckSpawn (#7722)
+ - 36.1.12 [1.16] Add missing Multipart Blockstate Builder feature: Nested condition groups (#7677)
+ - 36.1.11 Pass BlockPos to BlockParticleData used for "fall impact" particle (#7705)
+ - 36.1.10 Check version ranges of optional dependencies when present (#7710)
+           If an optional dependency is present, but it does not conform to the version range,
+           it will now error out in the same fashion as missing required dependencies, instead
+           of a more cryptic error down the line due to a missing method/class/field/etc.
+           Implements and closes #7696
+ - 36.1.9  Fix ClientVisualization crashing on systems without monitors (#7719)
+ - 36.1.8  Fix Furnace Minecarts going faster then vanilla (#7725)
+ - 36.1.7  Update for Forge's new maven (#7723)
+ - 36.1.6  A bloody quote FFS
+ - 36.1.5  Update for new maven
+ - 36.1.4  Fix broken java9hacks for j16 handling..
+ - 36.1.3  Add generic EntityTeleportEvent (#7694)
+ - 36.1.2  Restore SS version, fixes findFieldInstanceChecks
+ - 36.1.1  Fix sign textures being stitched onto every texture atlas (#7690)
+ - 36.1.0  Fix AT order, missed exec line and bump for RB.
 
-39.1
+36.0
 ====
- - 39.1.2 1.18.x Omnibus (#8239)
- - 39.1.1 Bump modlauncher and securejarhandler version (#8489)
- - 39.1.0 Update license headers to compact SPDX format.
-          License has not changed, this is just more compact and doesn't include years.
-          Bump version for RB.
+ - 36.0.61 Fix wrong eye height when entity size changes (esp. baby animals) (#7628)
+ - 36.0.60 Allow ITeleporter to override the vanilla teleport sound (#7682)
+ - 36.0.59 Fix datapack exception related to EnumArgument with siblings (#7686)
+           Invalid enum constants are now properly thrown as a CommandSyntaxException
+ - 36.0.58 Add support for custom WoodTypes (#7623)
+ - 36.0.57 Use JGit instead of GrGit now that jcenter is going away.
+           Update missed mapped name in MDK.
+ - 36.0.56 Bump nashorn wrapper version.
+ - 36.0.55 Fix yet another copypasta.
+ - 36.0.54 Fix incorrectly replaced SRG names
+ - 36.0.53 Fix potential Deadlock when using custom Item entities. (#7532)
+           Be careful when adding Entities during Chunk Load (#7519)
+ - 36.0.52 Fix copypasta.
+ - 36.0.51 Automatically fix some issues with configurations deemed invalid for simple reasons (#7671)
+ - 36.0.50 Add coremod that injects bouncer methods to work around name conflicts with official names.
+           Fixes a binary break.
+ - 36.0.49 Bump SpecialSource
+ - 36.0.48 Bulk update license year, and use replacement variable so that the current year is always used.
+ - 36.0.47 Introduce a new feature that lets mods know if optional mods and optional network channels are present in the remote.
+           Allow connections from forge versions that don't have the vanilla splitter.
+ - 36.0.46 Regenerate patches with relative headers. This should lower conflicts in future PRs.
+           Convert Forge to use Official mappings.
+           Mojang released their obfuscation mappings but we have not used them up until now due to wanting to get their license to be more explicitly permissive.
+           It is clear that their intent is to allow us to use their names for developing mods like this.
+           See the full wording, and our interpretation here: https://github.com/MinecraftForge/MCPConfig/blob/master/Mojang.md
+ - 36.0.45 Update to FG4, and Gradle 6.8.
+ - 36.0.44 Support splitting vanilla packets that are too large on forge<->forge connections (#7485)
+           Currently only for SUpdateRecipesPacket and STagsListPacket that blow up with huge datapacks
+ - 36.0.43 Fix a few places where the vanilla method was being called instead of the forge one (#7535)
+           Cleanup javadocs references slightly, fix a couple spots not using the proper forge hooks, and remove a couple unneeded patches
+           Update deprecation comment on isAir
+ - 36.0.42 Add Opacity to ForgeHooksClient#renderMainMenu (#7660)
+ - 36.0.41 Add support for caching of configuration values. (#7608)
+ - 36.0.40 Added entity attribute setup and creation events
+ - 36.0.39 Fix updateItemStackNBT not properly being called (#7646)
+           Re-added ItemStack delegate redirect transformer
+ - 36.0.38 Fix a few FluidUtil issues that were causing DispenseFluidContainer to not function properly (#7422)
+ - 36.0.37 Add a way to specify a custom background texture with namespaces in the Creative GUI. (#7404)
+ - 36.0.36 Fixed Configs not correcting when hot-loaded from changes on disk (#7427)
+ - 36.0.35 Reduce default logging markers in the MDK. Modders can re-enable these for better debugging.  (#7432)
+           Modders PLEASE read your damn log, and fix the errors we point out. Spamming modpacks with stack traces is just lazy programming.
+ - 36.0.34 Deprecate Forge's setdimension command, vanilla execute command can do this now. (#7459)
+ - 36.0.33 Fix ItemTextureQuadConverter.convertTexture generating wrong quads, fixes #7620 (#7650)
+ - 36.0.32 Added MultipartBakedModel.getModelData(). (#7595)
+           This allows custom IBakedModel implementations to use the IModelData provided by their IBakedModel.getModelData() when used in the context of a multipart model.
+ - 36.0.31 fix global cache not being a block render type (#7648)
+ - 36.0.30 Allow mods to use additional custom LootParameter when querying existing loot tables (#7515)
+ - 36.0.29 Add ForgeHooks.canEntitySpawn to Cat, Phantom, and Patrol spawners. (#7569)
+ - 36.0.28 Fix/Replace player visibility event (#7573)
+ - 36.0.27 Fix: Clear the last error from glfwInit to prevent vanilla from throwing an exception later in the chain when glfw errors. (#7587)
+ - 36.0.26 Fix MC-181464 persisting for modded shields (#7602)
+ - 36.0.25 FIx race condition in LazyOptional (#7611)
+ - 36.0.24 [1.16.5] Fix shaders breaking almost every overlay that uses textures, fixes #7575 (#7624)
+ - 36.0.23 Disable syncing of Feature and Biome registries  (#7639)
+ - 36.0.22 Add IExtensibleEnum to GrassColorModifier (#7641)
+ - 36.0.21 Log stacktraces in NettyPacketEncoder. (#7654)
+ - 36.0.20 Lower logging level for datafixer warning to debug (#7636)
+ - 36.0.19 Reintroduce forge's chunk manager to allow mods to force chunks with either a block position or entity (UUID) "owner" and have them properly persist between restarts (#7642)
+ - 36.0.18 Fix two places where querying an object for the new "valid" capability from a capability invalidation listener could cause the object to return the old invalid capability. (#7643)
+ - 36.0.17 Fix config spec in cases of enum class discrepancies (#7635)
+ - 36.0.16 Fix onBlockAdded being called twice for ItemEntity placing non-TE blocks (#7607)
+ - 36.0.15 Prevent NullPointerException when adding new loot pool. (#7605)
+ - 36.0.14 Added generic multi part entity API (#7554)
+ - 36.0.13 Fix IAngerable entities crashing when reading nbt on client (#7618)
+ - 36.0.12 [1.16.x] Add loot table ID in Global Loot Modifiers (#7428)
+ - 36.0.11 Add a block tag to allow mods to blacklist blocks endermen should not be able to place blocks on top of, similar to how vanilla hardcodes against them being able to place things on bedrock (#7548)
+ - 36.0.10 Fix translucent model parts of MultiLayerModels rendering as missing models due to differing rendertypes when rendering block model (#7579)
+ - 36.0.9  Fix existing file tag provider support looking in the wrong folder for custom tag types (#7576)
+ - 36.0.8  Propery re-encode registries (#7629)
+ - 36.0.7  Properly encode registries. (#7626)
+ - 36.0.6  Inject vanilla dimensions inside worlds missing them (#7599)
+ - 36.0.5  Introduce a new field_to_instanceof transformer to reduce some simple patches.
+ - 36.0.4  Fix broken build.
+ - 36.0.3  Add modded biomes to overworld biome list (#7360)
+ - 36.0.2  Fix dynamic registries not getting ids assigned correctly from old worlds in specific unordered value insertions. Closes #7586
+ - 36.0.1  Optionally add a milk fluid to the vanilla bucket (#7294)
+           Fixes the previous broken code that was supposed to make mod registered milk returned by the vanilla bucket by allowing mods to enable a milk fluid.
+ - 36.0.0  1.16.5 Initial Update.
 
-39.0
-====
- - 39.0.91 Remove - from allowed characters in mod ids.
-           The Java Module System does not allow them in module ids.
-           Closes #8488
- - 39.0.90 Fix static initializer crash when loading BakedRenderable.
- - 39.0.89 Fix regressions for onAddedTo/RemovedFromWorld and related events (#8434)
- - 39.0.88 [1.18] Integrate the gametest framework with Forge (#8225)
- - 39.0.87 Re-add missing Shulker patch for EntityTeleportEvent (#8481)
- - 39.0.86 Fix entity type in conversion event to Drowned (#8479)
- - 39.0.85 Add VanillaGameEvent to allow for globally listening to vanilla's GameEvents (#8472)
- - 39.0.84 Provide damage source context to Item#onDestroyed(ItemEntity) (#8473)
- - 39.0.83 Add missing shear and elytra game events (#8471)
- - 39.0.82 Fix comment for permission handler config setting  (#8466)
- - 39.0.81 Apply nullable annotations to LootingLevelEvent (#8422)
- - 39.0.80 Fix Mob Spawner logic with CustomSpawnRules. Closes #8398
- - 39.0.79 Fix LivingDropsEvent not having all drops for foxes (#8387)
- - 39.0.78 Add missing Locale parameter to String.format calls, Fixes getArmorResource functionality on some locaales. (#8463)
- - 39.0.77 Allow items to hide parts of their tooltips by default (#8358)
- - 39.0.76 Prevent 1.x Branches being treated as Pull Requests. (#8443)
- - 39.0.75 Fix RegistryObject not working if created after registry events (#8383)
- - 39.0.74 Add support for tagging StructureFeatures (#8408)
- - 39.0.73 Re-added the patch for LivingExperienceDropEvent and enable it for dragons (#8388)
- - 39.0.72 Implement getPickupSound on ForgeFlowingFluid (#8374)
- - 39.0.71 Add getCodec method in ForgeRegistry (#8333)
- - 39.0.70 Fix #8298 (MobBucketItem) and add test mod (#8313)
- - 39.0.69 Deprecate IForgeAbstractMinecart::getCartItem (#8283)
- - 39.0.68 Fix HoeItem patch incorrectly applied during migration. (#8384)
- - 39.0.67 Fix issues with client only commands in combination with server only commands not using MC's command system. (#8452)
- - 39.0.66 Fix FoliagePlacerType and TreeDecoratorType registry (#8394)
- - 39.0.65 Fix PlayerChangeGameModeEvent (#8441)
- - 39.0.64 Fix comparison of custom ParticleRenderTypes leading to broken particle effects. (#8385)
- - 39.0.63 Fix cases where null is potentially sent to Screen events. Closes #8432
- - 39.0.62 Ensure ScreenEvent doesn't accept null screens (#8296)
- - 39.0.61 Update cobblestone tags (#8292)
- - 39.0.60 Prevent release of custom payload packet buffer on the server side. (#8181)
- - 39.0.59 Make `MinecraftLocator` respect non-`MOD` FML Mod Types Fixes #8344 (#8346)
- - 39.0.58 Fix vanilla worlds being marked experimental (#8415)
- - 39.0.57 Simplify usage of IItemRenderProperties::getArmorModel (#8349)
- - 39.0.56 Hide mod update notification while screen is still fading in (#8386)
- - 39.0.55 Revert "Hooks to allow registering and managing custom DFU schemes and types. (#8242)"
- - 39.0.54 Provide NPE protection against out of order init of the TYPES and REF (#8410)
- - 39.0.53 Add ShieldBlockEvent (#8261)
- - 39.0.52 Add renderable API to allow easier rendering of OBJ and other custom models, from Entity and BlockEntity renderers. (#8259)
-           This is a redesign of a discarded section of my initial model system rewrite, back in 1.14.
-           In order to use it with the OBJ loader, you can use OBJLoader.INSTANCE.loadModel to get the OBJModel, and then call OBJModel#bakeRenderable() to get a SimpleRenderable object to render with.
-           The SimpleRenderable support animation, by providing different transformation matrices for each part in the MultipartTransforms.
-           Additionally, a BakedRenderable helper exists to turn an arbitrary BakedModel into a renderable.
-           After trying to get the B3D loader to work, I decided it wasn't worth the trouble and marked it for removal instead.
- - 39.0.51 Merge values of defaulted optional tags, Fixes issue where multiple mods declare the same optional tag. (#8250)
- - 39.0.50 Added new 1.18 biomes to the BiomeDictionary (#8246)
- - 39.0.49 Hooks to allow registering and managing custom DFU schemes and types. (#8242)
- - 39.0.48 Ping data compression (#8169)
- - 39.0.47 Expand the LevelStem codec to allow dimension jsons to specify that the dimension's chunk generator should use the overworld/server's seed (#7955)
- - 39.0.46 Add Client Commands (#7754)
- - 39.0.45 Remove references to the now-broken `BlockEntity#save(CompoundTag)` method (#8235)
- - 39.0.44 update McModLauncher libraries to newer versions...
- - 39.0.43 add extra keystore properties
- - 39.0.42 TeamCity change in 'MinecraftForge / MinecraftForge' project: project parameters were changed
- - 39.0.41 TeamCity change in 'MinecraftForge / MinecraftForge' project: project parameters were changed
- - 39.0.40 TeamCity change in 'MinecraftForge / MinecraftForge' project: project parameters were changed
- - 39.0.39 TeamCity change in 'MinecraftForge / MinecraftForge' project: project parameters were changed
- - 39.0.38 TeamCity change in 'MinecraftForge / MinecraftForge' project: project parameters were changed
- - 39.0.37 TeamCity change in 'MinecraftForge / MinecraftForge' project: project parameters were changed
- - 39.0.36 fix crowdin key
- - 39.0.35 TeamCity change in 'MinecraftForge / MinecraftForge' project: project parameters were changed
- - 39.0.34 TeamCity change in 'MinecraftForge / MinecraftForge' project: project parameters were changed
- - 39.0.33 TeamCity change in 'MinecraftForge / MinecraftForge' project: project parameters were changed
- - 39.0.32 fix secondary branches builds
- - 39.0.31 TeamCity change in 'MinecraftForge / MinecraftForge' project: parameters of 'Build - Secondary Branches' build configuration were updated
- - 39.0.30 TeamCity change in 'MinecraftForge / MinecraftForge' project: VCS roots of 'Build - Secondary Branches' build configuration were updated
- - 39.0.29 TeamCity change in 'MinecraftForge / MinecraftForge' project: VCS roots of 'Build - Secondary Branches' build configuration were updated
- - 39.0.28 TeamCity change in 'MinecraftForge / MinecraftForge' project: VCS roots of 'Build - Secondary Branches' build configuration were updated
- - 39.0.27 TeamCity change in 'MinecraftForge / MinecraftForge' project: parameters of 'Build - Secondary Branches' build configuration were updated
- - 39.0.26 TeamCity change in 'MinecraftForge / MinecraftForge' project: parameters of 'Build - Secondary Branches' build configuration were updated
- - 39.0.25 TeamCity change in 'MinecraftForge / MinecraftForge' project: VCS roots of 'Build - Secondary Branches' build configuration were updated
- - 39.0.24 Remove primary branches from building on secondary branch configuration and publish crowdin data. (#8397)
-           * Remove the normalized branch names also from the filter.
-           * Add the additional publishing arguments to get the crowdin information.
-           * TeamCity change in 'MinecraftForge / MinecraftForge' project: project parameters were changed
-           * Fix the configuration.
-           * Remove the required patch and use the base script.
-           * Make a note about the reference.
-           Co-authored-by: cpw <cpw@weeksfamily.ca>
- - 39.0.23 TeamCity change in 'MinecraftForge / MinecraftForge' project: project parameters were changed
- - 39.0.22 Correct the build configuration to support a setup. (#8395)
-           * Add a setup task and publish the correct versions.
-           * Reconfigure build task and disable the normal build and test cycle on everything but pull requests, run an assemble there.
-           * Fix the derp in the build configuration.
- - 39.0.21 Enable the TeamCity CI pipeline (#8368)
-           * Setup the build.gradle
-           * Setup the teamcity toolchain.
-           * Revert the usage of the local build of GU.
-           * Automatically add it now, it will always exist and is added to maven automatically by GU.
-           * Implement the branch filter and move the constant for the minimal changelog tag to a constant in the extension.
-           * Adding the JDK and Gradle version to the build script.
- - 39.0.20 Fix and improve Ingredient invalidation (#8361)
- - 39.0.19 Rework world persistence hooks to fix the double registry injection when loading single player worlds. (#8234)
- - 39.0.18 Update tags for new 1.17 and 1.18 content (#7891)
- - 39.0.17 Fix TerrainParticle rendering black under certain conditions (#8378)
- - 39.0.16 Allow modded tools to work on glow lichen (#8371)
- - 39.0.15 Fix custom climbable blocks not sending a death message (#8372)
-           Fixes #8370
- - 39.0.14 Provide access to the blockstate in BucketPickup#getPickupSound for multiply-logged blocks (#8357)
- - 39.0.13 Fix clients being unable to deserialize tags for custom registries (#8352)
- - 39.0.12 Fix particles going fullbright for a few frames when first spawning (#8291)
- - 39.0.11 Also create parent directories when creating config files (#8364)
- - 39.0.10 Fix crash with PermissionsAPI (#8330)
-           Fixes a crash in singleplayer, when the internal server didn't shut down correctly between world loads.
- - 39.0.9  Re-add missing default spawn lists in features (#8285)
-           Fixes #8265
-           Fixes #8301
- - 39.0.8  Fixed incorrect generic in PermissionAPI (#8317)
- - 39.0.7  Redo of the whole PermissionAPI (#7780)
-           Co-authored-by: LexManos <LexManos@gmail.com>
- - 39.0.6  Fix misplaced patch in SpreadingSnowyDirtBlock. 
-           Fixes #8308.
- - 39.0.5  Add RenderArmEvent to make overriding just the arm rendering not require copying nearly as much vanilla code (#8254)
- - 39.0.4  Add MobEffect tags (#8231)
- - 39.0.3  Log missing or unsupported dependencies (#8218)
- - 39.0.2  Fix datagen test for sounds definitions provider  (#8249)
- - 39.0.1  Fix wrong stage being declared in transition to common (#8267)
- - 39.0.0  Update to 1.18.1
-           Co-Authored by:
-           - Curle
-           _ Orion
-
+36.0-pre
+========
+ - 36.0-pre-2 Introduce a new field_to_instanceof transformer to reduce some simple patches.
+ - 36.0-pre-1 Update Coremods, ASM, and include standalone Nashorn to load on J15.

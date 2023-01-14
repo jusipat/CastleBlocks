@@ -1,47 +1,51 @@
 package com.jusipat.castleblocks.block;
 
+import com.jusipat.castleblocks.registry.ModBlockEntities;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.core.BlockPos;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockReader;
+import net.minecraft.world.World;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
-public class CastleBlock extends BaseEntityBlock implements BlockEntityType.BlockEntitySupplier {
-    public CastleBlock(Properties properties) {
-        super(properties);
+import javax.annotation.Nullable;
+import java.util.Properties;
+
+public class CastleBlock extends Block implements ITileEntityProvider {
+
+
+    public CastleBlock(TileEntityType<?> tileEntityType) {
+        super(tileEntityType);
     }
 
     @Override
-    public RenderShape getRenderShape(BlockState p_49232_) {
-        return RenderShape.MODEL;
-    }
+    public void setPlacedBy(World world, BlockPos blockPos, BlockState blockState, LivingEntity placer, ItemStack stack) {
+        super.setPlacedBy(world, blockPos, blockState, placer, stack);
+        if (placer instanceof LivingEntity) {
+            TileEntity tileEntity = world.getBlockEntity(blockPos);
 
-    @Override
-    public void setPlacedBy(Level level, BlockPos blockPos, BlockState blockState, @Nullable LivingEntity placer, ItemStack stack) {
-        super.setPlacedBy(level, blockPos, blockState, placer, stack);
-        if (placer instanceof Player) {
-            BlockEntity blockEntity = level.getBlockEntity(blockPos);
-
-            if (blockEntity instanceof CastleBlockEntity)
-                ((CastleBlockEntity) blockEntity).setOwner((Player) placer);
+            if (tileEntity instanceof CastleBlockEntity)
+                ((CastleBlockEntity) tileEntity).setOwner(placer);
         }
     }
 
+    @Nullable
     @Override
-    public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new CastleBlockEntity(blockPos, blockState);
-    }
-
-    @Override
-    public BlockEntity create(BlockPos pos, BlockState state) {
-        return null;
+    public TileEntity newBlockEntity(IBlockReader blockReader) {
+        return new CastleBlockEntity();
     }
 }

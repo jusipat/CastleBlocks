@@ -3,11 +3,15 @@ package com.jusipat.castleblocks.block.item;
 import com.jusipat.castleblocks.block.CastleBlockEntity;
 import com.jusipat.castleblocks.registry.ModBlocks;
 import net.minecraft.Util;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Blocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
+import net.minecraft.item.Item;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -24,12 +28,13 @@ import org.jetbrains.annotations.Nullable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 public class TrowelItem extends Item {
 
     private static final Map<ResourceLocation, ResourceLocation> blockMap = new HashMap<>();
 
-    public TrowelItem(Properties properties, int maxUses) {
+    public TrowelItem(Item.Properties properties, int maxUses) {
         super(properties.stacksTo(1).durability(maxUses));
 
         blockMap.put(Blocks.STONE.getRegistryName(), ModBlocks.CASTLE_BRICKS.get().getRegistryName());
@@ -38,7 +43,6 @@ public class TrowelItem extends Item {
         blockMap.put(Blocks.POLISHED_GRANITE.getRegistryName(), ModBlocks.GRANITE_CASTLE_BRICKS.get().getRegistryName());
         blockMap.put(Blocks.SMOOTH_SANDSTONE.getRegistryName(), ModBlocks.SANDSTONE_CASTLE_BRICKS.get().getRegistryName());
         blockMap.put(Blocks.SMOOTH_RED_SANDSTONE.getRegistryName(), ModBlocks.RED_SANDSTONE_CASTLE_BRICKS.get().getRegistryName());
-        blockMap.put(Blocks.DEEPSLATE.getRegistryName(), ModBlocks.DEEPSLATE_CASTLE_BRICKS.get().getRegistryName());
         blockMap.put(Blocks.POLISHED_BLACKSTONE.getRegistryName(), ModBlocks.BLACKSTONE_CASTLE_BRICKS.get().getRegistryName());
         blockMap.put(Blocks.NETHER_BRICKS.getRegistryName(), ModBlocks.NETHER_CASTLE_BRICKS.get().getRegistryName());
         blockMap.put(Blocks.BRICKS.getRegistryName(), ModBlocks.BRICK_CASTLE_BRICKS.get().getRegistryName());

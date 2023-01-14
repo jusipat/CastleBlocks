@@ -1,23 +1,31 @@
 package com.jusipat.castleblocks.block;
 
+import com.jusipat.castleblocks.CastleBlocksMod;
 import com.jusipat.castleblocks.registry.ModBlockEntities;
+import net.minecraft.block.BlockState;
 import net.minecraft.core.BlockPos;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.UUID;
 
-public class CastleBlockEntity extends BlockEntity {
+public class CastleBlockEntity extends TileEntity {
     private UUID owner;
     private String ownerName;
 
-    public CastleBlockEntity(BlockPos blockPos, BlockState blockState) {
-        super(ModBlockEntities.CASTLE_BLOCK_ENTITY.get(), blockPos, blockState);
+    public CastleBlockEntity() {
+        super();
     }
 
-    public void setOwner(Player player) {
+
+    public void setOwner(LivingEntity player) {
         owner = player.getUUID();
         ownerName = player.getScoreboardName();
 
@@ -33,25 +41,25 @@ public class CastleBlockEntity extends BlockEntity {
     }
 
     @Override
-    public void load(CompoundTag nbt) {
-        super.load(nbt);
+    public void load(BlockState blockState, CompoundNBT nbt) {
+        super.load(this.getBlockState(), nbt);
         owner = nbt.getUUID("owner");
         ownerName = nbt.getString("ownerName");
     }
+
     @Override
-    protected void saveAdditional(CompoundTag nbt) {
-        super.saveAdditional(nbt);
+    public CompoundNBT save(CompoundNBT nbt) {
         if (owner != null)
             nbt.putUUID("owner", owner);
         if (ownerName != null)
             nbt.putString("ownerName", ownerName);
-        }
-
-    @Override
-    public CompoundTag getUpdateTag() {
-        CompoundTag nbt = super.getUpdateTag();
-        saveAdditional(nbt);
-        return nbt;
+        return super.save(nbt);
     }
 
+    @Override
+    public CompoundNBT getUpdateTag() {
+        CompoundNBT nbt = super.getUpdateTag();
+        save(nbt);
+        return nbt;
+    }
 }
