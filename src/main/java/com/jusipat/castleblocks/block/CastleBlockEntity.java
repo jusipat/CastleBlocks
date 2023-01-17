@@ -5,16 +5,15 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.math.BlockPos;
 
 import java.util.UUID;
+
 
 public class CastleBlockEntity extends TileEntity {
     private UUID owner;
     private String ownerName;
 
-
-    public CastleBlockEntity(BlockPos blockPos, BlockState blockState) {
+    public CastleBlockEntity() {
         super(ModBlockEntities.CASTLE_BLOCK_ENTITY.get());
     }
 

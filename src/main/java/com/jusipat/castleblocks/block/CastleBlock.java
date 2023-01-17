@@ -2,7 +2,6 @@ package com.jusipat.castleblocks.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -10,7 +9,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
-public class CastleBlock extends Block implements ITileEntityProvider {
+import javax.annotation.Nullable;
+
+public class CastleBlock extends Block  {
 
 
     public CastleBlock(Properties properties) {
@@ -28,8 +29,9 @@ public class CastleBlock extends Block implements ITileEntityProvider {
         }
     }
 
+    @Nullable
     @Override
-    public TileEntity newBlockEntity(IBlockReader blockReader) {
+    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
         return new CastleBlockEntity();
     }
 }
