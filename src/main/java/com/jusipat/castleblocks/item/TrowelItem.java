@@ -56,25 +56,23 @@ public class TrowelItem extends Item {
     public ActionResultType useOn(ItemUseContext context) {
         BlockPos blockPos = context.getClickedPos();
         World level = context.getLevel();
-        LivingEntity player = context.getPlayer();
+        PlayerEntity player = context.getPlayer();
         BlockState blockState = level.getBlockState(blockPos);
 
         if (player != null) {
 
             ResourceLocation blockId = blockState.getBlock().getRegistryName();
 
-            CastleBlockEntity blockEntity = null;
             if (blockMap.containsKey(blockId)) {
                 Block blockType = Registry.BLOCK.get(blockMap.get(blockId));
                 level.setBlock(blockPos, blockType.defaultBlockState(), 3);
 
-                blockEntity = new CastleBlockEntity();
-
+                CastleBlockEntity blockEntity = new CastleBlockEntity(blockPos, blockType.defaultBlockState());
                 blockEntity.setOwner(player);
                 level.setBlockEntity(blockPos, blockEntity);
 
                 if (level.isClientSide) {
-                    level.levelEvent((PlayerEntity) player, 10, blockPos, Block.getId(blockState));
+                    level.levelEvent(player, 1, blockPos, Block.getId(blockState));
                 }
 
                 context.getItemInHand().hurtAndBreak(1, player, (entity) -> {
@@ -83,8 +81,9 @@ public class TrowelItem extends Item {
 
                 return ActionResultType.SUCCESS;
 
+
             } else if (level.getBlockEntity(blockPos) instanceof CastleBlockEntity && !level.isClientSide) {
-                TranslationTextComponent ownerText = new TranslationTextComponent("item.castleblocks.trowel.owner", blockEntity.getOwnerName());
+                TranslationTextComponent ownerText = new TranslationTextComponent("item.castleblocks.trowel.owner",  );
                 player.sendMessage(ownerText, Util.NIL_UUID);
             }
         }
