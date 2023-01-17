@@ -66,7 +66,7 @@ public class TrowelItem extends Item {
                 Block blockType = Registry.BLOCK.get(blockMap.get(blockId));
                 level.setBlock(blockPos, blockType.defaultBlockState(), 3);
 
-                CastleBlockEntity blockEntity = new CastleBlockEntity(blockPos, blockType.defaultBlockState());
+                CastleBlockEntity blockEntity = new CastleBlockEntity();
                 blockEntity.setOwner(player);
                 level.setBlockEntity(blockPos, blockEntity);
 
@@ -82,8 +82,9 @@ public class TrowelItem extends Item {
 
 
             } else if (level.getBlockEntity(blockPos) instanceof CastleBlockEntity && !level.isClientSide) {
-                TranslationTextComponent ownerText = new TranslationTextComponent("item.castleblocks.trowel.owner", blockEntity.getOwner()); // FIXME: why is this out of scope?
-                player.sendMessage(ownerText, Util.NIL_UUID);
+                CastleBlockEntity blockEntity = (CastleBlockEntity)level.getBlockEntity(blockPos);
+                TranslationTextComponent ownerText = new TranslationTextComponent("item.castleblocks.trowel.owner", blockEntity.getOwnerName()); // FIXME: why is this out of scope?
+                player.sendMessage(ownerText, player.getUUID());
             }
         }
 

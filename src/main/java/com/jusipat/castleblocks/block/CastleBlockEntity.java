@@ -17,10 +17,7 @@ public class CastleBlockEntity extends TileEntity {
     private UUID owner;
     private String ownerName;
 
-    public CastleBlockEntity(TileEntityType<?> tileEntityType) {
-        super(tileEntityType);
-    }
-    public CastleBlockEntity(BlockPos blockPos, BlockState blockState) {
+    public CastleBlockEntity() {
         super(ModBlockEntities.CASTLE_BLOCK_ENTITY.get());
     }
 
