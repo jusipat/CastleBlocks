@@ -82,7 +82,7 @@ public class TrowelItem extends Item {
 
 
             } else if (level.getBlockEntity(blockPos) instanceof CastleBlockEntity && !level.isClientSide) {
-                TranslationTextComponent ownerText = new TranslationTextComponent("item.castleblocks.trowel.owner", blockEntity.getOwner()); // why is this out of scope?
+                TranslationTextComponent ownerText = new TranslationTextComponent("item.castleblocks.trowel.owner", blockEntity.getOwner()); // FIXME: why is this out of scope?
                 player.sendMessage(ownerText, Util.NIL_UUID);
             }
         }
