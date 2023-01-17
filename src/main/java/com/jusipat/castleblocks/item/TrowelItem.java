@@ -6,7 +6,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -83,7 +82,7 @@ public class TrowelItem extends Item {
 
 
             } else if (level.getBlockEntity(blockPos) instanceof CastleBlockEntity && !level.isClientSide) {
-                TranslationTextComponent ownerText = new TranslationTextComponent("item.castleblocks.trowel.owner",  );
+                TranslationTextComponent ownerText = new TranslationTextComponent("item.castleblocks.trowel.owner", blockEntity.getOwner()); // why is this out of scope?
                 player.sendMessage(ownerText, Util.NIL_UUID);
             }
         }
