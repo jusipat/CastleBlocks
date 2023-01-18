@@ -70,9 +70,7 @@ public class TrowelItem extends Item {
                 blockEntity.setOwner(player);
                 level.setBlockEntity(blockPos, blockEntity);
 
-                if (level.isClientSide) {
-                    level.levelEvent(player, 1, blockPos, Block.getId(blockState));
-                }
+             // TODO: add particle effect on trowelling
 
                 context.getItemInHand().hurtAndBreak(1, player, (entity) -> {
                     entity.broadcastBreakEvent(player.getUsedItemHand());

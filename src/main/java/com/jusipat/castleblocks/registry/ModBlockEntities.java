@@ -14,7 +14,6 @@ public class ModBlockEntities {
 
     public static RegistryObject<TileEntityType<CastleBlockEntity>> CASTLE_BLOCK_ENTITY =
             BLOCK_ENTITIES.register("castle_block_entity", () -> TileEntityType.Builder.of(CastleBlockEntity::new, ModBlocks.CASTLE_BRICKS.get()).build(null));
-    // FIXME: Builder not taking the right super class, why?
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
