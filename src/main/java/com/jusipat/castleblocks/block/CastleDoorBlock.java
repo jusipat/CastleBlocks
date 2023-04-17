@@ -2,10 +2,7 @@ package com.jusipat.castleblocks.block;
 
 import com.jusipat.castleblocks.item.KeyItem;
 import com.jusipat.castleblocks.registry.ModItems;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockEntityProvider;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.DoorBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.LivingEntity;
@@ -13,7 +10,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
@@ -29,8 +25,8 @@ import java.util.Objects;
 
 public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
 
-    public CastleDoorBlock(Settings settings, SoundEvent closeSound, SoundEvent openSound) {
-        super(settings, closeSound, openSound);
+    public CastleDoorBlock(Settings settings, BlockSetType blockSetType) {
+        super(settings, blockSetType);
     }
 
     boolean redstoneInput;
@@ -93,7 +89,7 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
                         keyIterator++;
                     if (keyIterator > 10)
                         keyIterator = 1;
-                    player.sendMessage(Text.translatable("item.castleblocks.door.iterator", (int) keyIterator), true);
+                    player.sendMessage(Text.translatable("item.castleblocks.door.iterator", keyIterator), true);
 
                 }
                 if (nbt.getUuid("doorid") != blockEntity.doorId && (!redstoneInput)) {

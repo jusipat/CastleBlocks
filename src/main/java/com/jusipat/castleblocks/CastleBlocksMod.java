@@ -5,10 +5,8 @@ import com.jusipat.castleblocks.registry.ModItems;
 import com.jusipat.castleblocks.registry.ModFuels;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.fabricmc.fabric.impl.itemgroup.FabricItemGroupBuilderImpl;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class CastleBlocksMod implements ModInitializer {
@@ -16,7 +14,7 @@ public class CastleBlocksMod implements ModInitializer {
 
 	ItemGroup CASTLEBLOCKS_GROUP = FabricItemGroup.builder(new Identifier(MOD_ID, "items"))
 			.icon(() -> new ItemStack(ModItems.DIAMOND_TROWEL))
-			.entries((enabledFeatures, entries, operatorEnabled) -> {
+			.entries((enabledFeatures, entries) -> {
 				entries.add(ModItems.IRON_TROWEL);
 				entries.add(ModItems.GOLD_TROWEL);
 				entries.add(ModItems.DIAMOND_TROWEL);
