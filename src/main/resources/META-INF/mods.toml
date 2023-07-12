@@ -29,9 +29,9 @@ displayName="CastleBlocks Forge" #mandatory
 # A file name (in the root of the mod JAR) containing a logo for display
 logoFile="examplemod.png" #optional
 # A text field displayed in the mod UI
-credits="jusipat, Kjolt947, Cflip_" #optional
+credits="jusipat, Kjolt947, Cflip_, talhanation" #optional
 # A text field displayed in the mod UI
-authors="jusipat" #optional
+authors="jusipat, talhanation" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
 CastleBlocks mod for Forge 1.18!

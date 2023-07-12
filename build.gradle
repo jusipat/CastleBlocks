@@ -16,7 +16,7 @@ plugins {
 apply plugin: 'net.minecraftforge.gradle'
 
 
-version = '1.0.8.1'
+version = '1.0.9'
 group = 'com.jusipat.castleblocks' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'castleblocks'
 
@@ -62,7 +62,8 @@ minecraft {
 
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', 'castleblocks'
-
+            Random rnd = new Random()
+            args = ['--username', 'Dev' + rnd.nextInt(1000)]
             mods {
                 castleblocks {
                     source sourceSets.main
@@ -151,7 +152,8 @@ dependencies {
     // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft', it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.18.2-40.1.60'
+    minecraft 'net.minecraftforge:forge:1.18.2-40.2.0'
+
 
     // Real mod deobf dependency examples - these get remapped to your current mappings
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency

@@ -18,11 +18,11 @@ public class ModEvents {
             Level level = event.getPlayer().getLevel();
             BlockEntity blockEntity = level.getBlockEntity(event.getPos());
 
-            if (blockEntity instanceof CastleBlockEntity castleBlockEntity) {
-                if (castleBlockEntity.isOwner(event.getPlayer().getUUID()) || CommonConfigs.PVP_MODE.get()) {
-                    event.setNewSpeed(3.0f);
+            if (blockEntity instanceof CastleBlockEntity castleBlockEntity && CommonConfigs.PVP_MODE.get()) {
+                if (castleBlockEntity.isOwner(event.getEntity().getUUID())) {
+                    event.setNewSpeed(event.getNewSpeed() / 0.5F);
                 } else {
-                    event.setNewSpeed(0.01f);
+                    event.setNewSpeed(event.getNewSpeed() / CommonConfigs.MODIFIER.get().floatValue());
                 }
             }
         }
