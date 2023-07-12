@@ -22,7 +22,7 @@ public class CommonConfigs {
                         0.0 will break it instantly;
                         1.0 is Vanilla hardness""")
                 .worldRestart()
-                .defineInRange("Modifier", 10.0, 1.0, 1000.0);
+                .defineInRange("Modifier", 15.0, 1.0, 1000.0);
 
         BUILDER.pop();
         SPEC = BUILDER.build();
