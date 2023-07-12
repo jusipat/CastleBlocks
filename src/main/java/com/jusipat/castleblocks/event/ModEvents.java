@@ -12,17 +12,17 @@ import net.minecraftforge.fml.common.Mod;
 public class ModEvents {
     @Mod.EventBusSubscriber(modid = CastleBlocksMod.MOD_ID)
     public static class ForgeEvents {
-
         @SubscribeEvent
         public static void onBlockBreak(PlayerEvent.BreakSpeed event) {
             Level level = event.getEntity().getLevel();
             BlockEntity blockEntity = level.getBlockEntity(event.getPosition().get());
 
-            if (blockEntity instanceof CastleBlockEntity castleBlockEntity) {
-                if (castleBlockEntity.isOwner(event.getEntity().getUUID()) || CommonConfigs.PVP_MODE.get()) {
-                    event.setNewSpeed(3.0f);
-                } else {
-                    event.setNewSpeed(0.01f);
+            if (blockEntity instanceof CastleBlockEntity castleBlockEntity && CommonConfigs.PVP_MODE.get()) {
+                if (castleBlockEntity.isOwner(event.getEntity().getUUID())) {
+                    event.setNewSpeed(event.getNewSpeed() / 0.5F);
+                }
+                else {
+                    event.setNewSpeed(event.getNewSpeed() / CommonConfigs.MODIFIER.get().floatValue());
                 }
             }
         }
