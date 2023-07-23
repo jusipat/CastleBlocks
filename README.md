@@ -1,5 +1,5 @@
 # CastleBlocks
-A minecraft mod for 1.19.X.
+A minecraft mod for 1.20.X.
 
 ## Bricks
 
