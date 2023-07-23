@@ -10,11 +10,11 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 
+
 public class ModBlocks {
-	private static final FabricBlockSettings CB_BLOCK_SETTINGS = FabricBlockSettings.of(Material.STONE).requiresTool().strength(ModConfig.castleBrickHardness, ModConfig.castleBrickResistance);
+	private static final FabricBlockSettings CB_BLOCK_SETTINGS = FabricBlockSettings.copyOf(Blocks.STONE).requiresTool().strength(ModConfig.castleBrickHardness, ModConfig.castleBrickResistance);
 
 	// CASTLE BLOCKS
 	public static final Block CASTLE_BRICKS = new CastleBlock(CB_BLOCK_SETTINGS);
@@ -32,7 +32,7 @@ public class ModBlocks {
 	public static final Block END_STONE_CASTLE_BRICKS = new CastleBlock(CB_BLOCK_SETTINGS.sounds(BlockSoundGroup.STONE));
 
 	// CASTLE DOORS
-	public static final CastleDoorBlock CASTLE_DOOR = new CastleDoorBlock(FabricBlockSettings.of(Material.WOOD).requiresTool().strength(2.5f, 8.0f).nonOpaque(), BlockSetType.OAK);
+	public static final CastleDoorBlock CASTLE_DOOR = new CastleDoorBlock(FabricBlockSettings.copyOf(Blocks.OAK_DOOR).requiresTool().strength(2.5f, 8.0f).nonOpaque(), BlockSetType.OAK);
 
 
 	// CASTLE ENTITIES
@@ -42,11 +42,11 @@ public class ModBlocks {
 
 	// CASTLE MISC.
 
-	public static final Block PITCH_CANDLE = new CandleBlock(FabricBlockSettings.of(Material.DECORATION, MapColor.WHITE_GRAY).nonOpaque().strength(0.1F).sounds(BlockSoundGroup.CANDLE).luminance(CandleBlock.STATE_TO_LUMINANCE));
+	public static final Block PITCH_CANDLE = new CandleBlock(FabricBlockSettings.copyOf(Blocks.CANDLE).nonOpaque().strength(0.1F).sounds(BlockSoundGroup.CANDLE).luminance(CandleBlock.STATE_TO_LUMINANCE));
 	public static final Block PITCH_CANDLE_CAKE = new CandleCakeBlock(PITCH_CANDLE, FabricBlockSettings.copyOf(Blocks.CANDLE_CAKE));
 
-	public static final FluidBlock PITCH_FLUID_BLOCK = new FluidBlock(ModFluids.PITCH_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing());
-	public static final Block BOULDER_BLOCK = new BoulderBlock(FabricBlockSettings.of(Material.STONE).sounds(BlockSoundGroup.TUFF).strength(0.1f, 10.0f));
+	public static final FluidBlock PITCH_FLUID_BLOCK = new FluidBlock(ModFluids.PITCH_STILL, FabricBlockSettings.copyOf(Blocks.WATER).noCollision().nonOpaque().dropsNothing());
+	public static final Block BOULDER_BLOCK = new BoulderBlock(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.TUFF).strength(0.1f, 10.0f));
 
 	public static void registerBlocks() {
 

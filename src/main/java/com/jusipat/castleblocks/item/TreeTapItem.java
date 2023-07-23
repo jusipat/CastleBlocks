@@ -1,7 +1,6 @@
 package com.jusipat.castleblocks.item;
 
 import com.jusipat.castleblocks.registry.ModItems;
-import net.fabricmc.fabric.api.itemgroup.v1.IdentifiableItemGroup;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -9,11 +8,9 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -45,7 +42,7 @@ public class TreeTapItem extends Item {
 
         if (player != null) {
             Block blockId = blockState.getBlock();
-            if (!world.isClient) { // TODO: for the love of god this is a bad way to do this.
+            if (!world.isClient) {
                 if (blockId.equals((Blocks.OAK_LOG))) {
                     TreeTapInteraction(world, blockPos, context, player, stack);
                     world.setBlockState(blockPos, Blocks.STRIPPED_OAK_LOG.getDefaultState());
