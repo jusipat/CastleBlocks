@@ -6,6 +6,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -32,9 +33,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> RED_SANDSTONE_CASTLE_BRICKS = registerBlock("red_sandstone_castle_bricks",
             () -> new CastleBlock(CB_BLOCK_SETTINGS));
     public static final RegistryObject<Block> BLACKSTONE_CASTLE_BRICKS = registerBlock("blackstone_castle_bricks",
-            () -> new CastleBlock(CB_BLOCK_SETTINGS));
+            () -> new CastleBlock(CB_BLOCK_SETTINGS.sound(SoundType.GILDED_BLACKSTONE)));
     public static final RegistryObject<Block> NETHER_CASTLE_BRICKS = registerBlock("nether_castle_bricks",
-            () -> new CastleBlock(CB_BLOCK_SETTINGS));
+            () -> new CastleBlock(CB_BLOCK_SETTINGS.sound(SoundType.NETHER_BRICKS)));
     public static final RegistryObject<Block> PURPUR_CASTLE_BRICKS = registerBlock("purpur_castle_bricks",
             () -> new CastleBlock(CB_BLOCK_SETTINGS));
     public static final RegistryObject<Block> BRICK_CASTLE_BRICKS = registerBlock("brick_castle_bricks",
@@ -42,7 +43,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> PRISMARINE_CASTLE_BRICKS = registerBlock("prismarine_castle_bricks",
             () -> new CastleBlock(CB_BLOCK_SETTINGS));
     public static final RegistryObject<Block> DEEPSLATE_CASTLE_BRICKS = registerBlock("deepslate_castle_bricks",
-            () -> new CastleBlock(CB_BLOCK_SETTINGS));
+            () -> new CastleBlock(CB_BLOCK_SETTINGS.sound(SoundType.DEEPSLATE_BRICKS)));
     public static final RegistryObject<Block> END_STONE_CASTLE_BRICKS = registerBlock("end_stone_castle_bricks",
             () -> new CastleBlock(CB_BLOCK_SETTINGS));
 

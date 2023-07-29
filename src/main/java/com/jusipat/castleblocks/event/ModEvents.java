@@ -19,7 +19,7 @@ public class ModEvents {
 
             if (blockEntity instanceof CastleBlockEntity castleBlockEntity && CommonConfigs.PVP_MODE.get()) {
                 if (castleBlockEntity.isOwner(event.getEntity().getUUID())) {
-                    event.setNewSpeed(event.getNewSpeed() / 0.5F);
+                    event.setNewSpeed(event.getNewSpeed());
                 }
                 else {
                     event.setNewSpeed(event.getNewSpeed() / CommonConfigs.MODIFIER.get().floatValue());
