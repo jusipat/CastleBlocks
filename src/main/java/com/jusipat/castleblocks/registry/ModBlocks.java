@@ -5,8 +5,8 @@ import com.jusipat.castleblocks.block.CastleBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -17,7 +17,7 @@ import java.util.function.Supplier;
 public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, CastleBlocksMod.MOD_ID);
-    private static final BlockBehaviour.Properties CB_BLOCK_SETTINGS = BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(2.5f, 11.0f);
+    private static final BlockBehaviour.Properties CB_BLOCK_SETTINGS = BlockBehaviour.Properties.copy(Blocks.STONE).requiresCorrectToolForDrops().strength(2.5f, 11.0f);
 
     public static final RegistryObject<Block> CASTLE_BRICKS = registerBlock("castle_bricks",
             () -> new CastleBlock(CB_BLOCK_SETTINGS));
