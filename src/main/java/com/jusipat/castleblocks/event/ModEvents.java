@@ -14,7 +14,7 @@ public class ModEvents {
     public static class ForgeEvents {
         @SubscribeEvent
         public static void onBlockBreak(PlayerEvent.BreakSpeed event) {
-            Level level = event.getEntity().getLevel();
+            Level level = event.getEntity().level();
             BlockEntity blockEntity = level.getBlockEntity(event.getPosition().get());
 
             if (blockEntity instanceof CastleBlockEntity castleBlockEntity && CommonConfigs.PVP_MODE.get()) {

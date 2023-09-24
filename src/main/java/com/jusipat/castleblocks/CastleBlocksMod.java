@@ -3,6 +3,7 @@ package com.jusipat.castleblocks;
 import com.jusipat.castleblocks.config.CommonConfigs;
 import com.jusipat.castleblocks.registry.ModBlockEntities;
 import com.jusipat.castleblocks.registry.ModBlocks;
+import com.jusipat.castleblocks.registry.ModCreativeModeTabs;
 import com.jusipat.castleblocks.registry.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.common.MinecraftForge;
@@ -26,6 +27,7 @@ public class CastleBlocksMod {
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
         ModBlockEntities.register(eventBus);
+        ModCreativeModeTabs.CREATIVE_MODE_TABS.register(eventBus);
 
         eventBus.addListener(this::setup);
 

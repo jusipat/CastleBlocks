@@ -28,6 +28,6 @@
   "item.castleblocks.door.owner.registered": "Key successfully assigned!",
   "item.castleblocks.door.rejected": "This key does not fit...",
 
-  "itemGroup.castleblocks.items": "CastleBlocks"
+  "creativetab.castleblocks": "CastleBlocks"
 
 }
