@@ -7,4 +7,4 @@ CastleBlocks introduces new types of bricks into Minecraft, these sturdy bricks 
 
 ## License
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+This project is distributed under the MIT license. See the license file for more details.
