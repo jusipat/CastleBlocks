@@ -8,6 +8,8 @@ public class CommonConfigs {
 
     public static ForgeConfigSpec.DoubleValue MODIFIER;
     public static ForgeConfigSpec.BooleanValue PVP_MODE;
+    public static ForgeConfigSpec.DoubleValue BOULDER_DAMAGE;
+    public static ForgeConfigSpec.IntValue BOULDER_MAX_DAMAGE;
 
     static {
         BUILDER.push("CastleBlocks Configuration");
@@ -24,6 +26,14 @@ public class CommonConfigs {
                         1.0 is Vanilla hardness""")
                 .worldRestart()
                 .defineInRange("Hardness Modifier", 80.0F, 0.0F, 1000.0);
+
+        BOULDER_DAMAGE = BUILDER.comment("""
+                        Damage that the boulder block does per block fallen
+                        default is 2.0""")
+                .defineInRange("Hardness Modifier", 2.0F, 0.0F, 1000.0);
+        BOULDER_MAX_DAMAGE = BUILDER.comment("""
+                        Max damage a boulder can do, default is 40.0""")
+                .defineInRange("Hardness Modifier", 40, 0, 1000);
 
         BUILDER.pop();
         SPEC = BUILDER.build();

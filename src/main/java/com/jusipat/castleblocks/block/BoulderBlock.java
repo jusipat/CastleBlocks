@@ -1,5 +1,6 @@
 package com.jusipat.castleblocks.block;
 
+import com.jusipat.castleblocks.config.CommonConfigs;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -13,16 +14,17 @@ public class BoulderBlock extends FallingBlock {
     public BoulderBlock(Properties properties) {
         super(properties);
     }
-
     @Override
     public void onLand(Level level, BlockPos blockPos, BlockState fallingState, BlockState stateInPos, FallingBlockEntity fallingBlockEntity) {
         super.onLand(level, blockPos, fallingState, stateInPos, fallingBlockEntity);
-        if (!level.isClientSide)
-            level.playSound(null, blockPos, SoundEvents.POINTED_DRIPSTONE_LAND, SoundSource.BLOCKS, 1f, 1f);
+        if (!level.isClientSide) {
+            level.playSound(null, blockPos, SoundEvents.POINTED_DRIPSTONE_LAND, SoundSource.BLOCKS, 2f, 2f);
+            level.playSound(null, blockPos, SoundEvents.DEEPSLATE_FALL, SoundSource.BLOCKS, 2f, 2f);
+        }
+        level.destroyBlock(blockPos, true);
     }
-
     @Override
     protected void falling(FallingBlockEntity entity) {
-        entity.setHurtsEntities(4.0f, 40);
+        entity.setHurtsEntities(CommonConfigs.BOULDER_DAMAGE.get().floatValue(), CommonConfigs.BOULDER_MAX_DAMAGE.get());
     }
 }
