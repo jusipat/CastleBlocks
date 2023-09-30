@@ -1,7 +1,7 @@
 package com.jusipat.castleblocks.registry;
 
 import com.jusipat.castleblocks.CastleBlocksMod;
-import com.jusipat.castleblocks.block.item.TrowelItem;
+import com.jusipat.castleblocks.item.TrowelItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

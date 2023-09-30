@@ -1,4 +1,4 @@
-package com.jusipat.castleblocks.block.item;
+package com.jusipat.castleblocks.item;
 
 import com.jusipat.castleblocks.block.CastleBlockEntity;
 import com.jusipat.castleblocks.registry.ModBlocks;

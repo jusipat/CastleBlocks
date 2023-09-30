@@ -37,6 +37,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.PRISMARINE_CASTLE_BRICKS.get());
                         output.accept(ModBlocks.RED_SANDSTONE_CASTLE_BRICKS.get());
 
+                        output.accept(ModBlocks.BOULDER.get());
+
                     })
                     .build());
     public static void register(IEventBus eventBus) {
