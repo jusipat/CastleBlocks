@@ -1,7 +1,7 @@
 # CastleBlocks
 A minecraft mod for 1.19.X for Forge
 
-[![](http://cf.way2muchnoise.eu/full_castleblocks_downloads.svg)](https://minecraft.curseforge.com/projects/castleblocks)
+[![](http://cf.way2muchnoise.eu/full_castleblocks_downloads.svg)](https://curseforge.com/minecraft/mc-mods/castleblocks)
 
 ## Bricks
 
