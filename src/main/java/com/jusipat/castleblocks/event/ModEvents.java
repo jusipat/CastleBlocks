@@ -25,7 +25,7 @@ public class ModEvents {
                 if (castleBlockEntity.isOwner(event.getEntity().getUUID())) {
                     event.setNewSpeed(event.getNewSpeed());
                 } else {
-                    event.setNewSpeed(event.getNewSpeed() / CommonConfigs.MODIFIER.get().floatValue());
+                    event.setNewSpeed((float) (event.getNewSpeed() / CommonConfigs.MODIFIER.get()));
                 }
             }
         }

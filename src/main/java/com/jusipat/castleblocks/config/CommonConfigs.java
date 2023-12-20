@@ -5,7 +5,6 @@ import net.minecraftforge.common.ForgeConfigSpec;
 public class CommonConfigs {
     public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
     public static ForgeConfigSpec SPEC;
-
     public static ForgeConfigSpec.DoubleValue MODIFIER;
     public static ForgeConfigSpec.BooleanValue PVP_MODE;
     public static ForgeConfigSpec.DoubleValue BOULDER_DAMAGE;
@@ -24,16 +23,16 @@ public class CommonConfigs {
                         Lower values, easier to break
                         0.0 will break it instantly;
                         1.0 is Vanilla hardness""")
-                .worldRestart()
-                .defineInRange("Hardness Modifier", 80.0F, 0.0F, 1000.0);
+                .defineInRange("Hardness Modifier", 250.0, 0.0, 1000.0);
 
         BOULDER_DAMAGE = BUILDER.comment("""
-                        Damage that the boulder block does per block fallen
+                        Damage that the boulder block does per block fallen,
                         default is 2.0""")
-                .defineInRange("Hardness Modifier", 2.0F, 0.0F, 1000.0);
+                .defineInRange("Boulder Gravity Damage Modifier", 2.0, 0.0, 1000.0);
+
         BOULDER_MAX_DAMAGE = BUILDER.comment("""
                         Max damage a boulder can do, default is 40.0""")
-                .defineInRange("Hardness Modifier", 40, 0, 1000);
+                .defineInRange("Boulder Damage Modifier", 40, 0, 1000);
 
         BUILDER.pop();
         SPEC = BUILDER.build();
