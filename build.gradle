@@ -23,7 +23,7 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modApi "com.terraformersmc:modmenu:7.1.0"
+	modApi "com.terraformersmc:modmenu:7.2.2"
 
 	modImplementation "io.wispforest:owo-lib:${project.owo_version}"
 	annotationProcessor modImplementation("io.wispforest:owo-lib:${project.owo_version}")

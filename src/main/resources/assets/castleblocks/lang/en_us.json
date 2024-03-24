@@ -39,13 +39,13 @@
   "item.castleblocks.tree_tap": "Tree Tap",
 
   "itemGroup.castleblocks.items": "CastleBlocks",
-  "text.autoconfig.castleblocks.title": "CastleBlocks Configuration",
-  "text.autoconfig.castleblocks.option.castleBlocksPvP": "PvP Mode",
-  "text.autoconfig.castleblocks.option.castleBlocksPvP.@Tooltip": "Enables if castle bricks are harder to break if not the original placer",
-  "text.autoconfig.castleblocks.option.castleBrickHardness": "Castle Bricks Hardness",
-  "text.autoconfig.castleblocks.option.castleBrickHardness.@Tooltip": "Determines hardness value of castle bricks (restart required)",
-  "text.autoconfig.castleblocks.option.castleBrickResistance": "Castle Bricks Resistance",
-  "text.autoconfig.castleblocks.option.castleBrickResistance.@Tooltip": "Determines castle bricks blast resistance (restart required)",
-  "text.autoconfig.castleblocks.option.outsideOwnerCoefficient": "Non-owner breaking speed",
-  "text.autoconfig.castleblocks.option.outsideOwnerCoefficient.@Tooltip": "Determines the speed at which castle blocks are broken if not the owner (1 is default)"
+  "text.config.castleblocks_config.title": "CastleBlocks Configuration",
+  "text.config.castleblocks_config.option.castleBlocksPvP": "PvP Mode",
+  "text.config.castleblocks_config.option.castleBlocksPvP.@Tooltip": "Enables if castle bricks are harder to break if not the original placer",
+  "text.config.castleblocks_config.option.castleBrickHardness": "Castle Bricks Hardness",
+  "text.config.castleblocks_config.option.castleBrickHardness.@Tooltip": "Determines hardness value of castle bricks (restart required)",
+  "text.config.castleblocks_config.option.castleBrickResistance": "Castle Bricks Resistance",
+  "text.config.castleblocks_config.option.castleBrickResistance.@Tooltip": "Determines castle bricks blast resistance (restart required)",
+  "text.config.castleblocks_config.option.outsideOwnerCoefficient": "Non-owner breaking speed",
+  "text.config.castleblocks_config.option.outsideOwnerCoefficient.@Tooltip": "Determines the speed at which castle blocks are broken if not the owner (1 is default)"
 }
