@@ -22,7 +22,7 @@ public class CastleBlockEntity extends BlockEntity {
 
 	public void setOwner(PlayerEntity player) {
 		owner = player.getUuid();
-		ownerName = player.getEntityName();
+		ownerName = String.valueOf(player.getName());
 		markDirty();
 	}
 

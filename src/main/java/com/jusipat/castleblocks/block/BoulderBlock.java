@@ -1,5 +1,6 @@
 package com.jusipat.castleblocks.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FallingBlock;
 import net.minecraft.entity.FallingBlockEntity;
@@ -11,6 +12,11 @@ import net.minecraft.world.World;
 public class BoulderBlock extends FallingBlock {
     public BoulderBlock(Settings settings) {
         super(settings);
+    }
+
+    @Override
+    protected MapCodec<? extends FallingBlock> getCodec() {
+        return null;
     }
 
     @Override

@@ -26,7 +26,7 @@ import java.util.Objects;
 public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
 
     public CastleDoorBlock(Settings settings, BlockSetType blockSetType) {
-        super(settings, blockSetType);
+        super(blockSetType, settings);
     }
 
     boolean redstoneInput;
