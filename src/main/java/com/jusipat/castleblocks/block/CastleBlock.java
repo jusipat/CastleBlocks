@@ -1,6 +1,6 @@
 package com.jusipat.castleblocks.block;
 
-import com.jusipat.castleblocks.config.ModConfig;
+import com.jusipat.castleblocks.config.ModConfigModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
@@ -31,11 +31,11 @@ public class CastleBlock extends Block implements BlockEntityProvider {
 
 	@Override
 	public float calcBlockBreakingDelta(BlockState state, PlayerEntity player, BlockView world, BlockPos pos) {
-		float ownerCoefficient = ModConfig.outsideOwnerCoefficient;
+		float ownerCoefficient = ModConfigModel.outsideOwnerCoefficient;
 		BlockEntity blockEntity = world.getBlockEntity(pos);
 
 		if (blockEntity instanceof CastleBlockEntity castleBlockEntity) {
-			if (castleBlockEntity.isOwner(player.getUuid()) || ModConfig.castleBlocksPvP == false) {
+			if (castleBlockEntity.isOwner(player.getUuid()) || ModConfigModel.castleBlocksPvP == false) {
 				ownerCoefficient = 1.0f;
 			}
 		}

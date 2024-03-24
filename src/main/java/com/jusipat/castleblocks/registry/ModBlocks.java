@@ -2,7 +2,7 @@ package com.jusipat.castleblocks.registry;
 
 import com.jusipat.castleblocks.CastleBlocksMod;
 import com.jusipat.castleblocks.block.*;
-import com.jusipat.castleblocks.config.ModConfig;
+import com.jusipat.castleblocks.config.ModConfigModel;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.*;
@@ -14,7 +14,7 @@ import net.minecraft.util.Identifier;
 
 
 public class ModBlocks {
-	private static final FabricBlockSettings CB_BLOCK_SETTINGS = FabricBlockSettings.copyOf(Blocks.STONE).requiresTool().strength(ModConfig.castleBrickHardness, ModConfig.castleBrickResistance);
+	private static final FabricBlockSettings CB_BLOCK_SETTINGS = FabricBlockSettings.copyOf(Blocks.STONE).requiresTool().strength(ModConfigModel.castleBrickHardness, ModConfigModel.castleBrickResistance);
 
 	// CASTLE BLOCKS
 	public static final Block CASTLE_BRICKS = new CastleBlock(CB_BLOCK_SETTINGS);
