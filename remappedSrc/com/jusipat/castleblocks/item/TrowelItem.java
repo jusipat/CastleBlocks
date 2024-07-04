@@ -10,7 +10,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
@@ -26,7 +25,7 @@ import java.util.Map;
 public class TrowelItem extends Item {
 	private static final Map<Identifier, Identifier> blockMap = new HashMap<>();
 
-	public TrowelItem(Settings settings, int maxUses) {
+	public TrowelItem(net.minecraft.item.Item.Settings settings, int maxUses) {
 		super(settings.maxCount(1).maxDamage(maxUses));
 
 		blockMap.put(Registries.BLOCK.getId(Blocks.STONE), Registries.BLOCK.getId(ModBlocks.CASTLE_BRICKS));
@@ -45,7 +44,7 @@ public class TrowelItem extends Item {
 	}
 
 	@Override
-	public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+	public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, net.minecraft.item.Item.TooltipContext tooltipContext) {
 		tooltip.add(Text.translatable("item.castleblocks.trowel.tooltip"));
 	}
 
