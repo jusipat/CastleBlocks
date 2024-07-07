@@ -5,6 +5,8 @@ import com.jusipat.castleblocks.registry.ModItems;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.enums.DoubleBlockHalf;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.NbtComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -56,9 +58,11 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
         if (placer instanceof PlayerEntity player) {
             ItemStack gennedKey = new ItemStack(ModItems.KEY, 1);
             if (world.getBlockEntity(pos) instanceof CastleDoorEntity blockEntity) {
-                NbtCompound keynbt = gennedKey.getOrCreateNbt();
-                keynbt.putUuid("doorid", blockEntity.doorId);
-                keynbt.putIntArray("door_location", new int[]{pos.getX(), pos.getY(), pos.getZ()});
+                NbtCompound nbt = new NbtCompound();
+                NbtComponent component = NbtComponent.of(nbt);
+                gennedKey.set(DataComponentTypes.CUSTOM_DATA, component);
+                nbt.putUuid("doorid", blockEntity.doorId);
+                nbt.putIntArray("door_location", new int[]{pos.getX(), pos.getY(), pos.getZ()});
                 if (player.getInventory().getEmptySlot() == -1) {
                     placer.dropStack(gennedKey);
                     keyPopulation++;
@@ -70,19 +74,19 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         BlockPos entityPos = pos;
         if (state.get(HALF) == DoubleBlockHalf.UPPER) {
             entityPos = pos.down();
         }
         if (world.getBlockEntity(entityPos) instanceof CastleDoorEntity blockEntity) {
-
-            ItemStack keyStack = player.getStackInHand(hand);
-            NbtCompound nbt = keyStack.getOrCreateNbt();
-
+            ItemStack keyStack = player.getStackInHand(Hand.MAIN_HAND);
+            NbtCompound nbt = new NbtCompound();
+            NbtComponent component = NbtComponent.of(nbt);
+            keyStack.set(DataComponentTypes.CUSTOM_DATA, component);
             if (nbt.contains("doorid")) {
                 if (Objects.equals(nbt.getUuid("doorid"), blockEntity.doorId) && (!redstoneInput)) {
-                    return super.onUse(state, world, pos, player, hand, hit);
+                    return super.onUse(state, world, pos, player, hit);
                 }
                 if (Objects.equals(nbt.getUuid("doorid"), blockEntity.doorId) && (redstoneInput)) {
                     if (!world.isClient)
@@ -121,7 +125,6 @@ public class CastleDoorBlock extends DoorBlock implements BlockEntityProvider {
         }
         return ActionResult.SUCCESS;
     }
-
 
     @Override
     public float calcBlockBreakingDelta(BlockState state, PlayerEntity player, BlockView world, BlockPos pos) {

@@ -8,6 +8,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.math.BlockPos;
 
 import java.util.UUID;
@@ -36,15 +37,15 @@ public class CastleBlockEntity extends BlockEntity {
 	}
 
 	@Override
-	public void readNbt(NbtCompound nbt) {
-		super.readNbt(nbt);
+	protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
+		super.readNbt(nbt, registryLookup);
 		owner = nbt.getUuid("owner");
 		ownerName = nbt.getString("ownerName");
 	}
 
 	@Override
-	protected void writeNbt(NbtCompound nbt) {
-		super.writeNbt(nbt);
+	protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
+		super.writeNbt(nbt, registryLookup);
 		if (owner != null)
 			nbt.putUuid("owner", owner);
 		if (ownerName != null)
@@ -57,7 +58,7 @@ public class CastleBlockEntity extends BlockEntity {
 	}
 
 	@Override
-	public NbtCompound toInitialChunkDataNbt() {
-		return createNbt();
+	public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registryLookup) {
+		return super.toInitialChunkDataNbt(registryLookup);
 	}
 }

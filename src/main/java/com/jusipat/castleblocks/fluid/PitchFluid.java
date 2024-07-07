@@ -66,17 +66,9 @@ public abstract class PitchFluid extends FlowableFluid {
 		return ParticleTypes.DRIPPING_WATER;
 	}
 
-	protected boolean isInfinite() {
-		return false;
-	}
-
 	protected void beforeBreakingBlock(WorldAccess world, BlockPos pos, BlockState state) {
 		BlockEntity blockEntity = state.hasBlockEntity() ? world.getBlockEntity(pos) : null;
 		Block.dropStacks(state, world, pos, blockEntity);
-	}
-
-	public int getFlowSpeed(WorldView world) {
-		return 2;
 	}
 
 	public BlockState toBlockState(FluidState state) {
@@ -119,6 +111,11 @@ public abstract class PitchFluid extends FlowableFluid {
 			return false;
 		}
 
+		@Override
+		protected int getMaxFlowDistance(WorldView world) {
+			return 5;
+		}
+
 		public int getLevel(FluidState state) {
 			return state.get(LEVEL);
 		}
@@ -133,6 +130,11 @@ public abstract class PitchFluid extends FlowableFluid {
 		@Override
 		protected boolean isInfinite(World world) {
 			return false;
+		}
+
+		@Override
+		protected int getMaxFlowDistance(WorldView world) {
+			return 0;
 		}
 
 		public int getLevel(FluidState state) {

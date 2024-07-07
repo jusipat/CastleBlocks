@@ -40,6 +40,6 @@ public class ModItemGroup {
             .build();
 
     public static void registerItemGroup() {
-        Registry.register(Registries.ITEM_GROUP, new Identifier("castleblocks", "castleblocks_group"), ITEM_GROUP);
+        Registry.register(Registries.ITEM_GROUP, Identifier.of("castleblocks", "castleblocks_group"), ITEM_GROUP);
     }
 }

@@ -4,6 +4,7 @@ import com.jusipat.castleblocks.registry.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -80,12 +81,11 @@ public class TreeTapItem extends Item {
         return ActionResult.PASS;
     }
 
-    public ActionResult TreeTapInteraction(World world, BlockPos blockPos, ItemUsageContext context, PlayerEntity player, ItemStack stack) {
+    public void TreeTapInteraction(World world, BlockPos blockPos, ItemUsageContext context, PlayerEntity player, ItemStack stack) {
         world.playSound(null, blockPos, SoundEvents.BLOCK_SLIME_BLOCK_HIT, SoundCategory.BLOCKS, .5f, 1f);
         world.playSound(null, blockPos, SoundEvents.BLOCK_BEEHIVE_SHEAR, SoundCategory.BLOCKS, .5f, 1f);
-        context.getStack().damage(1, player, playerEntity -> playerEntity.sendToolBreakStatus(context.getHand()));
+        context.getStack().damage(1, player, EquipmentSlot.MAINHAND);
         world.breakBlock(blockPos, false);
-
 
         if (player.getInventory().getEmptySlot() == -1) {
             player.dropStack(stack);
@@ -93,7 +93,6 @@ public class TreeTapItem extends Item {
             if (!player.isCreative())
                 player.giveItemStack(stack);
         }
-        return ActionResult.SUCCESS;
     }
 
 }

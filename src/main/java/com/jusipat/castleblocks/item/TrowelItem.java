@@ -5,7 +5,7 @@ import com.jusipat.castleblocks.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -70,7 +70,7 @@ public class TrowelItem extends Item {
 				if (world.isClient())
 					world.syncWorldEvent(player, WorldEvents.BLOCK_BROKEN, blockPos, Block.getRawIdFromState(blockType.getDefaultState()));
 
-				context.getStack().damage(1, player, playerEntity -> playerEntity.sendToolBreakStatus(context.getHand()));
+				context.getStack().damage(1, player, EquipmentSlot.MAINHAND);
 
 				return ActionResult.SUCCESS;
 			} else if (world.getBlockEntity(blockPos) instanceof CastleBlockEntity blockEntity) {

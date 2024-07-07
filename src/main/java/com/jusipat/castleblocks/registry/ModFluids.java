@@ -11,6 +11,6 @@ public class ModFluids {
 	public static final FlowableFluid PITCH_FLOWING = register("pitch_flowing", new PitchFluid.Flowing());
 
 	private static FlowableFluid register(String name, FlowableFluid flowableFluid) {
-		return Registry.register(Registries.FLUID, new Identifier(CastleBlocksMod.MOD_ID, name), flowableFluid);
+		return Registry.register(Registries.FLUID, Identifier.of(CastleBlocksMod.MOD_ID, name), flowableFluid);
 	}
 }

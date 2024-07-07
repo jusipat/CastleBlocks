@@ -52,29 +52,29 @@ public class ModBlocks {
 	public static void registerBlocks() {
 
 		// CASTLE BLOCKS
-		Registry.register(Registries.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "castle_bricks"), CASTLE_BRICKS);
-		Registry.register(Registries.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "andesite_castle_bricks"), ANDESITE_CASTLE_BRICKS);
-		Registry.register(Registries.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "diorite_castle_bricks"), DIORITE_CASTLE_BRICKS);
-		Registry.register(Registries.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "granite_castle_bricks"), GRANITE_CASTLE_BRICKS);
-		Registry.register(Registries.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "sandstone_castle_bricks"), SANDSTONE_CASTLE_BRICKS);
-		Registry.register(Registries.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "red_sandstone_castle_bricks"), RED_SANDSTONE_CASTLE_BRICKS);
-		Registry.register(Registries.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "deepslate_castle_bricks"), DEEPSLATE_CASTLE_BRICKS);
-		Registry.register(Registries.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "blackstone_castle_bricks"), BLACKSTONE_CASTLE_BRICKS);
-		Registry.register(Registries.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "nether_castle_bricks"), NETHER_CASTLE_BRICKS);
-		Registry.register(Registries.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "purpur_castle_bricks"), PURPUR_CASTLE_BRICKS);
-		Registry.register(Registries.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "end_stone_castle_bricks"), END_STONE_CASTLE_BRICKS);
-		Registry.register(Registries.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "brick_castle_bricks"), BRICK_CASTLE_BRICKS);
-		Registry.register(Registries.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "prismarine_castle_bricks"), PRISMARINE_CASTLE_BRICKS);
+		Registry.register(Registries.BLOCK, Identifier.of(CastleBlocksMod.MOD_ID, "castle_bricks"), CASTLE_BRICKS);
+		Registry.register(Registries.BLOCK, Identifier.of(CastleBlocksMod.MOD_ID, "andesite_castle_bricks"), ANDESITE_CASTLE_BRICKS);
+		Registry.register(Registries.BLOCK, Identifier.of(CastleBlocksMod.MOD_ID, "diorite_castle_bricks"), DIORITE_CASTLE_BRICKS);
+		Registry.register(Registries.BLOCK, Identifier.of(CastleBlocksMod.MOD_ID, "granite_castle_bricks"), GRANITE_CASTLE_BRICKS);
+		Registry.register(Registries.BLOCK, Identifier.of(CastleBlocksMod.MOD_ID, "sandstone_castle_bricks"), SANDSTONE_CASTLE_BRICKS);
+		Registry.register(Registries.BLOCK, Identifier.of(CastleBlocksMod.MOD_ID, "red_sandstone_castle_bricks"), RED_SANDSTONE_CASTLE_BRICKS);
+		Registry.register(Registries.BLOCK, Identifier.of(CastleBlocksMod.MOD_ID, "deepslate_castle_bricks"), DEEPSLATE_CASTLE_BRICKS);
+		Registry.register(Registries.BLOCK, Identifier.of(CastleBlocksMod.MOD_ID, "blackstone_castle_bricks"), BLACKSTONE_CASTLE_BRICKS);
+		Registry.register(Registries.BLOCK, Identifier.of(CastleBlocksMod.MOD_ID, "nether_castle_bricks"), NETHER_CASTLE_BRICKS);
+		Registry.register(Registries.BLOCK, Identifier.of(CastleBlocksMod.MOD_ID, "purpur_castle_bricks"), PURPUR_CASTLE_BRICKS);
+		Registry.register(Registries.BLOCK, Identifier.of(CastleBlocksMod.MOD_ID, "end_stone_castle_bricks"), END_STONE_CASTLE_BRICKS);
+		Registry.register(Registries.BLOCK, Identifier.of(CastleBlocksMod.MOD_ID, "brick_castle_bricks"), BRICK_CASTLE_BRICKS);
+		Registry.register(Registries.BLOCK, Identifier.of(CastleBlocksMod.MOD_ID, "prismarine_castle_bricks"), PRISMARINE_CASTLE_BRICKS);
 
-		Registry.register(Registries.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "castle_door"), CASTLE_DOOR);
+		Registry.register(Registries.BLOCK, Identifier.of(CastleBlocksMod.MOD_ID, "castle_door"), CASTLE_DOOR);
 
-		Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(CastleBlocksMod.MOD_ID, "castle_door"), DOOR_BLOCK_ENTITY);
-		Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(CastleBlocksMod.MOD_ID, "castle_bricks"), CASTLE_BLOCK_ENTITY);
+		Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(CastleBlocksMod.MOD_ID, "castle_door"), DOOR_BLOCK_ENTITY);
+		Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(CastleBlocksMod.MOD_ID, "castle_bricks"), CASTLE_BLOCK_ENTITY);
 
-		Registry.register(Registries.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "pitch_fluid_block"), PITCH_FLUID_BLOCK);
-		Registry.register(Registries.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "pitch_candle"), PITCH_CANDLE);
-		Registry.register(Registries.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "pitch_candle_cake"), PITCH_CANDLE_CAKE);
+		Registry.register(Registries.BLOCK, Identifier.of(CastleBlocksMod.MOD_ID, "pitch_fluid_block"), PITCH_FLUID_BLOCK);
+		Registry.register(Registries.BLOCK, Identifier.of(CastleBlocksMod.MOD_ID, "pitch_candle"), PITCH_CANDLE);
+		Registry.register(Registries.BLOCK, Identifier.of(CastleBlocksMod.MOD_ID, "pitch_candle_cake"), PITCH_CANDLE_CAKE);
 
-		Registry.register(Registries.BLOCK, new Identifier(CastleBlocksMod.MOD_ID, "boulder"), BOULDER_BLOCK);
+		Registry.register(Registries.BLOCK, Identifier.of(CastleBlocksMod.MOD_ID, "boulder"), BOULDER_BLOCK);
 	}
 }
