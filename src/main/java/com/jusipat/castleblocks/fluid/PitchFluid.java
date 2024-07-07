@@ -14,7 +14,6 @@ import net.minecraft.item.Item;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.tag.FluidTags;
-import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
@@ -27,7 +26,6 @@ import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
-import java.util.Random;
 
 public abstract class PitchFluid extends FlowableFluid {
 
@@ -41,24 +39,6 @@ public abstract class PitchFluid extends FlowableFluid {
 
 	public Item getBucketItem() {
 		return ModItems.PITCH_BUCKET;
-	}
-
-	public void randomDisplayTick(World world, BlockPos pos, FluidState state, Random random) {
-		if (!state.isStill() && !(Boolean)state.get(FALLING)) {
-			if (random.nextInt(64) == 0) {
-				world.playSound((double)pos.getX() + 0.5D,
-						(double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D,
-						SoundEvents.BLOCK_HONEY_BLOCK_SLIDE, SoundCategory.BLOCKS,
-						random.nextFloat() * 0.25F + 0.75F, random.nextFloat() + 0.5F,
-						false);
-			}
-		} else if (random.nextInt(10) == 0) {
-			world.addParticle(ParticleTypes.UNDERWATER, (double)pos.getX() + random.nextDouble(),
-					(double)pos.getY() + random.nextDouble(),
-					(double)pos.getZ() + random.nextDouble(),
-					0.0D, 0.0D, 0.0D);
-		}
-
 	}
 
 	@Nullable
