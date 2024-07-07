@@ -2,8 +2,6 @@ package com.jusipat.castleblocks.registry;
 
 import com.jusipat.castleblocks.CastleBlocksMod;
 import com.jusipat.castleblocks.block.*;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
@@ -13,8 +11,8 @@ import net.minecraft.util.Identifier;
 
 
 public class ModBlocks {
-	private static final FabricBlockSettings CB_BLOCK_SETTINGS =
-			FabricBlockSettings.copyOf(Blocks.STONE).requiresTool().strength
+	private static final AbstractBlock.Settings CB_BLOCK_SETTINGS =
+			AbstractBlock.Settings.copy(Blocks.STONE).requiresTool().strength
 					(CastleBlocksMod.CONFIG.castleBrickHardness(),
 							CastleBlocksMod.CONFIG.castleBrickResistance()); // hard, res
 	// CASTLE BLOCKS
@@ -33,21 +31,21 @@ public class ModBlocks {
 	public static final Block END_STONE_CASTLE_BRICKS = new CastleBlock(CB_BLOCK_SETTINGS.sounds(BlockSoundGroup.STONE));
 
 	// CASTLE DOORS
-	public static final CastleDoorBlock CASTLE_DOOR = new CastleDoorBlock(FabricBlockSettings.copyOf(Blocks.OAK_DOOR).requiresTool().strength(2.5f, 8.0f).nonOpaque(), BlockSetType.OAK);
+	public static final CastleDoorBlock CASTLE_DOOR = new CastleDoorBlock(AbstractBlock.Settings.copy(Blocks.OAK_DOOR).requiresTool().strength(2.5f, 8.0f).nonOpaque(), BlockSetType.OAK);
 
 
 	// CASTLE ENTITIES
-	public static final BlockEntityType<CastleDoorEntity> DOOR_BLOCK_ENTITY = FabricBlockEntityTypeBuilder.create(CastleDoorEntity::new, CASTLE_DOOR).build();
-	public static final BlockEntityType<CastleBlockEntity> CASTLE_BLOCK_ENTITY = FabricBlockEntityTypeBuilder.create(CastleBlockEntity::new, CASTLE_BRICKS, ANDESITE_CASTLE_BRICKS, DIORITE_CASTLE_BRICKS, GRANITE_CASTLE_BRICKS, SANDSTONE_CASTLE_BRICKS, DEEPSLATE_CASTLE_BRICKS, NETHER_CASTLE_BRICKS, BLACKSTONE_CASTLE_BRICKS, RED_SANDSTONE_CASTLE_BRICKS, END_STONE_CASTLE_BRICKS, BRICK_CASTLE_BRICKS, PRISMARINE_CASTLE_BRICKS, PURPUR_CASTLE_BRICKS).build();
+	public static final BlockEntityType<CastleDoorEntity> DOOR_BLOCK_ENTITY = BlockEntityType.Builder.create(CastleDoorEntity::new, CASTLE_DOOR).build();
+	public static final BlockEntityType<CastleBlockEntity> CASTLE_BLOCK_ENTITY = BlockEntityType.Builder.create(CastleBlockEntity::new, CASTLE_BRICKS, ANDESITE_CASTLE_BRICKS, DIORITE_CASTLE_BRICKS, GRANITE_CASTLE_BRICKS, SANDSTONE_CASTLE_BRICKS, DEEPSLATE_CASTLE_BRICKS, NETHER_CASTLE_BRICKS, BLACKSTONE_CASTLE_BRICKS, RED_SANDSTONE_CASTLE_BRICKS, END_STONE_CASTLE_BRICKS, BRICK_CASTLE_BRICKS, PRISMARINE_CASTLE_BRICKS, PURPUR_CASTLE_BRICKS).build();
 
 
 	// CASTLE MISC.
 
-	public static final Block PITCH_CANDLE = new CandleBlock(FabricBlockSettings.copyOf(Blocks.CANDLE).nonOpaque().strength(0.1F).sounds(BlockSoundGroup.CANDLE).luminance(CandleBlock.STATE_TO_LUMINANCE));
-	public static final Block PITCH_CANDLE_CAKE = new CandleCakeBlock(PITCH_CANDLE, FabricBlockSettings.copyOf(Blocks.CANDLE_CAKE));
+	public static final Block PITCH_CANDLE = new CandleBlock(AbstractBlock.Settings.copy(Blocks.CANDLE).nonOpaque().strength(0.1F).sounds(BlockSoundGroup.CANDLE).luminance(CandleBlock.STATE_TO_LUMINANCE));
+	public static final Block PITCH_CANDLE_CAKE = new CandleCakeBlock(PITCH_CANDLE, AbstractBlock.Settings.copy(Blocks.CANDLE_CAKE));
 
-	public static final FluidBlock PITCH_FLUID_BLOCK = new FluidBlock(ModFluids.PITCH_STILL, FabricBlockSettings.copyOf(Blocks.WATER).noCollision().nonOpaque().dropsNothing());
-	public static final Block BOULDER_BLOCK = new BoulderBlock(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.TUFF).strength(0.1f, 10.0f));
+	public static final FluidBlock PITCH_FLUID_BLOCK = new FluidBlock(ModFluids.PITCH_STILL, AbstractBlock.Settings.copy(Blocks.WATER).noCollision().nonOpaque().dropsNothing());
+	public static final Block BOULDER_BLOCK = new BoulderBlock(AbstractBlock.Settings.copy(Blocks.STONE).sounds(BlockSoundGroup.TUFF).strength(0.1f, 10.0f));
 
 	public static void registerBlocks() {
 
