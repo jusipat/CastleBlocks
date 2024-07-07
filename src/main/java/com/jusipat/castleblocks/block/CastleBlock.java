@@ -33,13 +33,12 @@ public class CastleBlock extends Block implements BlockEntityProvider {
 	public float calcBlockBreakingDelta(BlockState state, PlayerEntity player, BlockView world, BlockPos pos) {
 		float ownerCoefficient = CastleBlocksMod.CONFIG.outsideOwnerCoefficient();
 		BlockEntity blockEntity = world.getBlockEntity(pos);
-
 		if (blockEntity instanceof CastleBlockEntity castleBlockEntity) {
-			if (castleBlockEntity.isOwner(player.getUuid()) || CastleBlocksMod.CONFIG.castleBlocksPvP() == false) {
+			if (castleBlockEntity.isOwner(player.getUuid()) || !CastleBlocksMod.CONFIG.castleBlocksPvP()) {
+				System.out.println("IS THE OWNER OF THIS BLOCK!\n");
 				ownerCoefficient = 1.0f;
 			}
 		}
-
 		return super.calcBlockBreakingDelta(state, player, world, pos) * ownerCoefficient;
 	}
 
