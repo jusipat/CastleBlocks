@@ -1,0 +1,37 @@
+{
+  "block.castleblocks.castle_bricks": "Castle Bricks",
+  "block.castleblocks.andesite_castle_bricks": "Andesite Castle Bricks",
+  "block.castleblocks.diorite_castle_bricks": "Diorite Castle Bricks",
+  "block.castleblocks.granite_castle_bricks": "Granite Castle Bricks",
+  "block.castleblocks.deepslate_castle_bricks": "Deepslate Castle Bricks",
+  "block.castleblocks.blackstone_castle_bricks": "Blackstone Castle Bricks",
+  "block.castleblocks.sandstone_castle_bricks": "Sandstone Castle Bricks",
+  "block.castleblocks.red_sandstone_castle_bricks": "Red Sandstone Castle Bricks",
+  "block.castleblocks.nether_castle_bricks": "Nether Castle Bricks",
+  "block.castleblocks.end_stone_castle_bricks": "End Stone Castle Bricks",
+  "block.castleblocks.prismarine_castle_bricks": "Prismarine Castle Bricks",
+  "block.castleblocks.purpur_castle_bricks": "Purpur Castle Bricks",
+  "block.castleblocks.brick_castle_bricks": "Brick Castle Bricks",
+
+  "block.castleblocks.boulder": "Boulder",
+
+  "item.castleblocks.iron_trowel": "Iron Trowel",
+  "item.castleblocks.diamond_trowel": "Diamond Trowel",
+  "item.castleblocks.gold_trowel": "Golden Trowel",
+  "item.castleblocks.netherite_trowel": "Netherite Trowel",
+  "item.castleblocks.trowel.tooltip": "§3Right click on stone to turn to CastleBricks!",
+  "item.castleblocks.trowel.owner": "CastleBlock owned by: %s",
+
+  "item.castleblocks.key": "Key",
+  "item.castleblocks.key.tooltip": "Paired to door %s",
+  "item.castleblocks.door.alert": "This door requires a key to open!",
+  "item.castleblocks.door.owner.registered": "Key successfully assigned!",
+  "item.castleblocks.door.rejected": "This key does not fit...",
+
+  "creativetab.castleblocks": "CastleBlocks",
+  "castleblocks.configuration.boulder_damage": "Damage that the boulder block does per block fallen, default is 2.0",
+  "castleblocks.configuration.modifier": "Server must be restarted for changes to go into effect\nHardness modifier if not the block owner:\nHigher values, harder to break\nLower values, easier to break\n0.0 will break it instantly;\n1.0 is Vanilla hardness",
+  "boulder_damage": "Boulder Gravity Damage Modifier",
+  "hardness_modifier": "Hardness Modifier"
+
+}

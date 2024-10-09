@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "castleblocks:block/diorite_castle_bricks"
+  }
+}

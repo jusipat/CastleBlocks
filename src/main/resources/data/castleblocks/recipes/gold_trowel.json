@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" I",
+		"S "
+	],
+	"key": {
+		"I": {
+			"item": "minecraft:gold_ingot"
+		},
+		"S": {
+			"item": "minecraft:stick"
+		}
+	},
+	"result": {
+		"item": "castleblocks:gold_trowel",
+		"count": 1
+	}
+}
