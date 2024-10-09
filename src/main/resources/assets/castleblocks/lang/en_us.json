@@ -29,9 +29,15 @@
   "item.castleblocks.door.rejected": "This key does not fit...",
 
   "creativetab.castleblocks": "CastleBlocks",
-  "castleblocks.configuration.boulder_damage": "Damage that the boulder block does per block fallen, default is 2.0",
+  "castleblocks.configuration.boulder_damage": "Damage that the boulder block does per block fallen, default is 2.0 (1 full heart of damage)",
   "castleblocks.configuration.modifier": "Server must be restarted for changes to go into effect\nHardness modifier if not the block owner:\nHigher values, harder to break\nLower values, easier to break\n0.0 will break it instantly;\n1.0 is Vanilla hardness",
+  "castleblocks.configuration.siege_mode": "Enabling this will make destroying bricks placed by others impossible by hand! (TNT & cannons still work!)",
+  "castleblocks.configuration.pvp_mode": "Enable Castle Bricks being harder to break if you are not the block owner",
+  "castleblocks.configuration.max_boulder_damage": "The hard cap on the maximum damage that a boulder can deal, default value is 40.0",
   "boulder_damage": "Boulder Gravity Damage Modifier",
-  "hardness_modifier": "Hardness Modifier"
+  "hardness_modifier": "Hardness Modifier",
+  "siege_mode": "Siege Mode",
+  "pvp_mode": "PvP Mode",
+  "boulder_max_damage": "Boulder Max Damage"
 
 }

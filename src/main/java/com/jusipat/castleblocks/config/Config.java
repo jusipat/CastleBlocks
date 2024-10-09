@@ -13,11 +13,13 @@ public class Config
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
     private static final ModConfigSpec.BooleanValue PVP_MODE = BUILDER
-            .comment("Enables if castle bricks are harder to break if not the block owner\"")
-            .define("PVP_MODE", true);
+            .comment("...")
+            .translation("castleblocks.configuration.pvp_mode")
+            .define("pvp_mode", true);
     private static final ModConfigSpec.BooleanValue SIEGE_MODE = BUILDER
-            .comment("Enabling this will make destroying bricks placed by others impossible by hand! (TNT & cannons still work!)\"")
-            .define("SIEGE_MODE", false);
+            .comment("...")
+            .translation("castleblocks.configuration.siege_mode")
+            .define("siege_mode", false);
 
     private static final ModConfigSpec.DoubleValue MODIFIER = BUILDER
             .comment("...")
@@ -30,9 +32,9 @@ public class Config
             .defineInRange("boulder_damage", 2.0, 0.0, 1000.0);
 
     private static final ModConfigSpec.IntValue BOULDER_MAX_DAMAGE = BUILDER
-            .comment("""
-                        The max damage a boulder can do, default is 40.0""")
-            .defineInRange("Boulder Damage Modifier", 40, 0, 1000);
+            .comment("...")
+            .translation("castleblocks.configuration.max_boulder_damage")
+            .defineInRange("boulder_max_damage", 40, 0, 1000);
 
     public static final ModConfigSpec SPEC = BUILDER.build();
 
