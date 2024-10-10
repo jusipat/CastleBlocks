@@ -24,7 +24,7 @@ import java.util.function.Supplier;
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS =
             DeferredRegister.createBlocks(CastleBlocksMod.MOD_ID);
-    private static final BlockBehaviour.Properties CB_BLOCK_SETTINGS = BlockBehaviour.Properties.ofLegacyCopy(Blocks.STONE).requiresCorrectToolForDrops().strength(2.5f, 11.0f).destroyTime(99f);
+    private static final BlockBehaviour.Properties CB_BLOCK_SETTINGS = BlockBehaviour.Properties.ofLegacyCopy(Blocks.STONE).requiresCorrectToolForDrops().strength(2.5f, 11.0f);
 
     public static final DeferredBlock<Block> CASTLE_BRICKS = registerBlock("castle_bricks", () -> new Block(CB_BLOCK_SETTINGS));
     public static final DeferredBlock<Block> ANDESITE_CASTLE_BRICKS = registerBlock("andesite_castle_bricks", () -> new CastleBlock(CB_BLOCK_SETTINGS));

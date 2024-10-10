@@ -17,6 +17,7 @@ public class CastleBlocksMod {
     public static final String MOD_ID = "castleblocks";
     public CastleBlocksMod(IEventBus eventBus, ModContainer container) {
         eventBus.addListener(this::setup);
+        //NeoForge.EVENT_BUS.register(ModEvents.class);
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
         ModBlockEntities.register(eventBus);

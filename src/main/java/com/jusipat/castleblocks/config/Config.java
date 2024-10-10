@@ -13,26 +13,26 @@ public class Config
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
     private static final ModConfigSpec.BooleanValue PVP_MODE = BUILDER
-            .comment("...")
+            .comment("pvp_mode")
             .translation("castleblocks.configuration.pvp_mode")
             .define("pvp_mode", true);
     private static final ModConfigSpec.BooleanValue SIEGE_MODE = BUILDER
-            .comment("...")
+            .comment("siege_mode")
             .translation("castleblocks.configuration.siege_mode")
             .define("siege_mode", false);
 
     private static final ModConfigSpec.DoubleValue MODIFIER = BUILDER
-            .comment("...")
+            .comment("hardness_modifier")
             .translation("castleblocks.configuration.modifier")
-            .defineInRange("hardness_modifier", 250.0, 0.0, 1000.0);
+            .defineInRange("hardness_modifier", 5.0, 0.0, 1000.0);
 
     private static final ModConfigSpec.DoubleValue BOULDER_DAMAGE = BUILDER
-            .comment("...")
+            .comment("boulder_damage")
             .translation("castleblocks.configuration.boulder_damage")
             .defineInRange("boulder_damage", 2.0, 0.0, 1000.0);
 
     private static final ModConfigSpec.IntValue BOULDER_MAX_DAMAGE = BUILDER
-            .comment("...")
+            .comment("boulder_max_damage")
             .translation("castleblocks.configuration.max_boulder_damage")
             .defineInRange("boulder_max_damage", 40, 0, 1000);
 
