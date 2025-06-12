@@ -12,8 +12,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
+import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -22,6 +24,7 @@ import net.minecraft.world.WorldEvents;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class TrowelItem extends Item {
 	private static final Map<Identifier, Identifier> blockMap = new HashMap<>();
@@ -74,7 +77,15 @@ public class TrowelItem extends Item {
 
 				return ActionResult.SUCCESS;
 			} else if (world.getBlockEntity(blockPos) instanceof CastleBlockEntity blockEntity) {
-				Text ownerText = Text.translatable("item.castleblocks.trowel.owner", blockEntity.getOwnerName());
+				MutableText ownerText;
+				if (blockEntity.isOwner(player.getUuid())) {
+					ownerText = Text.translatable("item.castleblocks.trowel.owner", blockEntity.getOwnerName())
+							.formatted(Formatting.AQUA, Formatting.BOLD);
+				} else {
+					ownerText = Text.translatable("item.castleblocks.trowel.owner", blockEntity.getOwnerName())
+							.formatted(Formatting.RED, Formatting.BOLD);
+				}
+
 				player.sendMessage(ownerText, true);
 			}
 		}

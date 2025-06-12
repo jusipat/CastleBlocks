@@ -35,7 +35,7 @@ public class CastleBlock extends Block implements BlockEntityProvider {
 		BlockEntity blockEntity = world.getBlockEntity(pos);
 		if (blockEntity instanceof CastleBlockEntity castleBlockEntity) {
 			if (castleBlockEntity.isOwner(player.getUuid()) || !CastleBlocksMod.CONFIG.castleBlocksPvP()) {
-				System.out.println("IS THE OWNER OF THIS BLOCK!\n");
+				//System.out.println("IS THE OWNER OF THIS BLOCK!\n");
 				ownerCoefficient = 1.0f;
 			}
 		}
