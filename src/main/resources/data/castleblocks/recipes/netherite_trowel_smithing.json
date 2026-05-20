@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "base": {
+    "item": "castleblocks:diamond_trowel"
+  },
+  "result": {
+    "item": "castleblocks:netherite_trowel"
+  }
+}

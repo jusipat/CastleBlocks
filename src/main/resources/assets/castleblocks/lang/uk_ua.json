@@ -1,0 +1,33 @@
+{
+  "block.castleblocks.castle_bricks": "Кам'яна замкова цегла",
+  "block.castleblocks.andesite_castle_bricks": "Андезитова замкова цегла",
+  "block.castleblocks.diorite_castle_bricks": "Діоритова замкова цегла",
+  "block.castleblocks.granite_castle_bricks": "Гранітова замкова цегла",
+  "block.castleblocks.deepslate_castle_bricks": "Глибосланцева замкова цегла",
+  "block.castleblocks.blackstone_castle_bricks": "Чорнокам'яна замкова цегла",
+  "block.castleblocks.sandstone_castle_bricks": "Пісковикова замкова цегла",
+  "block.castleblocks.red_sandstone_castle_bricks": "Замкова цегла з червоного пісковику",
+  "block.castleblocks.nether_castle_bricks": "Незерська замкова цегла",
+  "block.castleblocks.end_stone_castle_bricks": "Замкова цегла з каменю Енду",
+  "block.castleblocks.prismarine_castle_bricks": "Призмаринова замкова цегла",
+  "block.castleblocks.purpur_castle_bricks": "Замкова цегла з пурпуру",
+  "block.castleblocks.brick_castle_bricks": "Замкова цегла",
+
+  "block.castleblocks.boulder": "Валун",
+
+  "item.castleblocks.iron_trowel": "Залізна кельма",
+  "item.castleblocks.diamond_trowel": "Діамантова кельма",
+  "item.castleblocks.gold_trowel": "Золота кельма",
+  "item.castleblocks.netherite_trowel": "Незеритова кельма",
+  "item.castleblocks.trowel.tooltip": "§3ПКМ по каменю, щоб перетворити його в замкову цеглу!",
+  "item.castleblocks.trowel.owner": "Замковий блок належить: %s",
+
+  "item.castleblocks.key": "Ключ",
+  "item.castleblocks.key.tooltip": "Сполучено з дверями %s",
+  "item.castleblocks.door.alert": "Щоб відчинити ці двері, потрібен ключ!",
+  "item.castleblocks.door.owner.registered": "Ключ успішно призначено!",
+  "item.castleblocks.door.rejected": "Цей ключ не підходить...",
+
+  "creativetab.castleblocks": "CastleBlocks"
+
+}

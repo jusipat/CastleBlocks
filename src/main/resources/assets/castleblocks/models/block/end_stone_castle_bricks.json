@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "castleblocks:block/end_stone_castle_bricks"
+  }
+}
