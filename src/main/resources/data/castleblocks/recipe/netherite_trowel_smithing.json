@@ -7,6 +7,6 @@
     "item": "castleblocks:diamond_trowel"
   },
   "result": {
-    "item": "castleblocks:netherite_trowel"
+    "id": "castleblocks:netherite_trowel"
   }
 }

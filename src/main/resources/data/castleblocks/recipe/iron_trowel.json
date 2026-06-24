@@ -6,14 +6,14 @@
 	],
 	"key": {
 		"I": {
-			"item": "minecraft:diamond"
+			"item": "minecraft:iron_ingot"
 		},
 		"S": {
 			"item": "minecraft:stick"
 		}
 	},
 	"result": {
-		"item": "castleblocks:diamond_trowel",
+		"id": "castleblocks:iron_trowel",
 		"count": 1
 	}
 }

@@ -13,7 +13,7 @@
 		}
 	},
 	"result": {
-		"item": "castleblocks:gold_trowel",
+		"id": "castleblocks:gold_trowel",
 		"count": 1
 	}
 }
